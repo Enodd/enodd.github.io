@@ -1,7 +1,9 @@
 module.exports = {
   siteMetadata: {
-    siteUrl: "https://www.yourdomain.tld",
-    title: "enodd.github.io",
+    siteUrl: "https://enodd.github.io",
+    coreTitle: "enodd.github.io",
+    title: "enodd",
+    author: "Damian Nowak"
   },
   plugins: [
     "gatsby-plugin-sass",
