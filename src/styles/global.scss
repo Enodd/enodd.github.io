@@ -3,8 +3,9 @@
 @import "./mixins.scss";
 @import "./variables.scss";
 
-body{
+body {
 	background-color: $darkBlue;
+	overflow-y: hidden;
 }
 
 * {

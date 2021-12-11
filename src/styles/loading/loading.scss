@@ -15,7 +15,7 @@
 	width: 100%;
 	height: 100vh;
 	background-color: #fed766;
-	&__spinner{
-		animation: spin .4s ease-in;
+	&__spinner img{
+		animation: spin infinite;
 	}
 }
