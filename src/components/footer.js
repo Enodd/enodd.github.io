@@ -16,7 +16,7 @@ const Footer = () =>{
     return(
         <footer>
             <h3>
-                {data.site.siteMetadata.author}
+                Made by{data.site.siteMetadata.author}
             </h3>
         </footer>
     )

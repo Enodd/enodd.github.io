@@ -1,17 +1,16 @@
 import React from 'react'
 import Header from "../components/header"
 import Footer from "../components/footer"
+import LoadingPage from './loadingscreen'
 
-const Layout = ( { children, mainProp } ) =>{
+const Layout = ( { children } ) =>{
     
-    const mainName = mainProp ? mainProp : "core-main"
 
     return(
         <div className="container">
+            <LoadingPage />
             <Header />
-            <main className={mainName}>
-                {children}    
-            </main>
+                {children}
             <Footer />
         </div>
     )

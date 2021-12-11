@@ -3,7 +3,7 @@ import { Helmet } from 'react-helmet'
 import { useStaticQuery, graphql } from 'gatsby'
 
 
-const Head = () =>{
+const Head = ({title}) =>{
 
     const data = useStaticQuery(graphql`
         query{
@@ -18,8 +18,9 @@ const Head = () =>{
     return(
         <Helmet>
             <title>
-                {data.site.siteMetadata.coreTitle}
+                {`${title} | ${data.site.siteMetadata.coreTitle}`}
             </title>
+            <meta charset="UTF-8" />
         </Helmet>
     )
 }

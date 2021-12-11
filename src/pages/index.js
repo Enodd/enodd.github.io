@@ -1,33 +1,17 @@
 import * as React from "react"
 import Head from "../components/head"
+import HeroSection from "../components/heroSection"
 import Layout from "../components/layout"
 
 const IndexPage = () => {
-  /*
-  #projects
-  #posts
-  #about
-  #contact
-  */
-  const elements = [
-    "projects",
-    "posts",
-    "about",
-    "contact"
-  ]
+ 
   return (
-    <Layout mainProp="tak">
-      <Head />
-      Hello There
-      {
-        elements.map((element) =>{
-          return(
-            <div id={element} style={{height: "100vh"}}>
-              {element}
-            </div>
-          )
-        })
-      }
+    <Layout mainProp="tak" hero={HeroSection}>
+      <Head title="Home" />
+      <HeroSection />
+      <main className="core-main">
+        hello
+      </main>
     </Layout>
   )
 }
