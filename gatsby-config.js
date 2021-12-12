@@ -1,38 +1,39 @@
 module.exports = {
-  siteMetadata: {
-    siteUrl: "https://enodd.github.io",
-    coreTitle: "enodd.github.io",
-    title: "enodd",
-    author: "Damian Nowak"
-  },
-  plugins: [
-    "gatsby-plugin-sass",
-    "gatsby-plugin-image",
-    "gatsby-plugin-react-helmet",
-    {
-      resolve: "gatsby-plugin-manifest",
-      options: {
-        icon: "src/images/icon.png",
-      },
+    siteMetadata: {
+      siteUrl: "https://enodd.github.io",
+      coreTitle: "enodd.github.io",
+      title: "enodd",
+      author: "Damian Nowak"
     },
-    "gatsby-plugin-mdx",
-    "gatsby-plugin-sharp",
-    "gatsby-transformer-sharp",
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "images",
-        path: "./src/images/",
+    plugins: [
+      "gatsby-plugin-sass",
+      "gatsby-plugin-image",
+      "gatsby-plugin-react-helmet",
+      {
+        resolve: "gatsby-plugin-manifest",
+        options: {
+          icon: "src/images/icon.png",
+        },
       },
-      __key: "images",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "pages",
-        path: "./src/pages/",
+      "gatsby-plugin-mdx",
+      "gatsby-plugin-sharp",
+      "gatsby-transformer-sharp",
+      {
+        resolve: "gatsby-source-filesystem",
+        options: {
+          name: "images",
+          path: "./src/images/",
+        },
+        __key: "images",
       },
-      __key: "pages",
-    },
-  ],
-};
+      {
+        resolve: "gatsby-source-filesystem",
+        options: {
+          name: "pages",
+          path: "./src/pages/",
+        },
+        __key: "pages",
+      },
+    ],
+  };
+  

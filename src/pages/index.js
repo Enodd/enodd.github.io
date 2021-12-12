@@ -10,7 +10,11 @@ const IndexPage = () => {
       <Head title="Home" />
       <HeroSection />
       <main className="core-main" id="main">
-        hello
+        {
+          /*
+            TODO About me component
+          */
+        }
       </main>
     </Layout>
   )

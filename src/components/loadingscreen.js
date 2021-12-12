@@ -29,12 +29,6 @@ const LoadingPage = () =>{
 	return(
 		<div className="loading">
 			<div className="loading__spinner">
-				{
-					/* 
-						TODO create animated loading screen
-						? Animated SVG
-					*/
-				}
 				<img src={anim} alt="loading animation" />
 				<p id="load">Loading...</p>
 			</div>
