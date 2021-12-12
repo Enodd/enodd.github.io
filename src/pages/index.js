@@ -6,10 +6,10 @@ import Layout from "../components/layout"
 const IndexPage = () => {
  
   return (
-    <Layout mainProp="tak" hero={HeroSection}>
+    <Layout>
       <Head title="Home" />
       <HeroSection />
-      <main className="core-main">
+      <main className="core-main" id="main">
         hello
       </main>
     </Layout>

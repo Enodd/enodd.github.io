@@ -53,3 +53,11 @@
 		color: white;
 	}
 }
+#arrow{
+	position: absolute;
+	top: 69%;
+	left: 50%;
+	transform: translateX(-50%);
+	color: $yellow;
+	font-size: 4rem;
+}

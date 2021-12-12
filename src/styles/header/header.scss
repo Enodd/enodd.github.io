@@ -3,7 +3,7 @@
 .core-header{
 	height: fit-content;
 	width: 100%;
-	background-color: #{$darkBlue}aa;
+	background-color: #{$darkBlue}00;
 	padding: 1rem 4rem;
 	@include flex(row, center, center);
 	position: fixed;
@@ -16,6 +16,8 @@
 		&:first-letter{
 			text-transform: uppercase;
 		}
+		cursor: default;
+		user-select: none;
 		&wrapper{
 			@include flex(row, flex-start);
 			width: fit-content;
@@ -35,6 +37,23 @@
 	}
 	&__anchor{
 		color: white;
+		position: relative;
+		width: fit-content;
+		&:after{
+			content:"";
+			width: 0%;
+			height: 2px;
+			top: 100%;
+			left: 0%;
+			position: absolute;
+			background-color: white;
+			transition: 0.3s;
+		}
+		&:hover{
+			&:after{
+				width: 100%;
+			}
+		}
 	}
 }
 
