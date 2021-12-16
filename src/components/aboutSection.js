@@ -1,4 +1,5 @@
 import React from 'react'
+import me from '../images/me.png'
 
 const AboutSection = () =>{
     return(
@@ -14,6 +15,7 @@ const AboutSection = () =>{
                             TODO Gatsby image optimization, to include it into profile pic
                         */
                     }
+                    <img src={me} alt="me" />
                 </div>
             </header>
             <main className="about__main">
