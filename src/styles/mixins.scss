@@ -1,18 +1,33 @@
+
+$gorko-size-scale: (
+	'300': clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem),
+	'400': clamp(0.88rem, 0.83rem + 0.24vw, 1rem),
+	'500': clamp(1.09rem, 1rem + 0.47vw, 1.33rem),
+	'600': clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem),
+	'700': clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem),
+	'800': clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem),
+	'900': clamp(2.67rem, 2.07rem + 3vw, 4.21rem),
+	'1000': clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem)
+  );
+@mixin fontSize($size){
+	font-size: map-get($gorko-size-scale, $size);
+}
+
 @mixin reset() {
 	padding: 0;
 	margin: 0;
 	box-sizing: border-box;
 }
 
-@mixin size($width, $height){
+@mixin size($width, $height: $width){
 	width: $width;
 	height: $height;
 }
 
-@mixin glassmorph($color: "#fff", $shadow: "#000", $radius:"20vw", $blur:"4px") {
-	background: "#{$color}40";
-	box-shadow: 0 8px 32px 0 "#{$shadow}5e";
-	backdrop-filter: blur(4px);
+@mixin glassmorph($color: #ffffff, $shadow: #000000, $radius:5rem, $blur:4px) {
+	background: #{$color}20;
+	box-shadow: 0 8px 32px 0 #{$shadow}5e;
+	backdrop-filter: blur($blur);
 	border-radius: $radius;
 }
 
