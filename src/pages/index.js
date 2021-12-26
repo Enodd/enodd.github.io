@@ -7,8 +7,8 @@ import Layout from "../components/layout"
 const IndexPage = () => {
  
   return (
-    <Layout>
-      <Head title="Home" />
+    <Layout contentId="main">
+      <Head title="Home"/>
       <HeroSection />
       <main className="core-main" id="main">
         {

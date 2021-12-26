@@ -23,3 +23,28 @@ body {
 a {
 	text-decoration: none;
 }
+
+.secretbutton{
+	color: $yellow;
+	font-weight: bold;
+	@include fontSize('600');
+	border: 1px solid $yellow;
+	padding: 1rem;
+	border-radius: 0 0 10px 10px;
+	position: absolute;
+	top: 0;
+	transform: translateY(-120%);
+	transition: 0.4s ease-in-out;
+	&:focus{
+		transform: translateY(0);
+	}
+}
+
+::-webkit-scrollbar {
+    width: 15px;
+    background: $blue; 
+  }
+  ::-webkit-scrollbar-thumb {
+    background: $yellow; 
+    border-radius: 10px;
+  }

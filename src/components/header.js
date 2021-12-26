@@ -1,5 +1,5 @@
 import React, {useEffect} from 'react'
-import { useStaticQuery, graphql } from 'gatsby'
+import { useStaticQuery, graphql, Link } from 'gatsby'
 import logo from "../images/icons/enoddlogo.svg"
 import "../styles/header/header.scss"
 
@@ -17,7 +17,7 @@ const Header = () =>{
     const anchors = [
         {
             name: "Projects",
-            destination: "#projects"
+            destination: "portfolio"
         },
         {
             name: "Posts",
@@ -52,6 +52,9 @@ const Header = () =>{
         window.addEventListener('scroll', navLogic)
         return () => window.removeEventListener('scroll', navLogic)
     })
+    /* 
+        TODO: Display HOME link on any other page than homepage2
+    */
 
     return(
         <header className="core-header">
@@ -68,9 +71,9 @@ const Header = () =>{
                             const {name, destination} = anchor
                             return(
                                 <li className="navigation__element">
-                                    <a href={destination} alt={name} className="navigation__anchor">
+                                    <Link to={`/${destination}`} className="navigation__anchor">
                                         {name}
-                                    </a>
+                                    </Link>
                                 </li>
                             )
                         })

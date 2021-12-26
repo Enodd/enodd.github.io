@@ -10,7 +10,7 @@
 	transition: 1.3s ease-in-out;
 	&__wrapper{
 		@include flex(column, space-evenly, center);
-		@include glassmorph(lighten($blue, 30%));
+		@include glassmorph($blue);
 		@include size(100%);
 		padding: 1rem;
 	}
@@ -71,7 +71,21 @@
 			background-color: $yellow;
 		}
 	}
-	
+	&__footer{
+		width: 100%;
+		@include flex();
+	}
+	&__button{
+		background: $brightYellow;
+		padding: 1rem;
+		border-radius: 10rem;
+		font-weight: bold;
+		color: $darkBlue;
+		&:focus{
+			color: $yellow;
+			background: $darkBlue;
+		}
+	}
 	h2{
 		color: white;
 	}
