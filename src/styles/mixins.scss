@@ -1,70 +1,86 @@
-
 $gorko-size-scale: (
-	'300': clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem),
-	'400': clamp(0.88rem, 0.83rem + 0.24vw, 1rem),
-	'500': clamp(1.09rem, 1rem + 0.47vw, 1.33rem),
-	'600': clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem),
-	'700': clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem),
-	'800': clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem),
-	'900': clamp(2.67rem, 2.07rem + 3vw, 4.21rem),
-	'1000': clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem)
-  );
-@mixin fontSize($size){
-	font-size: map-get($gorko-size-scale, $size);
+  "300": clamp(0.7rem, 0.66rem + 0.2vw, 0.8rem),
+  "400": clamp(0.88rem, 0.83rem + 0.24vw, 1rem),
+  "500": clamp(1.09rem, 1rem + 0.47vw, 1.33rem),
+  "600": clamp(1.37rem, 1.21rem + 0.8vw, 1.78rem),
+  "700": clamp(1.71rem, 1.45rem + 1.29vw, 2.37rem),
+  "800": clamp(2.14rem, 1.74rem + 1.99vw, 3.16rem),
+  "900": clamp(2.67rem, 2.07rem + 3vw, 4.21rem),
+  "1000": clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem),
+);
+
+@mixin safariFix() {
+  transform: translateZ(0);
+}
+@mixin fontSize($size) {
+  font-size: map-get($gorko-size-scale, $size);
 }
 
 @mixin reset() {
-	padding: 0;
-	margin: 0;
-	box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
 }
 
-@mixin size($width, $height: $width){
-	width: $width;
-	height: $height;
+@mixin size($width, $height: $width) {
+  width: $width;
+  height: $height;
 }
 
-@mixin glassmorph($color: #ffffff, $shadow: #000000, $radius:5rem, $blur:4px) {
-	background: #{$color}40;
-	box-shadow: 0 8px 32px 0 #{$shadow}5e;
-	backdrop-filter: blur($blur);
-	border-radius: $radius;
+@mixin glassmorph(
+  $color: #ffffff,
+  $shadow: #000000,
+  $radius: 5rem,
+  $blur: 4px
+) {
+  background: #{$color}40;
+  box-shadow: 0 8px 32px 0 #{$shadow}5e;
+  backdrop-filter: blur($blur);
+  border-radius: $radius;
 }
 
 @mixin flex($dir: row, $jus: center, $aln: center) {
-	display: flex;
-	flex-direction: $dir;
-	justify-content: $jus;
-	align-items: $aln;
+  display: flex;
+  flex-direction: $dir;
+  justify-content: $jus;
+  align-items: $aln;
 }
 
 @mixin skewb($color: #fed766) {
-	&:before {
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		background-color: $color;
-		width: 100%;
-		height: 100%;
-		transform: skewY(20deg);
-	}
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: $color;
+    width: 100%;
+    height: 100%;
+    transform: skewY(20deg);
+  }
 }
 
 //* 640px, 1024px, 1400px
-$breakpoints-up: ("medium": "40em", "large": "64em", "xlarge": "87.5em");
+$breakpoints-up: (
+  "medium": "40em",
+  "large": "64em",
+  "xlarge": "87.5em",
+);
 
 //* 639px, 1023px, 1399px
-$breakpoints-down: ("small": "39.9375em", "medium": "63.9375em", "large": "87.4375em");
+$breakpoints-down: (
+  "small": "39.9375em",
+  "medium": "63.9375em",
+  "large": "87.4375em",
+);
 
 @mixin breakpoint-up($size) {
-	@media (min-width: map-get($breakpoints-up, $size)) {
-		@content;
-	}
+  @media (min-width: map-get($breakpoints-up, $size)) {
+    @content;
+  }
 }
 
 @mixin breakpoint-down($size) {
-	@media (max-width: map-get($breakpoints-down, $size)) {
-		@content;
-	}
+  @media (max-width: map-get($breakpoints-down, $size)) {
+    @content;
+  }
 }

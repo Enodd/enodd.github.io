@@ -1,110 +1,112 @@
 @import "../mixins.scss";
 @import "../variables.scss";
 
-.about{
-	position: relative;
-	@include size(100%, 30rem);
-	margin: 2rem auto;
-	transform: translateX(100%);
-	opacity: 0;
-	transition: 1.3s ease-in-out;
-	&__wrapper{
-		@include flex(column, space-evenly, center);
-		@include glassmorph($blue);
-		@include size(100%);
-		padding: 1rem;
-	}
-	&__header{
-		width: 75%;
-		margin: 0 auto;
-		@include flex(row, space-between, center);
-		&--wrapper{
-			position: relative;
-			&::before{
-				content: '';
-				@include size(4px, 30%);
-				position: absolute;
-				left: -1ch;
-				top: 1ch;
-				background-color: $yellow;
-			}
-		}
-		&--image{
-			border: 3px solid white;
-			border-radius: 100%;
-			@include size(12rem);
-			overflow: hidden;
-			position: relative;
-			&::before{
-				content: '';
-				width: 100%;
-				height: 100%;
-				background-image: $backPic;
-				background-size: 120%;
-				position: absolute;
-				left: 0;
-				top: 0;
-			}
-			img{
-				width: 90%;
-			}
-		}		
-	}
-	p{
-		color: white;
-		@include fontSize('500');
-	}
-	span{
-		color: $yellow;
-		font-weight: bold;
-	}
-	&__main{
-		width: 75%;
-		margin: 1rem auto;
-		position: relative;
-		&::before{
-			content: '';
-			@include size(4px, 30%);
-			position: absolute;
-			left: -1ch;
-			top: 0;
-			background-color: $yellow;
-		}
-	}
-	&__footer{
-		width: 100%;
-		@include flex();
-	}
-	&__button{
-		background: $brightYellow;
-		padding: 1rem;
-		border-radius: 10rem;
-		font-weight: bold;
-		color: $darkBlue;
-		&:focus{
-			color: $yellow;
-			background: $darkBlue;
-		}
-	}
-	h2{
-		color: white;
-	}
-	&::before{
-		content: '';
-		position: absolute;
-		top: 0;
-		left: 0;
-		width: 100%;
-		height: 100%;
-		opacity: 0.5;
-		border-radius: 5rem;
-		background-image: $aboutPic;
-		background-size: cover;
-		z-index: -2;
-	}
+.about {
+  position: relative;
+  @include size(100%, 30rem);
+  margin: 2rem auto;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 1.3s ease-in-out;
+  &__wrapper {
+    @include flex(column, space-evenly, center);
+    @include glassmorph($blue);
+    @include size(100%);
+    padding: 1rem;
+  }
+  &__header {
+    width: 75%;
+    margin: 0 auto;
+    @include flex(row, space-between, center);
+    &--wrapper {
+      position: relative;
+      &::before {
+        content: "";
+        @include size(4px, 30%);
+        position: absolute;
+        left: -1ch;
+        top: 1ch;
+        background-color: $yellow;
+      }
+    }
+    &--image {
+      border: 3px solid white;
+      border-radius: 100%;
+      @include size(12rem);
+      overflow: hidden;
+      position: relative;
+      @include safariFix();
+      @include flex();
+      img {
+        width: 90%;
+      }
+      &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-image: $backPic;
+        background-size: 120%;
+        position: absolute;
+        left: 0;
+        top: 0;
+      }
+    }
+  }
+  p {
+    color: white;
+    @include fontSize("500");
+  }
+  span {
+    color: $yellow;
+    font-weight: bold;
+  }
+  &__main {
+    width: 75%;
+    margin: 1rem auto;
+    position: relative;
+    &::before {
+      content: "";
+      @include size(4px, 30%);
+      position: absolute;
+      left: -1ch;
+      top: 0;
+      background-color: $yellow;
+    }
+  }
+  &__footer {
+    width: 100%;
+    @include flex();
+  }
+  &__button {
+    background: $brightYellow;
+    padding: 1rem;
+    border-radius: 10rem;
+    font-weight: bold;
+    color: $darkBlue;
+    &:focus {
+      color: $yellow;
+      background: $darkBlue;
+    }
+  }
+  h2 {
+    color: white;
+  }
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0.5;
+    border-radius: 5rem;
+    background-image: $aboutPic;
+    background-size: cover;
+    z-index: -2;
+  }
 }
 
-.show{
-	transform: translateX(0);
-	opacity: 1;
+.show {
+  transform: translateX(0);
+  opacity: 1;
 }

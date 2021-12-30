@@ -11,14 +11,16 @@ const LoadingPage = () =>{
 	function loadpage(){
 		const loadScreen = document.querySelector(".loading")
 		const spinner = loadScreen.querySelector('.loading__spinner')
+		const pageTitle = document.querySelector(".heroSection__title")
 		let loadTime = Date.now()-start
+		if(loadTime < 500) loadScreen.remove()
 		spinner.style.animationDuration = loadTime+1000 < 2000 ? loadTime+1000 : 2000
 		loadScreen.style.animationDuration = loadTime+100 < 600 ? loadTime+100 : 600
 		loadScreen.style.animationDelay = loadTime+900 
 		setTimeout(()=>{
 			loadScreen.remove()
+			if(pageTitle) pageTitle.style.animation = "fadeIn 1s ease-in-out" 
 		}, (loadTime)+1000)
-		
 	}
 
 	useEffect(()=>{

@@ -1,53 +1,60 @@
 @import "../mixins.scss";
 @import "../variables.scss";
 
-.heroSection{
-	@include size(100%, 100vh);
-	position: relative;
-	z-index: 0;
-	&__title{
-		font-size: clamp(1rem, 12vw, 6rem);
-		font-family: $altFont;
-		letter-spacing: .3em;
-		position: absolute;
-		top: 40%;
-		left: 50%;
-		transform: translate(-50%, -50%);
-		width: fit-content;
-		height: fit-content;
-		color: $yellow;
-		&:after{
-			content: "";
-			position: absolute;
-			height: 150%;
-			width: 1px;
-			border-left: 16px dotted $yellow;
-			top: 150%;
-			left: 50%;
-			transform: translateX(-50%);
-		}
-	}
-	&:before{
-		content: '';
-		width: 100%;
-		height: 100%;
-		position:absolute;
-		top: 0;
-		left: 0;
-		z-index: -2;
-		background-image: $heroPic;
-		background-size: cover;
-		opacity: 0.2;
-	}
-	span{
-		color: white;
-	}
+@keyframes fadeIn {
+  from {
+    transform: translateX(-50%) translateY(-120%);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 1;
+  }
 }
-#arrow{
-	position: absolute;
-	top: 70%;
-	left: 50%;
-	transform: translateX(-50%);
-	color: $yellow;
-	font-size: 4rem;
+
+.heroSection {
+  @include size(100%, 100vh);
+  position: relative;
+  z-index: 0;
+  &__title {
+    font-size: clamp(1rem, 12vw, 6rem);
+    font-family: $altFont;
+    letter-spacing: 0.3em;
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    color: $yellow;
+    &:before {
+      content: "<";
+    }
+    &:after {
+      content: "/>";
+    }
+  }
+  &:before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -2;
+    background-image: $heroPic;
+    background-size: cover;
+    opacity: 0.2;
+  }
+  span {
+    color: white;
+  }
+}
+#arrow {
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translateX(-50%);
+  color: $yellow;
+  font-size: 4rem;
 }

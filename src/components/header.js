@@ -16,6 +16,10 @@ const Header = () =>{
     `)
     const anchors = [
         {
+            name: "Home",
+            destination: ""
+        },
+        {
             name: "Projects",
             destination: "portfolio"
         },
@@ -33,14 +37,15 @@ const Header = () =>{
         }
     ]
     let prevScrollpos = typeof window !== 'undefined' ? window.pageYOffset : ""
+    const win = typeof window !== 'undefined' ? window.location.pathname : ""
+
 
     function navLogic(){
         const head = document.querySelector(".core-header")
         const scrollVal = typeof window !== 'undefined' ? window.scrollY : ""
         const opacityVal = (0 + (scrollVal / window.innerHeight))
         head.style.backgroundColor = `rgba(0, 29, 61, ${opacityVal})`
-
-        if(window.pageYOffset < prevScrollpos){
+        if(window.pageYOffset < prevScrollpos || window.scrollY <= 0){
             head.style.top = "0px"
         } else {
             head.style.top = "-100%"
@@ -52,9 +57,6 @@ const Header = () =>{
         window.addEventListener('scroll', navLogic)
         return () => window.removeEventListener('scroll', navLogic)
     })
-    /* 
-        TODO: Display HOME link on any other page than homepage2
-    */
 
     return(
         <header className="core-header">
@@ -69,13 +71,15 @@ const Header = () =>{
                     {
                         anchors.map((anchor) => {
                             const {name, destination} = anchor
-                            return(
-                                <li className="navigation__element">
-                                    <Link to={`/${destination}`} className="navigation__anchor">
-                                        {name}
-                                    </Link>
-                                </li>
-                            )
+                            if(`/${destination}`!=win){
+                                return(
+                                    <li className="navigation__element">
+                                        <Link to={`/${destination}`} className="navigation__anchor">
+                                            {name}
+                                        </Link>
+                                    </li>
+                                )
+                        }
                         })
                     }
                 </ul>
