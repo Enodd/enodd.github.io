@@ -1,0 +1,20 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.section {
+  &__title {
+    margin: 1rem 0;
+    padding: 0 1ch;
+    @include fontSize("600");
+    color: white;
+    @include size(fit-content);
+    position: relative;
+    &::before {
+      content: "";
+      background: $yellow;
+      @include size(0.65rem, 100%);
+      position: absolute;
+      left: 0;
+    }
+  }
+}

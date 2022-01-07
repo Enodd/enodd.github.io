@@ -71,7 +71,7 @@ const Header = () =>{
                     {
                         anchors.map((anchor) => {
                             const {name, destination} = anchor
-                            if(`/${destination}`!=win){
+                            if(`/${destination}`!==win){
                                 return(
                                     <li className="navigation__element">
                                         <Link to={`/${destination}`} className="navigation__anchor">

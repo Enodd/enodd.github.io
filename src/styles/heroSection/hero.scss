@@ -17,7 +17,7 @@
   position: relative;
   z-index: 0;
   &__title {
-    font-size: clamp(1rem, 12vw, 6rem);
+    @include fontSize("1000");
     font-family: $altFont;
     letter-spacing: 0.3em;
     position: absolute;

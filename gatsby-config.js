@@ -12,7 +12,19 @@ module.exports = {
       {
         resolve: "gatsby-plugin-manifest",
         options: {
-          icon: "src/images/icon.png",
+          icon: `src/images/favicon.png`,
+          icons: [
+            {
+              src: `src/images/android-chrome-192x192.png`,
+              sizes: `192x192`,
+              type: `image/png`
+            },
+            {
+              src: `src/images/android-chrome-512x512.png`,
+              sizes: `512x512`,
+              type: `image/png`
+            },
+          ],
         },
       },
       "gatsby-plugin-mdx",

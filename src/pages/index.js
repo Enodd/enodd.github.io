@@ -1,4 +1,4 @@
-import React, { useEffect } from "react"
+import React from "react"
 import AboutSection from "../components/aboutSection"
 import DisplayProjects from "../components/displayProjects"
 import Head from "../components/head"
@@ -12,7 +12,7 @@ const IndexPage = () => {
       <HeroSection />
       <main className="core-main" id="main">
         <AboutSection />
-        <DisplayProjects />
+        <DisplayProjects direction="row" />
       </main>
     </Layout>
   )

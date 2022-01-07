@@ -16,6 +16,7 @@
   }
   &__header {
     width: 75%;
+    height: fit-content;
     margin: 0 auto;
     @include flex(row, space-between, center);
     &--wrapper {
@@ -62,6 +63,7 @@
   }
   &__main {
     width: 75%;
+    height: fit-content;
     margin: 1rem auto;
     position: relative;
     &::before {
@@ -69,7 +71,7 @@
       @include size(4px, 30%);
       position: absolute;
       left: -1ch;
-      top: 0;
+      top: 1ch;
       background-color: $yellow;
     }
   }
