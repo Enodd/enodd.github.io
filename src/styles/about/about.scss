@@ -37,9 +37,10 @@
       overflow: hidden;
       position: relative;
       @include safariFix();
-      @include flex();
       img {
-        width: 90%;
+        width: 120%;
+        margin-top: 2%;
+        margin-left: -10%;
       }
       &::before {
         content: "";
@@ -107,7 +108,6 @@
     z-index: -2;
   }
 }
-
 .show {
   transform: translateX(0);
   opacity: 1;

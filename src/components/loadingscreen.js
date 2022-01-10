@@ -12,6 +12,7 @@ const LoadingPage = () =>{
 		const loadScreen = document.querySelector(".loading")
 		const spinner = loadScreen.querySelector('.loading__spinner')
 		const pageTitle = document.querySelector(".heroSection__title")
+		const pageSubTitle = document.querySelector(".heroSection__subtitle")
 		let loadTime = Date.now()-start
 		if(loadTime < 500) loadScreen.remove()
 		spinner.style.animationDuration = loadTime+1000 < 2000 ? loadTime+1000 : 2000
@@ -20,6 +21,7 @@ const LoadingPage = () =>{
 		setTimeout(()=>{
 			loadScreen.remove()
 			if(pageTitle) pageTitle.style.animation = "fadeIn 1s ease-in-out" 
+			if(pageSubTitle) pageSubTitle.style.animation = "fadeIn 1s ease-in-out"
 		}, (loadTime)+1000)
 	}
 

@@ -4,7 +4,7 @@
   height: fit-content;
   width: 100%;
   background-color: #{$darkBlue}00;
-  padding: 1rem 4rem;
+  padding: 1rem 0;
   @include flex(row, center, center);
   position: fixed;
   top: 0;
@@ -25,7 +25,7 @@
   }
 }
 .navigation {
-  width: 100%;
+  width: 75%;
   max-width: 1920px;
   @include flex(row, space-between);
   &__list {
@@ -57,7 +57,19 @@
     }
   }
 }
-
+.return {
+  @include flex();
+  position: fixed;
+  top: calc(100vh * 0.85);
+  right: 5%;
+  @include size(2.5rem);
+  background-color: $yellow;
+  border-radius: 100%;
+  &__arrow {
+    @include fontSize("500");
+    color: $blue;
+  }
+}
 .logo {
   width: 5%;
 }

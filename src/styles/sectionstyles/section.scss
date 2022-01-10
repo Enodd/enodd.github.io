@@ -2,6 +2,9 @@
 @import "../variables.scss";
 
 .section {
+  transform: translateX(100%);
+  opacity: 0;
+  transition: 1.3s ease-in-out;
   &__title {
     margin: 1rem 0;
     padding: 0 1ch;
@@ -17,4 +20,15 @@
       left: 0;
     }
   }
+  &__description {
+    margin-bottom: 1.5rem;
+    padding: 0 2ch;
+    @include fontSize("400");
+    color: white;
+    width: 75%;
+  }
+}
+.show {
+  transform: translateX(0);
+  opacity: 1;
 }

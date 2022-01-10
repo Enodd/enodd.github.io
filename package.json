@@ -5,7 +5,20 @@
   "description": "enodd.github.io",
   "author": "Enodd",
   "keywords": [
-    "gatsby"
+    "front-end",
+    "front-end developer",
+    "developer",
+    "website",
+    "webpage",
+    "website developer",
+    "webpage developer",
+    "programmer",
+    "gatsby",
+    "react",
+    "sass",
+    "scss",
+    "html",
+    "css"
   ],
   "scripts": {
     "develop": "export SET NODE_OPTIONS=--openssl-legacy-provider; gatsby develop",

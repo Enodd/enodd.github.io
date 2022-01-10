@@ -17,9 +17,9 @@
   position: relative;
   z-index: 0;
   &__title {
-    @include fontSize("1000");
+    @include fontSize("900");
     font-family: $altFont;
-    letter-spacing: 0.3em;
+    letter-spacing: 0.1em;
     position: absolute;
     top: 40%;
     left: 50%;
@@ -33,6 +33,18 @@
     &:after {
       content: "/>";
     }
+  }
+  &__subtitle {
+    @include fontSize("700");
+    font-family: $altFont;
+    letter-spacing: 0.1em;
+    position: absolute;
+    top: 53%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: fit-content;
+    height: fit-content;
+    color: $yellow;
   }
   &:before {
     content: "";

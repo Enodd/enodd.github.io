@@ -1,0 +1,43 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+@mixin input() {
+  padding: 1rem;
+  @include fontSize("400");
+  background-color: $blue;
+  color: $yellow;
+  width: 100%;
+  border: 2px solid lighten($blue, 10%);
+  border-radius: 1rem;
+}
+
+.contactform {
+  @include flex(column, space-between);
+  padding: 2rem 0;
+  margin: 0 auto;
+  width: 30%;
+  &__label {
+    margin: 1rem 0;
+    width: 100%;
+    &__content {
+      @include fontSize("500");
+      color: white;
+      font-family: $altFont;
+    }
+  }
+  &__input {
+    @include input();
+  }
+  &__textarea {
+    @include input();
+    resize: none;
+  }
+  &__submit {
+    padding: 1rem;
+    @include fontSize("400");
+    background-color: $yellow;
+    color: $blue;
+    border-radius: 1rem;
+    border: none;
+  }
+}
