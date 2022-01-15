@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import logo from "../images/icons/enoddlogo.svg";
 import "../styles/header/header.scss";
-
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 const Header = () => {
   const data = useStaticQuery(graphql`
     query {
@@ -14,10 +14,6 @@ const Header = () => {
     }
   `);
   const anchors = [
-    {
-      name: "Home",
-      destination: "",
-    },
     {
       name: "About",
       destination: "#about",
@@ -36,7 +32,6 @@ const Header = () => {
     },
   ];
   let prevScrollpos = typeof window !== "undefined" ? window.pageYOffset : "";
-  const win = typeof window !== "undefined" ? window.location.pathname : "";
 
   function navLogic() {
     const head = document.querySelector(".core-header");
@@ -57,6 +52,8 @@ const Header = () => {
     prevScrollpos = window.pageYOffset;
   }
 
+  // !TODO create working smooth scrolling
+
   useEffect(() => {
     window.addEventListener("scroll", navLogic);
     return () => window.removeEventListener("scroll", navLogic);
@@ -67,26 +64,31 @@ const Header = () => {
       <nav className="navigation">
         <div className="core-header__titlewrapper">
           <img src={logo} alt="logo" class="logo" />
-          <h1 className="core-header__title">{data.site.siteMetadata.title}</h1>
+          <h1 className="core-header__title">
+            <a href="#top">{data.site.siteMetadata.title}</a>
+          </h1>
         </div>
         <ul className="navigation__list">
           {anchors.map((anchor) => {
             const { name, destination } = anchor;
-            if (`/${destination}` !== win) {
-              return (
-                <li className="navigation__element">
-                  <a href={destination} className="navigation__anchor">
-                    {name}
-                  </a>
-                </li>
-              );
-            }
+            return (
+              <li className="navigation__element">
+                <AnchorLink
+                  to={`/${destination}`}
+                  title={name}
+                  className="navigation__anchor"
+                  stripHash
+                >
+                  {name}
+                </AnchorLink>
+              </li>
+            );
           })}
         </ul>
         <div className="return">
-          <a href="#" className="return__arrow">
+          <AnchorLink to="/#top" className="return__arrow navigation__anchor">
             <i class="fas fa-angle-up"></i>
-          </a>
+          </AnchorLink>
         </div>
       </nav>
     </header>

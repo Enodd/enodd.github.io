@@ -27,7 +27,7 @@ const Layout = ({ children, contentId }) => {
   }, []);
 
   return (
-    <div className="container">
+    <div className="container" id="top">
       <a href={`#${contentId}`} className="secretbutton">
         Go to page's content
       </a>

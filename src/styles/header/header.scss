@@ -11,8 +11,10 @@
   transition: 0.3s ease-in-out;
   z-index: 2;
   &__title {
-    font-family: $font;
-    color: $yellow;
+    a {
+      font-family: $font;
+      color: $yellow;
+    }
     &:first-letter {
       text-transform: uppercase;
     }

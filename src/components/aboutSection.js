@@ -24,7 +24,7 @@ const AboutSection = () => {
         </header>
         <main className="about__main">
           <p>
-            My name is Damian, I'm also known as Enodd <br /> and I'm selftaught{" "}
+            My name is Damian, I'm also known as Enodd <br /> and I'm selftaught
             <span>Front-end Developer</span>, that's trying his best in this
             industry
           </p>

@@ -1,4 +1,3 @@
-import { Link } from "gatsby";
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import Projects from "../data/projects";
@@ -23,7 +22,7 @@ const DisplayProjects = ({ direction }) => {
       </aside>
       <main id="projects" className="projectColumn">
         {Projects.map((project) => {
-          const { name, description, banner } = project;
+          const { name, description, banner, link } = project;
           const Article = styled.article`
             margin-bottom: 1rem;
             position: relative;
@@ -52,9 +51,9 @@ const DisplayProjects = ({ direction }) => {
             <Article className="project__article">
               <h3 className="project__title">{name}</h3>
               <p className="project__content">{description}</p>
-              <Link to="/" className="project__link">
+              <a href={link} className="project__link">
                 Check it now
-              </Link>
+              </a>
             </Article>
           );
         })}
