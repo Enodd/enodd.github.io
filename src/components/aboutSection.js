@@ -1,6 +1,7 @@
 import React from "react";
 import "../styles/about/about.scss";
 import { StaticImage } from "gatsby-plugin-image";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const AboutSection = () => {
   return (
@@ -24,15 +25,15 @@ const AboutSection = () => {
         </header>
         <main className="about__main">
           <p>
-            My name is Damian, I'm also known as Enodd <br /> and I'm selftaught
+            My name is Damian, I'm also known as Enodd <br /> and I'm selftaught{" "}
             <span>Front-end Developer</span>, that's trying his best in this
             industry
           </p>
         </main>
         <footer className="about__footer">
-          <a href="#portfolio" className="about__button">
+          <AnchorLink to="/#portfolio" className="about__button">
             Check out my portfolio!
-          </a>
+          </AnchorLink>
         </footer>
       </div>
     </section>
