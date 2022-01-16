@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import logo from "../images/icons/enoddlogo.svg";
 import "../styles/header/header.scss";
@@ -32,6 +32,8 @@ const Header = () => {
     },
   ];
   let prevScrollpos = typeof window !== "undefined" ? window.pageYOffset : "";
+  const [show, setShow] = useState(false);
+  const [men, setMen] = useState(false);
 
   function navLogic() {
     const head = document.querySelector(".core-header");
@@ -51,12 +53,20 @@ const Header = () => {
     }
     prevScrollpos = window.pageYOffset;
   }
-
-  // !TODO create working smooth scrolling
+  function resizeMen() {
+    const windowWidth = window.matchMedia("(max-width: 540px)");
+    windowWidth.matches ? setShow(true) : setShow(false);
+  }
 
   useEffect(() => {
     window.addEventListener("scroll", navLogic);
     return () => window.removeEventListener("scroll", navLogic);
+  });
+
+  useEffect(() => {
+    resizeMen();
+    window.addEventListener("resize", resizeMen);
+    return () => window.removeEventListener("resize", resizeMen);
   });
 
   return (
@@ -68,23 +78,70 @@ const Header = () => {
             <a href="#top">{data.site.siteMetadata.title}</a>
           </h1>
         </div>
-        <ul className="navigation__list">
-          {anchors.map((anchor) => {
-            const { name, destination } = anchor;
-            return (
-              <li className="navigation__element">
-                <AnchorLink
-                  to={`/${destination}`}
-                  title={name}
-                  className="navigation__anchor"
-                  stripHash
-                >
-                  {name}
-                </AnchorLink>
-              </li>
-            );
-          })}
-        </ul>
+        {!show && (
+          <ul className="navigation__list">
+            {anchors.map((anchor) => {
+              const { name, destination } = anchor;
+              return (
+                <li className="navigation__element">
+                  <AnchorLink
+                    to={`/${destination}`}
+                    title={name}
+                    className="navigation__anchor"
+                    stripHash
+                  >
+                    {name}
+                  </AnchorLink>
+                </li>
+              );
+            })}
+          </ul>
+        )}
+        {show && (
+          <div className="navigation__burger">
+            <i
+              className="fas fa-bars"
+              id="menu"
+              onClick={() => {
+                const menuIcon = document.querySelector("#menu");
+                const menuList = document.querySelector(
+                  ".navigation__list--vertical"
+                );
+                men
+                  ? (menuIcon.className = "fas fa-bars")
+                  : (menuIcon.className = "fas fa-times");
+                if (menuList) {
+                  menuList.style.animation = "500ms hide";
+                  setTimeout(() => {
+                    setMen(!men);
+                  }, 500);
+                } else {
+                  setMen(!men);
+                }
+              }}
+            ></i>
+            {men && (
+              <ul className="navigation__list--vertical">
+                {anchors.map((anchor) => {
+                  const { name, destination } = anchor;
+                  return (
+                    <li className="navigation__element">
+                      <AnchorLink
+                        to={`/${destination}`}
+                        title={name}
+                        className="navigation__anchor"
+                        stripHash
+                      >
+                        {name}
+                      </AnchorLink>
+                    </li>
+                  );
+                })}
+              </ul>
+            )}
+          </div>
+        )}
+
         <div className="return">
           <AnchorLink to="/#top" className="return__arrow navigation__anchor">
             <i class="fas fa-angle-up"></i>
