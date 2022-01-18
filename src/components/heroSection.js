@@ -1,5 +1,6 @@
 import React from "react";
 import "../styles/heroSection/hero.scss";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const HeroSection = () => {
   return (
@@ -8,9 +9,9 @@ const HeroSection = () => {
         Damian <span>"Enodd"</span> Nowak
       </h1>
       <h2 className="heroSection__subtitle">Front-End Developer</h2>
-      <a href="#main">
+      <AnchorLink to="/#main">
         <i class="fas fa-angle-down" id="arrow"></i>
-      </a>
+      </AnchorLink>
     </section>
   );
 };

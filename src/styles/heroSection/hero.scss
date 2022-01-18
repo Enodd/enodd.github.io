@@ -17,6 +17,7 @@
   position: relative;
   z-index: 0;
   &__title {
+    text-align: center;
     @include fontSize("900");
     font-family: $altFont;
     letter-spacing: 0.1em;
@@ -36,6 +37,7 @@
   }
   &__subtitle {
     @include fontSize("700");
+    text-align: center;
     font-family: $altFont;
     letter-spacing: 0.1em;
     position: absolute;

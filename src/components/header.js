@@ -54,7 +54,7 @@ const Header = () => {
     prevScrollpos = window.pageYOffset;
   }
   function resizeMen() {
-    const windowWidth = window.matchMedia("(max-width: 540px)");
+    const windowWidth = window.matchMedia("(max-width: 39.9375em)");
     windowWidth.matches ? setShow(true) : setShow(false);
   }
 
