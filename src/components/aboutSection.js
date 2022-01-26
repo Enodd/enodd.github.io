@@ -10,10 +10,11 @@ const AboutSection = () => {
         <header className="about__header">
           <div className="about__header--wrapper">
             <h2>
-              Damian "<span>Enodd</span>" Nowak
+              Damian <span className="highlight--yellow">"Enodd"</span> Nowak
             </h2>
             <p>
-              Developer <span>/</span> Designer <span>/</span> Geek
+              Developer <span className="highlight--yellow">/</span> Designer{" "}
+              <span className="highlight--yellow">/</span> Geek
             </p>
           </div>
           <div className="about__header--image">
@@ -26,8 +27,8 @@ const AboutSection = () => {
         <main className="about__main">
           <p>
             My name is Damian, I'm also known as Enodd <br /> and I'm selftaught{" "}
-            <span>Front-end Developer</span>, that's trying his best in this
-            industry
+            <span className="highlight--yellow">Front-end Developer</span>,
+            that's trying his best in this industry
           </p>
         </main>
         <footer className="about__footer">

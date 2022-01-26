@@ -27,6 +27,19 @@
     color: white;
     width: 75%;
   }
+  &__footer {
+    text-align: center;
+    padding: 1rem 0;
+    &__link {
+      margin: auto;
+      @include fontSize("400");
+      color: white;
+      text-decoration: none;
+      @include underline(white, 0.4s);
+      width: fit-content;
+      position: relative;
+    }
+  }
 }
 .show {
   transform: translateX(0);

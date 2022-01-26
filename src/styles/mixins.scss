@@ -84,3 +84,34 @@ $breakpoints-down: (
     @content;
   }
 }
+
+@mixin barIndicator($color) {
+  &:before {
+    content: "";
+    @include size(4px, 30%);
+    @include breakpoint-down("small") {
+      height: 15%;
+    }
+    position: absolute;
+    left: -1ch;
+    top: 1ch;
+    background-color: $color;
+  }
+}
+@mixin underline($color, $time: 0.3s) {
+  &:after {
+    content: "";
+    width: 0%;
+    height: 2px;
+    top: 100%;
+    left: 0%;
+    position: absolute;
+    background-color: white;
+    transition: $time;
+  }
+  &:hover {
+    &:after {
+      width: 100%;
+    }
+  }
+}

@@ -15,8 +15,8 @@ const DisplayProjects = ({ direction }) => {
       <h2 className="section__title">Check out my projects</h2>
       <aside>
         <p className="section__description">
-          Here are my projects that I did/I'm currently working on for myself to
-          learn more about Front-End Development, Javascript Frameworks, Css
+          Here are my projects that I did/I'm currently working on, for myself
+          to learn more about Front-End Development, Javascript Frameworks, Css
           pre-processors and many more.
         </p>
       </aside>
@@ -58,6 +58,11 @@ const DisplayProjects = ({ direction }) => {
           );
         })}
       </main>
+      <footer className="section__footer">
+        <a href="https://github.com/enodd" className="section__footer__link">
+          More projects..
+        </a>
+      </footer>
     </section>
   );
 };

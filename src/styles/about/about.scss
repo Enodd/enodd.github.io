@@ -12,7 +12,7 @@
     @include flex(column, space-evenly, center);
     @include glassmorph($blue);
     @include size(100%);
-    padding: 1rem;
+    padding: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
   }
   &__header {
     width: 75%;
@@ -21,19 +21,15 @@
     @include flex(row, space-between, center);
     &--wrapper {
       position: relative;
-      &::before {
-        content: "";
-        @include size(4px, 30%);
-        position: absolute;
-        left: -1ch;
-        top: 1ch;
-        background-color: $yellow;
-      }
+      @include barIndicator($yellow);
     }
     &--image {
       border: 3px solid white;
       border-radius: 100%;
-      @include size(12rem);
+      @include size(12vw);
+      @include breakpoint-down("small") {
+        @include size(20vw);
+      }
       overflow: hidden;
       position: relative;
       @include safariFix();
@@ -60,6 +56,7 @@
     @include fontSize("500");
   }
   span {
+    @include fontSize("500");
     color: $yellow;
     font-weight: bold;
   }
@@ -68,14 +65,7 @@
     height: fit-content;
     margin: 1rem auto;
     position: relative;
-    &::before {
-      content: "";
-      @include size(4px, 30%);
-      position: absolute;
-      left: -1ch;
-      top: 1ch;
-      background-color: $yellow;
-    }
+    @include barIndicator($yellow);
   }
   &__footer {
     width: 100%;
@@ -93,7 +83,14 @@
     }
   }
   h2 {
+    @include fontSize("500");
     color: white;
+    @include breakpoint-up("large") {
+      @include fontSize("600");
+      span {
+        @include fontSize("600");
+      }
+    }
   }
   &::before {
     content: "";
