@@ -1,14 +1,14 @@
-import LandScape from "../images/LandScape.png";
+import NaRondzieWLewo from "../images/narondziewlewo.png";
 import Gamenacity from "../images/gamenacity.png";
 import Webtastic from "../images/webtastic.png";
 
 const Projects = [
   {
-    name: "LandScape",
+    name: "Na rondzie w Lewo",
     description:
-      "LandScape is a learning app that allows you to create wonderful landscapes while being focused on your studies. Using React Native",
-    banner: LandScape,
-    link: "https://github.com/Enodd/LandScape",
+      "Na rondzie w Lewo is a website created for Virtual Trucking Company - Na rondzie w Lewo industries. This company may be found in Euro Truck Simulator 2 - a video game with huge fanbase.",
+    banner: NaRondzieWLewo,
+    link: "https://narondziewlewo.github.io/",
   },
   {
     name: "Gamenacity",

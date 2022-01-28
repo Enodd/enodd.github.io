@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import Header from "../components/header";
 import Footer from "../components/footer";
 import LoadingPage from "./loadingscreen";
+import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const Layout = ({ children, contentId }) => {
   useEffect(() => {
@@ -28,9 +29,9 @@ const Layout = ({ children, contentId }) => {
 
   return (
     <div className="container" id="top">
-      <a href={`#${contentId}`} className="secretbutton">
+      <AnchorLink to={`/#${contentId}`} className="secretbutton">
         Go to page's content
-      </a>
+      </AnchorLink>
       <LoadingPage />
       <Header />
       {children}

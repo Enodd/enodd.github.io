@@ -4,13 +4,23 @@
 .technologies {
   &__showcase {
     margin: 0 auto;
-    @include flex(row, space-around);
-    flex-wrap: wrap;
-    gap: 1rem;
     width: 60%;
+    @include breakpoint-up("large") {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      @include gridgap(1rem, 1rem);
+    }
+    @include breakpoint-down("medium") {
+      @include flex();
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    @include breakpoint-down("small") {
+      width: 80%;
+    }
     &__element {
       position: relative;
-      @include size(12rem);
+      @include size(100%, 12rem);
       border: 1px solid white;
       border-radius: 1rem;
       img {
@@ -31,7 +41,18 @@
         opacity: 0;
         transition: 0.3s ease-in-out;
       }
-      &:hover {
+      @include breakpoint-up("large") {
+        &:hover {
+          img {
+            top: 40%;
+          }
+          p {
+            top: 80%;
+            opacity: 1;
+          }
+        }
+      }
+      @include breakpoint-down("medium") {
         img {
           top: 40%;
         }

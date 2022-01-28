@@ -46,6 +46,22 @@ $gorko-size-scale: (
   align-items: $aln;
 }
 
+@mixin grid($columnRep: 3, $columnSize: 1fr, $rowRep: 2, $rowSize: 1fr) {
+  display: grid;
+  grid-template-columns: repeat($columnRep, $columnSize);
+  grid-template-rows: repeat($rowRep, $rowSize);
+}
+@mixin gridgap($column, $row) {
+  @if ($column == none) {
+    row-gap: $row;
+  } @else if($row == none) {
+    column-gap: $column;
+  } @else {
+    row-gap: $row;
+    column-gap: $column;
+  }
+}
+
 @mixin skewb($color: #fed766) {
   &:before {
     content: "";

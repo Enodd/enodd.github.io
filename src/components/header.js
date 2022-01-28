@@ -75,7 +75,7 @@ const Header = () => {
         <div className="core-header__titlewrapper">
           <img src={logo} alt="logo" class="logo" />
           <h1 className="core-header__title">
-            <a href="#top">{data.site.siteMetadata.title}</a>
+            <AnchorLink to="/#top">{data.site.siteMetadata.title}</AnchorLink>
           </h1>
         </div>
         {!show && (
