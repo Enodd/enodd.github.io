@@ -12,10 +12,10 @@
     @include flex(column, space-evenly, center);
     @include glassmorph($blue);
     @include size(100%);
-    padding: clamp(0.88rem, 0.83rem + 0.24vw, 1rem);
+    padding: clamp(0.2rem, 0.6rem + 0.24vw, 0.9rem);
   }
   &__header {
-    width: 75%;
+    width: 80%;
     height: fit-content;
     margin: 0 auto;
     @include flex(row, space-between, center);
@@ -33,17 +33,12 @@
       overflow: hidden;
       position: relative;
       @include safariFix();
-      img {
-        width: 120%;
-        margin-top: 2%;
-        margin-left: -10%;
-      }
       &::before {
         content: "";
         width: 100%;
         height: 100%;
         background-image: $backPic;
-        background-size: 120%;
+        background-size: cover;
         background-repeat: no-repeat;
         position: absolute;
         left: 0;

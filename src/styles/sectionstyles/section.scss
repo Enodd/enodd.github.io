@@ -26,6 +26,9 @@
     @include fontSize("400");
     color: white;
     width: 75%;
+    @include breakpoint-down("small") {
+      width: 100%;
+    }
   }
   &__footer {
     text-align: center;

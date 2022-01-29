@@ -3,13 +3,7 @@ import styled from "styled-components";
 import Projects from "../data/projects";
 import "../styles/displayprojects/displayprojects.scss";
 
-const DisplayProjects = ({ direction }) => {
-  useEffect(() => {
-    if (direction && direction === "row") {
-      const projectSection = document.querySelector("#projects");
-      projectSection.className = "projectRow";
-    }
-  });
+const DisplayProjects = () => {
   return (
     <section className="section" id="portfolio">
       <h2 className="section__title">Check out my projects</h2>
@@ -20,7 +14,7 @@ const DisplayProjects = ({ direction }) => {
           pre-processors and many more.
         </p>
       </aside>
-      <main id="projects" className="projectColumn">
+      <main id="projects" className="projectRow">
         {Projects.map((project) => {
           const { name, description, banner, link } = project;
           const Article = styled.article`

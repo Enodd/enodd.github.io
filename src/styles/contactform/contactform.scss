@@ -30,6 +30,12 @@ select:-webkit-autofill:focus {
   padding: 2rem 0;
   margin: 0 auto;
   width: 30%;
+  @include breakpoint-down("small") {
+    width: 100%;
+  }
+  @include breakpoint-down("large") {
+    width: 75%;
+  }
   &__label {
     margin: 1rem 0;
     width: 100%;
