@@ -1,6 +1,6 @@
 import React from "react";
-import techstack from "../data/techstack";
-import "../styles/techstack/techstack.scss";
+import techstack from "../../data/techstack";
+import "../../styles/techstack/techstack.scss";
 
 const MyTechStack = () => {
   return (

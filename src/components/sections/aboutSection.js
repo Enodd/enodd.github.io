@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/about/about.scss";
+import "../../styles/about/about.scss";
 import { StaticImage } from "gatsby-plugin-image";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 

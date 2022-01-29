@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import Header from "../components/header";
-import Footer from "../components/footer";
-import LoadingPage from "./loadingscreen";
+import Header from "./header";
+import Footer from "./footer";
+import LoadingPage from "../utility/loadingscreen";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const Layout = ({ children, contentId }) => {

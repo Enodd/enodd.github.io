@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useStaticQuery, graphql } from "gatsby";
-import logo from "../images/icons/enoddlogo.svg";
-import "../styles/header/header.scss";
+import logo from "../../images/icons/enoddlogo.svg";
+import "../../styles/header/header.scss";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 const Header = () => {
   const data = useStaticQuery(graphql`

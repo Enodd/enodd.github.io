@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/heroSection/hero.scss";
+import "../../styles/heroSection/hero.scss";
 import { AnchorLink } from "gatsby-plugin-anchor-links";
 
 const HeroSection = () => {

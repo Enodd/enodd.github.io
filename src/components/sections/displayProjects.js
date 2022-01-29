@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
-import Projects from "../data/projects";
-import "../styles/displayprojects/displayprojects.scss";
+import Projects from "../../data/projects";
+import "../../styles/displayprojects/displayprojects.scss";
 
 const DisplayProjects = () => {
   return (

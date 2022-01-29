@@ -1,6 +1,6 @@
 import React, { useEffect } from "react";
-import anim from "../images/animation.svg";
-import "../styles/loading/loading.scss";
+import anim from "../../images/animation.svg";
+import "../../styles/loading/loading.scss";
 
 const LoadingPage = () => {
   const start = typeof window !== "undefined" ? Date.now() : "";
