@@ -16,24 +16,29 @@ module.exports = {
         duration: 550,
       },
     },
-    // {
-    //   resolve: "gatsby-plugin-manifest",
-    //   options: {
-    //     icon: `src/images/favicon.png`,
-    //     icons: [
-    //       {
-    //         src: `src/images/android-chrome-192x192.png`,
-    //         sizes: `192x192`,
-    //         type: `image/png`
-    //       },
-    //       {
-    //         src: `src/images/android-chrome-512x512.png`,
-    //         sizes: `512x512`,
-    //         type: `image/png`
-    //       },
-    //     ],
-    //   },
-    // },
+    {
+      resolve: "gatsby-plugin-manifest",
+      options: {
+        name: "enodd.github.io",
+        description: "Personal Portfolio Website",
+        lang: "en",
+        display: "standalone",
+        icon: `./src/images/icons/favicon.png`,
+        icons: [
+          {
+            src: `./src/images/icons/android-chrome-192x192.png`,
+            sizes: `192x192`,
+            type: `image/png`,
+          },
+          {
+            src: `./src/images/icons/android-chrome-512x512.png`,
+            sizes: `512x512`,
+            type: `image/png`,
+          },
+        ],
+        start_url: "/",
+      },
+    },
     "gatsby-plugin-mdx",
     "gatsby-plugin-sharp",
     "gatsby-transformer-sharp",
@@ -52,14 +57,6 @@ module.exports = {
         path: "./src/pages/",
       },
       __key: "pages",
-    },
-    {
-      resolve: "gatsby-source-filesystem",
-      options: {
-        name: "posts",
-        path: "./src/posts/",
-      },
-      __key: "posts",
     },
   ],
 };
