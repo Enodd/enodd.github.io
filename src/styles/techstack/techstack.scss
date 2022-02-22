@@ -39,7 +39,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         opacity: 0;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s $transitionTime;
       }
       @include breakpoint-up("large") {
         &:hover {

@@ -1,49 +1,26 @@
 import React from "react";
-import "../../styles/contactform/contactform.scss";
+import styled from "styled-components";
+import MyForm from "../utility/myForm";
+import SocialMedia from "../utility/socialMedia";
 
 const Contact = () => {
+  const StyledWrapper = styled.div`
+    display: flex;
+    @media (min-width: 640px) {
+      flex-direction: row;
+    }
+    flex-direction: column;
+    justify-content: space-between;
+    align-content: center;
+    width: 100%;
+  `;
   return (
     <section className="section" id="contact">
       <h2 className="section__title">Let's keep in touch</h2>
-      <form
-        action="https://formsubmit.co/foxnacity@gmail.com"
-        method="POST"
-        enctype="application/x-www-form-urlencoded"
-        className="contactform"
-      >
-        <label className="contactform__label" for="name">
-          <p className="contactform__label__content">Name</p>
-          <input
-            type="text"
-            name="name"
-            id="name"
-            className="contactform__input"
-          />
-        </label>
-        <label className="contactform__label" for="email">
-          <p className="contactform__label__content">Email</p>
-          <input
-            type="email"
-            name="email"
-            id="email"
-            className="contactform__input"
-          />
-        </label>
-        <label className="contactform__label" for="message">
-          <p className="contactform__label__content">Your Message</p>
-          <textarea
-            id="message"
-            name="message"
-            className="contactform__textarea"
-            rows={10}
-          ></textarea>
-        </label>
-        <input
-          type="submit"
-          value="Send Message"
-          className="contactform__submit"
-        />
-      </form>
+      <StyledWrapper>
+        <MyForm />
+        <SocialMedia />
+      </StyledWrapper>
     </section>
   );
 };

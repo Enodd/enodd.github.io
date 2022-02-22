@@ -3,7 +3,8 @@
 
 .about {
   position: relative;
-  @include size(100%, 30rem);
+  @include size(100%, fit-content);
+  min-height: 30rem;
   margin: 2rem auto;
   transform: translateX(100%);
   opacity: 0;
@@ -12,7 +13,11 @@
     @include flex(column, space-evenly, center);
     @include glassmorph($blue);
     @include size(100%);
-    padding: clamp(0.2rem, 0.6rem + 0.24vw, 0.9rem);
+    @include breakpoint-down("small") {
+      border-radius: 2rem;
+      padding: 2rem 1rem;
+    }
+    padding: 1rem;
   }
   &__header {
     width: 80%;
@@ -49,6 +54,7 @@
   p {
     color: white;
     @include fontSize("500");
+    margin: 0 0 1rem 0;
   }
   span {
     @include fontSize("500");
@@ -60,21 +66,27 @@
     height: fit-content;
     margin: 1rem auto;
     position: relative;
-    @include barIndicator($yellow);
+    @include barIndicator($yellow, 2ch);
   }
   &__footer {
     width: 100%;
-    @include flex();
+    @include flex(row);
+    @include breakpoint-down("small") {
+      flex-direction: column;
+    }
+    gap: 1rem;
   }
   &__button {
-    background: $brightYellow;
     padding: 1rem;
     border-radius: 10rem;
     font-weight: bold;
-    color: $darkBlue;
-    &:focus {
-      color: $yellow;
-      background: $darkBlue;
+    &--primary {
+      background: $brightYellow;
+      color: $darkBlue;
+    }
+    &--secondary {
+      background: white;
+      color: $darkBlue;
     }
   }
   h2 {

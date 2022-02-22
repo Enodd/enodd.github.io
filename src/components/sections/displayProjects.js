@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styled from "styled-components";
 import Projects from "../../data/projects";
 import "../../styles/displayprojects/displayprojects.scss";
@@ -14,7 +14,7 @@ const DisplayProjects = () => {
           pre-processors and many more.
         </p>
       </aside>
-      <main id="projects" className="projectRow">
+      <main id="projects" className="project">
         {Projects.map((project) => {
           const { name, description, banner, link } = project;
           const Article = styled.article`
@@ -22,7 +22,7 @@ const DisplayProjects = () => {
             position: relative;
             background: #00356640;
             backdrop-filter: blur(5px);
-            transition: 0.3s ease-in-out;
+            transition: 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
             &:hover {
               transform: scale(1.1);
             }

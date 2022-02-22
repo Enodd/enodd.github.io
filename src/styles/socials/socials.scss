@@ -1,0 +1,34 @@
+@import "../mixins.scss";
+@import "../variables.scss";
+
+.socials {
+  width: 100%;
+  padding: 2rem 0;
+  @include breakpoint-up("medium") {
+    width: 30%;
+  }
+  &__header {
+    @include fontSize("600");
+    color: white;
+    margin-bottom: 2rem;
+  }
+  &__contact {
+    @include flex();
+    width: fit-content;
+    position: relative;
+    margin-bottom: 2rem;
+    padding-bottom: 0.3rem;
+  }
+  &__icon {
+    width: 4rem;
+    margin-right: 1rem;
+  }
+  &__name {
+    color: white;
+    @include fontSize("600");
+    &:hover {
+      color: $yellow;
+      transition: 0.5s $transitionTime;
+    }
+  }
+}

@@ -46,7 +46,7 @@ const Header = () => {
     } else {
       head.style.top = "-100%";
     }
-    if (window.scrollY > window.pageYOffset * 0.1) {
+    if (window.scrollY > window.innerHeight * 0.35) {
       returnToTop.style.display = "flex";
     } else {
       returnToTop.style.display = "none";
@@ -78,7 +78,7 @@ const Header = () => {
             <AnchorLink to="/#top">{data.site.siteMetadata.title}</AnchorLink>
           </h1>
         </div>
-        {!show && (
+        {!show ? (
           <ul className="navigation__list">
             {anchors.map((anchor) => {
               const { name, destination } = anchor;
@@ -96,8 +96,7 @@ const Header = () => {
               );
             })}
           </ul>
-        )}
-        {show && (
+        ) : (
           <div className="navigation__burger">
             <i
               className="fas fa-bars"

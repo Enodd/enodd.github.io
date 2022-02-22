@@ -28,13 +28,9 @@ select:-webkit-autofill:focus {
 .contactform {
   @include flex(column, space-between);
   padding: 2rem 0;
-  margin: 0 auto;
-  width: 30%;
-  @include breakpoint-down("small") {
-    width: 100%;
-  }
-  @include breakpoint-down("large") {
-    width: 75%;
+  width: 100%;
+  @include breakpoint-up("medium") {
+    width: 50%;
   }
   &__label {
     margin: 1rem 0;

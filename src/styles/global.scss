@@ -3,6 +3,9 @@
 @import "./mixins.scss";
 @import "./variables.scss";
 @import "./sectionstyles/section";
+:root {
+  font-size: 16px;
+}
 
 body {
   background-color: $darkBlue;

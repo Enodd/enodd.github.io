@@ -2,20 +2,18 @@
 @import "../variables.scss";
 
 .project {
-  &Row {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    @include gridgap(1.5rem, 1rem);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  @include gridgap(1.5rem, 1rem);
+  article {
+    width: 100%;
+    min-height: 22rem;
+  }
+  @include breakpoint-down("small") {
+    @include flex(column);
+    gap: 1rem;
     article {
       width: 100%;
-      min-height: 22rem;
-    }
-    @include breakpoint-down("small") {
-      @include flex(column);
-      gap: 1rem;
-      article {
-        width: 100%;
-      }
     }
   }
   &__article {

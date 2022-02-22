@@ -9,6 +9,8 @@ $gorko-size-scale: (
   "1000": clamp(3.34rem, 2.45rem + 4.43vw, 5.61rem),
 );
 
+$transitionTime: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+
 @mixin safariFix() {
   transform: translateZ(0);
 }
@@ -101,10 +103,10 @@ $breakpoints-down: (
   }
 }
 
-@mixin barIndicator($color) {
+@mixin barIndicator($color, $height: 30%) {
   &:before {
     content: "";
-    @include size(4px, 30%);
+    @include size(4px, $height);
     @include breakpoint-down("small") {
       height: 15%;
     }
@@ -123,7 +125,7 @@ $breakpoints-down: (
     left: 0%;
     position: absolute;
     background-color: white;
-    transition: $time;
+    transition: $time $transitionTime;
   }
   &:hover {
     &:after {

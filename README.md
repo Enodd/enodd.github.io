@@ -6,3 +6,7 @@ Main purpose of it is to showcase my skills, and my knowledge.
 
 > - Gatsby.js
 > - SASS
+
+## Images used:
+
+- Hero Section photo by [Anas Alshanti](https://unsplash.com/@anasalshanti?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText) on [Unsplash](https://unsplash.com/@anasalshanti?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
