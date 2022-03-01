@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useStaticQuery, graphql } from "gatsby";
 import logo from "../../images/icons/enoddlogo.svg";
 import "../../styles/header/header.scss";
@@ -19,6 +19,10 @@ const Header = () => {
       destination: "#about",
     },
     {
+      name: "Blog",
+      destination: "#blog",
+    },
+    {
       name: "Technologies",
       destination: "#technologies",
     },
@@ -34,22 +38,37 @@ const Header = () => {
   let prevScrollpos = typeof window !== "undefined" ? window.pageYOffset : "";
   const [show, setShow] = useState(false);
   const [men, setMen] = useState(false);
+  const HeaderRef = useRef(null);
+  const ReturnButtonRef = useRef(null);
+  const MenuRef = useRef(null);
+  const MenuListRef = useRef(null);
+  const onClickHandler = () => {
+    men
+      ? (MenuRef.current.className = "fas fa-bars")
+      : (MenuRef.current.className = "fas fa-times");
+    if (MenuListRef.current != null) {
+      MenuListRef.current.style.animation = "500ms hide";
+      setTimeout(() => {
+        setMen(!men);
+      }, 500);
+    } else {
+      setMen(!men);
+    }
+  };
 
   function navLogic() {
-    const head = document.querySelector(".core-header");
-    const returnToTop = document.querySelector(".return");
     const scrollVal = typeof window !== "undefined" ? window.scrollY : "";
     const opacityVal = 0 + scrollVal / window.innerHeight;
-    head.style.backgroundColor = `rgba(0, 29, 61, ${opacityVal})`;
+    HeaderRef.current.style.backgroundColor = `rgba(0, 29, 61, ${opacityVal})`;
     if (window.pageYOffset < prevScrollpos || window.scrollY <= 0) {
-      head.style.top = "0px";
+      HeaderRef.current.style.top = "0px";
     } else {
-      head.style.top = "-100%";
+      HeaderRef.current.style.top = "-100%";
     }
     if (window.scrollY > window.innerHeight * 0.35) {
-      returnToTop.style.display = "flex";
+      ReturnButtonRef.current.style.display = "flex";
     } else {
-      returnToTop.style.display = "none";
+      ReturnButtonRef.current.style.display = "none";
     }
     prevScrollpos = window.pageYOffset;
   }
@@ -70,7 +89,7 @@ const Header = () => {
   });
 
   return (
-    <header className="core-header">
+    <header className="core-header" ref={HeaderRef}>
       <nav className="navigation">
         <div className="core-header__titlewrapper">
           <img src={logo} alt="logo" class="logo" />
@@ -101,26 +120,11 @@ const Header = () => {
             <i
               className="fas fa-bars"
               id="menu"
-              onClick={() => {
-                const menuIcon = document.querySelector("#menu");
-                const menuList = document.querySelector(
-                  ".navigation__list--vertical"
-                );
-                men
-                  ? (menuIcon.className = "fas fa-bars")
-                  : (menuIcon.className = "fas fa-times");
-                if (menuList) {
-                  menuList.style.animation = "500ms hide";
-                  setTimeout(() => {
-                    setMen(!men);
-                  }, 500);
-                } else {
-                  setMen(!men);
-                }
-              }}
+              ref={MenuRef}
+              onClick={onClickHandler}
             ></i>
             {men && (
-              <ul className="navigation__list--vertical">
+              <ul className="navigation__list--vertical" ref={MenuListRef}>
                 {anchors.map((anchor) => {
                   const { name, destination } = anchor;
                   return (
@@ -141,7 +145,7 @@ const Header = () => {
           </div>
         )}
 
-        <div className="return">
+        <div className="return" ref={ReturnButtonRef}>
           <AnchorLink to="/#top" className="return__arrow navigation__anchor">
             <i class="fas fa-angle-up"></i>
           </AnchorLink>
