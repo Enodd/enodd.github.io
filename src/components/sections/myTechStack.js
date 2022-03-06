@@ -13,10 +13,9 @@ const MyTechStack = () => {
         comfortable with using it.
       </p>
       <div className="technologies__showcase">
-        {techstack.map((tech) => {
-          const { name, icon } = tech;
+        {techstack.map(({ name, icon }) => {
           return (
-            <article className="technologies__showcase__element">
+            <article key={name} className="technologies__showcase__element">
               <img src={`${icon}`} alt={name} />
               <p>{name}</p>
             </article>

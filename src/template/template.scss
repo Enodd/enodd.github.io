@@ -1,0 +1,32 @@
+@import "../styles/mixins.scss";
+@import "../styles/variables.scss";
+
+#postContent {
+  * {
+    color: white;
+  }
+  padding-top: 6rem;
+  h1 {
+    @include fontSize("800");
+  }
+  h2 {
+    @include fontSize("700");
+  }
+  h3 {
+    @include fontSize("600");
+  }
+  h4 {
+    @include fontSize("500");
+  }
+  h5 {
+    @include fontSize("400");
+  }
+  h6 {
+    @include fontSize("300");
+  }
+
+  blockquote {
+    position: relative;
+    @include barIndicator($yellow, 50%);
+  }
+}

@@ -56,7 +56,9 @@ const Header = () => {
     }
   };
 
-  function navLogic() {
+  const windowPath =
+    typeof window !== "undefined" ? window.location.pathname : "";
+  const navLogic = () => {
     const scrollVal = typeof window !== "undefined" ? window.scrollY : "";
     const opacityVal = 0 + scrollVal / window.innerHeight;
     HeaderRef.current.style.backgroundColor = `rgba(0, 29, 61, ${opacityVal})`;
@@ -71,11 +73,11 @@ const Header = () => {
       ReturnButtonRef.current.style.display = "none";
     }
     prevScrollpos = window.pageYOffset;
-  }
-  function resizeMen() {
+  };
+  const resizeWindowLogic = () => {
     const windowWidth = window.matchMedia("(max-width: 39.9375em)");
     windowWidth.matches ? setShow(true) : setShow(false);
-  }
+  };
 
   useEffect(() => {
     window.addEventListener("scroll", navLogic);
@@ -83,9 +85,9 @@ const Header = () => {
   });
 
   useEffect(() => {
-    resizeMen();
-    window.addEventListener("resize", resizeMen);
-    return () => window.removeEventListener("resize", resizeMen);
+    resizeWindowLogic();
+    window.addEventListener("resize", resizeWindowLogic);
+    return () => window.removeEventListener("resize", resizeWindowLogic);
   });
 
   return (
@@ -146,7 +148,10 @@ const Header = () => {
         )}
 
         <div className="return" ref={ReturnButtonRef}>
-          <AnchorLink to="/#top" className="return__arrow navigation__anchor">
+          <AnchorLink
+            to={`${windowPath}#top`}
+            className="return__arrow navigation__anchor"
+          >
             <i class="fas fa-angle-up"></i>
           </AnchorLink>
         </div>

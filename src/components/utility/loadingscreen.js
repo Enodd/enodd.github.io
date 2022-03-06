@@ -4,8 +4,7 @@ import "../../styles/loading/loading.scss";
 
 const LoadingPage = () => {
   const start = typeof window !== "undefined" ? Date.now() : "";
-
-  function loadpage() {
+  const handleLoading = () => {
     const loadScreen = document.querySelector(".loading");
     if (loadScreen) {
       const spinner = document.querySelector(".loading__spinner");
@@ -25,11 +24,11 @@ const LoadingPage = () => {
           pageSubTitle.style.animation = "fadeIn 1s ease-in-out";
       }, loadTime + 1000);
     }
-  }
+  };
 
   useEffect(() => {
-    window.addEventListener("load", loadpage());
-    return () => window.removeEventListener("load", loadpage());
+    window.addEventListener("load", handleLoading());
+    return () => window.removeEventListener("load", handleLoading());
   });
 
   return (

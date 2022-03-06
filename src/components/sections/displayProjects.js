@@ -15,8 +15,7 @@ const DisplayProjects = () => {
         </p>
       </aside>
       <main id="projects" className="project">
-        {Projects.map((project) => {
-          const { name, description, banner, link } = project;
+        {Projects.map(({ name, description, banner, link }) => {
           const Article = styled.article`
             margin-bottom: 1rem;
             position: relative;
@@ -42,7 +41,7 @@ const DisplayProjects = () => {
           `;
 
           return (
-            <Article className="project__article">
+            <Article className="project__article" key={name}>
               <h3 className="project__title">{name}</h3>
               <p className="project__content">{description}</p>
               <a href={link} className="project__link">
