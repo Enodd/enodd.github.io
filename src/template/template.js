@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./template.scss";
 import { graphql, Link } from "gatsby";
 import { MDXProvider } from "@mdx-js/react";
@@ -13,6 +13,11 @@ const shortcodes = { Link };
 const BlogPost = ({ data: { mdx } }) => {
   const bannerImage = getImage(mdx.frontmatter.banner.childImageSharp);
   const postTitle = mdx.frontmatter.title;
+  useEffect(() => {
+    const templateObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {});
+    });
+  });
   return (
     <>
       <Head title={postTitle} />

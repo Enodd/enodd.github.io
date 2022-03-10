@@ -2,10 +2,10 @@
 @import "../styles/variables.scss";
 
 #postContent {
+  padding-top: 1rem;
   * {
     color: white;
   }
-  padding-top: 6rem;
   h1 {
     @include fontSize("800");
   }

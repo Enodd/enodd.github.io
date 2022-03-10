@@ -5,17 +5,18 @@ import styled from "styled-components";
 const BlogPostHero = ({ banner, postTitle }) => {
   const StyledHero = styled.section`
     width: 100%;
-    height: 35vh;
+    height: 50vh;
     display: block;
     position: relative;
     text-align: center;
   `;
   const StyledTextHeader = styled.h2`
-    margin-top: 6rem;
+    margin-top: 9rem;
     color: white;
     font-size: clamp(2.67rem, 2.07rem + 3vw, 4.21rem);
   `;
   const StyledImage = styled(GatsbyImage)`
+    height: 100%;
     width: 100%;
     position: absolute;
     top: 0;

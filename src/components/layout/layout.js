@@ -18,7 +18,7 @@ const Layout = ({ children, contentId }) => {
       }
     );
     if (typeof window !== undefined) {
-      const sections = document.querySelectorAll("section");
+      const sections = document.querySelectorAll(".section");
       if (sections) {
         sections.forEach((section) => {
           observer.observe(section);

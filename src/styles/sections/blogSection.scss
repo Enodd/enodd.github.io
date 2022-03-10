@@ -32,7 +32,12 @@
     left: 0;
     @include flex(column, space-evenly);
     padding: 1rem 2rem;
-    background-color: $blue;
+    background: linear-gradient(
+      45deg,
+      lighten($blue, 5%),
+      $blue,
+      lighten($blue, 5%)
+    );
     @include size(100%, 50%);
     &::before {
       content: "";
