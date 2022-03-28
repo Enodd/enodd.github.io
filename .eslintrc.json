@@ -1,0 +1,22 @@
+{
+    "settings": {
+      "resolve": {
+        "alias": [
+          ["@components", "./src/components"],
+          ["@data", "./src/data"],
+          ["@images", ".src/images"],
+          ["@views", "./src/views"],
+          ["@pages", "./src/pages"]
+        ]
+      }
+    },
+    "parserOptions": {
+        "ecmaVersion": 2017,
+        "sourceType": "module"
+    },
+
+    "env": {
+        "es6": true
+    },
+    "ignorePatterns": ["globalTheme.ts"]
+}

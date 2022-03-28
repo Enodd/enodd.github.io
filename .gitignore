@@ -1,3 +1,8 @@
 node_modules/
 .cache/
 public
+
+enodd.github.io-old/
+src/posts/
+src/data/
+**/.DS_Store
