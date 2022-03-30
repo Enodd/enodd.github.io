@@ -17,8 +17,10 @@ exports.onCreateWebpackConfig = ({ actions }) => {
 
 module.exports = {
   siteMetadata: {
-    title: ``,
-    siteUrl: `https://www.yourdomain.tld`,
+    title: `enodd.github.io`,
+    siteUrl: `https://www.enodd.github.io/`,
+    author: `Damian Nowak`,
+    authorNickname: `Enodd`
   },
   plugins: [
     "gatsby-plugin-styled-components",
