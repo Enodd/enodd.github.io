@@ -12,8 +12,11 @@ const HeroSectionContainer = styled.section`
     overflow-y: hidden;
 `
 const HeroSectionHeader = styled.h1`
-    font-size: ${props => props.theme.fonts.fontSizes.s800};
+    font-size: ${props => props.theme.fonts.fontSizes.s900};
     color: ${props => props.theme.colors.background.dark};
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
     position: absolute;
     top: 20%;
     left: 50%;
@@ -24,8 +27,11 @@ const HeroSectionHeader = styled.h1`
 const HeroSectionSubTitle = styled.p`
     font-size: ${props => props.theme.fonts.fontSizes.s600};
     color: ${props => props.theme.colors.background.dark};
+    text-align: center;
+    height: fit-content;
+    width: fit-content;
     position: absolute;
-    top: 25%;
+    top: 30%;
     left: 50%;
     transform: translate(-50%, 155%);
     opacity: 0;
@@ -35,7 +41,7 @@ const HeroSectionSubTitle = styled.p`
 const HeroSectionLink = styled(AnchorLink)`
     color: ${props => props.theme.colors.background.dark};
     position: absolute;
-    top:30%;
+    top:37%;
     left: 50%;
     transform: translate(-50%, 160%);
     opacity: 0;
