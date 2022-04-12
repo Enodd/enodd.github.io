@@ -55,10 +55,9 @@ export const HeroSection = () =>{
             <HeroSectionSubTitle>
                 {workplace}
             </HeroSectionSubTitle>
-            <HeroSectionLink to='/#test'>
+            <HeroSectionLink to='/#about'>
                 <KeyboardArrowDownRounded sx={{fill: theme.colors.background.dark, fontSize: theme.fonts.fontSizes.s900}} />
             </HeroSectionLink>
-           
             <HeroSectionWaves /> 
         </HeroSectionContainer>
     )
