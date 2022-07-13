@@ -6,3 +6,4 @@ enodd.github.io-old/
 src/posts/
 **/.DS_Store
 src/palette.scss
+**/*.d.ts
