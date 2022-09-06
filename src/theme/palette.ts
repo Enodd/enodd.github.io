@@ -5,9 +5,10 @@ export const palette = {
     },
     secondary: {
         main: '#133783',
-        dark: '#14213D'
+        dark: '#14213D',
+        darkest: '#00072c',
     },
     error: '#f87',
     approve: '#0f0',
     disabled: '#e5e5e5',
-}
+};
