@@ -1,22 +1,47 @@
 {
-    "settings": {
-      "resolve": {
-        "alias": [
-          ["@components", "./src/components"],
-          ["@data", "./src/data"],
-          ["@images", ".src/images"],
-          ["@views", "./src/views"],
-          ["@pages", "./src/pages"]
-        ]
-      }
+    "env": {
+        "browser": true,
+        "es2021": true
     },
+    "extends": [
+        "eslint:recommended",
+        "plugin:react/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "parser": "@typescript-eslint/parser",
     "parserOptions": {
-        "ecmaVersion": 2017,
+        "ecmaFeatures": {
+            "jsx": true
+        },
+        "ecmaVersion": 12,
         "sourceType": "module"
     },
-
-    "env": {
-        "es6": true
-    },
-    "ignorePatterns": ["globalTheme.ts"]
+    "plugins": [
+        "react",
+        "@typescript-eslint"
+    ],
+    "rules": {
+        "indent": [
+            "error",
+            "tab"
+        ],
+        "linebreak-style": [
+            "error",
+            "unix"
+        ],
+        "quotes": [
+            "error",
+            "single"
+        ],
+        "semi": [
+            "error",
+            "always"
+        ],
+        "array-bracket-spacing": ["error", "always"],
+        "object-curly-spacing": ["error", "always"],
+        "array-bracket-newline": ["error", { "minProperties": 2}],
+        "object-curly-newline": ["error", { "multiline": true, "minItems": 2}],
+        "object-property-newline": "error",
+        "no-unused-vars": "error"
+    }
 }
