@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+@import './palette.scss';
+
+::root {
+    --main: $main;
+}
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}

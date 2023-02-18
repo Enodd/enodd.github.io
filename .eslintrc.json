@@ -42,6 +42,7 @@
         "array-bracket-newline": ["error", { "minProperties": 2}],
         "object-curly-newline": ["error", { "multiline": true, "minItems": 2}],
         "object-property-newline": "error",
-        "no-unused-vars": "error"
+        "no-unused-vars": "error",
+        "max-lines": 150
     }
 }

@@ -1,0 +1,21 @@
+$main: '#FFBA00';
+$secondaryMain: '#00FFFF';
+$trietaryColor: '#FF0080';
+
+$primary: (
+    'light': lighten($main, 0.4),
+    'main': $main,
+    'dark': darken($main, 0.4)
+);
+
+$secondary: (
+    'light': lighten($secondaryMain, 0.4),
+    'main': $secondaryMain,
+    'dark': darken($secondaryMain, 0.4)
+);
+
+$trietary: (
+    'light': lighten($trietaryColor, 0.4),
+    'main': $trietaryColor,
+    'dark': darken($trietaryColor, 0.4)
+)
