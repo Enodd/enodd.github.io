@@ -1,0 +1,45 @@
+@use './palette' as palette;
+@use './utils' as utils;
+
+.hero-section {
+    margin-top: 3rem;
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    @include utils.breakpointUp('md') {
+        width: 1200px;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    &__title {
+        text-align: center;
+        @include utils.fontSize('900');
+    }
+    &__text {
+        @include utils.fontSize('600');
+        text-align: center;
+    }
+    &__highlight {
+        @include utils.fontSize('600');
+        color: palette.getColor(primary);
+        font-weight: bold;
+        text-align: center;
+    }
+    &__stack {
+        justify-content: center;
+        gap: 1rem;
+    }
+    @include utils.breakpointUp('md'){ 
+        &__title {
+            text-align: left;
+        }
+        &__text {
+            text-align: left;
+        }
+        &__highlight {
+            text-align: left;
+        }
+    }
+}

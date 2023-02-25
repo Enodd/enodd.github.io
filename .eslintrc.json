@@ -8,19 +8,20 @@
         "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended"
     ],
-    "parser": "@typescript-eslint/parser",
+    "parser": "astro-eslint-parser",
     "parserOptions": {
-        "ecmaFeatures": {
-            "jsx": true
-        },
-        "ecmaVersion": 12,
+        "parser": "@typescript-eslint/parser",
+        "extraFileExtensions": [".astro"],
         "sourceType": "module"
     },
     "plugins": [
         "react",
+        "astro",
         "@typescript-eslint"
     ],
     "rules": {
+        "astro/no-conflict-set-directives": "error",
+        "astro/no-unused-define-vars-in-style": "error",
         "indent": [
             "error",
             "tab"
@@ -43,6 +44,6 @@
         "object-curly-newline": ["error", { "multiline": true, "minItems": 2}],
         "object-property-newline": "error",
         "no-unused-vars": "error",
-        "max-lines": 150
+        "max-lines": ["error", {"max": 200, "skipComments": true, "skipBlankLines": true}]
     }
 }

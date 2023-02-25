@@ -1,7 +1,27 @@
 ---
-console.log('hello there');
+// todo: uncomment when i'll be better in astro
+// import AstroIcon from '@data/AstroIcon.svg';
+import { SiReact, SiTypescript } from 'react-icons/si';
+import AuthorImage from '@data/authorImage.png';
+import '../../styles/heroSection.scss';
 ---
-
-<div>
-    
-</div>
+<section class='section section__hero-section hero-section'>
+    <div class='stack stack--vertical' style={{gap: '0.5rem'}}>
+        <h2 class='hero-section__title'>
+            Hi There
+        </h2>
+        <p class='hero-section__text'>
+            I'm Damian
+        </p>
+        <span class='hero-section__highlight'>
+            Front-end Developer
+        </span>
+        <div class='hero-section__stack stack'>
+            <SiTypescript size='32px' />
+            <SiReact size='32px' />
+            <!-- todo: uncomment this line when I'll have more experience in astro.js -->
+            <!-- <img src={AstroIcon} alt="astro js icon" style={{width: '100%', maxWidth: '32px', height: 'auto', color: 'white', fill: 'white'}} /> -->
+        </div>
+    </div>
+    <img src={AuthorImage} alt="image of website's author" style={{maxWidth: '300px', height: 'auto'}}/>
+</section>

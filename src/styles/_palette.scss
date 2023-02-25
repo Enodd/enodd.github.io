@@ -1,0 +1,42 @@
+@use 'sass:color';
+
+$main: #ffba00;
+$secondaryMain: #00ffff;
+$trietaryColor: #ff0080;
+$backgroundColor: #02212c;
+$orangeFlare: #ba5721;
+
+$lighten: 25%;
+$darken: 15%;
+
+$colors: (
+    primary: (
+        base: $main,
+        light: color.scale($main, $lightness: $lighten),
+        dark: darken($main, $darken),
+    ),
+    secondary: (
+        light: lighten($secondaryMain, $lighten),
+        base: $secondaryMain,
+        dark: darken($secondaryMain, $darken),
+    ),
+    trietary: (
+        light: lighten($trietaryColor, $lighten),
+        base: $trietaryColor,
+        dark: darken($trietaryColor, $darken),
+    ),
+    background: (
+        orangeFlare: $orangeFlare,
+        base: $backgroundColor,
+        blueFlare: $secondaryMain,
+        magentaFlare: $trietaryColor,
+    )
+);
+
+@function getColor($base, $shade: base) {
+    @if ($base == background and ($shade == light or $shade == dark)){
+        @return $backgroundColor;
+    } 
+    $color: map-get(map-get($colors, $base), $shade);
+    @return $color;
+}
