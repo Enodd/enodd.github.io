@@ -8,5 +8,12 @@ import react from "@astrojs/react";
 // https://astro.build/config
 export default defineConfig({
   site: 'https://enodd.github.io',
-  integrations: [mdx(), sitemap(), react()]
+  integrations: [mdx(), sitemap(), react()],
+  vite: {
+    server: {
+      watch: {
+        usePolling: true
+      }
+    }
+  }
 });
