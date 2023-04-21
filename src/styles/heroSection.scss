@@ -8,38 +8,32 @@
     justify-content: center;
     align-items: center;
     gap: 2rem;
+    width: 100%;
+    max-width: 1200px;
     @include utils.breakpointUp('md') {
-        width: 1200px;
         flex-direction: row;
         justify-content: space-between;
     }
-    &__title {
+
+    &__title, &__text, &__highlight {
         text-align: center;
+        @include utils.fontSize('600');
+        @include utils.breakpointUp('md') {
+            text-align: left;
+        }
+    }
+    
+    &__title {
         @include utils.fontSize('900');
     }
-    &__text {
-        @include utils.fontSize('600');
-        text-align: center;
-    }
+
     &__highlight {
-        @include utils.fontSize('600');
         color: palette.getColor(primary);
         font-weight: bold;
-        text-align: center;
     }
+
     &__stack {
         justify-content: center;
         gap: 1rem;
-    }
-    @include utils.breakpointUp('md'){ 
-        &__title {
-            text-align: left;
-        }
-        &__text {
-            text-align: left;
-        }
-        &__highlight {
-            text-align: left;
-        }
     }
 }

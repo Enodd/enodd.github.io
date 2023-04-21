@@ -4,6 +4,7 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../config';
 import HeroSection from '@views/HomePage/heroSection.astro';
 import PageLayout from '@layouts/PageLayout.astro';
 import '../styles/global.scss';
+import QuoteBlock from '@views/HomePage/QuoteBlock.astro';
 ---
 
 <!DOCTYPE html>
@@ -13,7 +14,8 @@ import '../styles/global.scss';
 	</head>
 	<body>
 		<PageLayout>
-			<HeroSection />
+			<HeroSection client:load />
+			<QuoteBlock />
 			<section id='about' style={{marginTop: '200vw'}}>
 				hehe
 			</section>

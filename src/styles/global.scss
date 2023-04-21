@@ -33,14 +33,18 @@ a {
     text-decoration: none;
 }
 
+main {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
 .container {
     width: 100%;
     min-height: 100vh;
     min-height: 100svh;
     padding: 3rem 5rem;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
     @include utils.breakpointDown('lg'){
         padding: 2rem 3rem;
     }

@@ -17,7 +17,7 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e: any) => void}>
         }
     }
 
-    const handleAnchorClick = (e: any) => {
+    const HandleAnchorClick = (e: any) => {
         onAnchorClick(e);
         HandleMenuToggle('close');
     }
@@ -34,19 +34,19 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e: any) => void}>
             </div>
             <ul className="navigation__list list list--vertical">
                 <li className="list__element">
-                    <a href="#about" onClick={(e) => handleAnchorClick(e)}>About</a>
+                    <a href="#about" onClick={(e) => HandleAnchorClick(e)}>About</a>
                 </li>
                 <li className="list__element">
-                    <a href="#portfolio" onClick={(e) => handleAnchorClick(e)}>Portfolio</a>
+                    <a href="#portfolio" onClick={(e) => HandleAnchorClick(e)}>Portfolio</a>
                 </li>
                 <li className="list__element">
-                    <a href="#Contact" onClick={(e) => handleAnchorClick(e)}>Contact</a>
+                    <a href="#Contact" onClick={(e) => HandleAnchorClick(e)}>Contact</a>
                 </li>
             </ul>
             <div className='navigation__mobileSocials'>
                 <ul className="navigation__list list list--horizontal">
                     <li className="list__element">
-                        <a target='_blank' href="#" className='navigation__icon'>
+                        <a target='_blank' href="https://twitter.com/enodd_dev" className='navigation__icon'>
                             <FaTwitter size={'48px'} fill={'inherit'}/>
                         </a>
                     </li>
