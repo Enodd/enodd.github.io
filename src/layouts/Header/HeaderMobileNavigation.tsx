@@ -1,7 +1,7 @@
 import React, { useRef, useState } from 'react';
 import { FaBars, FaGithub, FaLinkedin, FaTimes, FaTwitter } from 'react-icons/fa'; 
 
-export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e: any) => void}> = ({onAnchorClick}) => {
+export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e) => void}> = ({onAnchorClick}) => {
     const menuRef = useRef(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     
@@ -29,7 +29,7 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e: any) => void}>
         ? <div ref={menuRef} className="navigation__mobileListWrapper">
             <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
                 <button className='navigation__toggleButton button button--transparentBg' onClick={() => HandleMenuToggle('close')}>
-                    <FaTimes />
+                    <FaTimes size='32px' />
                 </button> 
             </div>
             <ul className="navigation__list list list--vertical">
@@ -64,7 +64,7 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e: any) => void}>
             </div>
         </div>
         : <button className='navigation__toggleButton button button--transparentBg' onClick={() => HandleMenuToggle('open')}>
-            <FaBars />
+            <FaBars size={'32px'} />
         </button>
     }
 </nav> 

@@ -1,5 +1,7 @@
 ---
+import Footer from '@layouts/Footer/Footer.astro';
 import { Header } from '@layouts/Header/Header';
+import '../styles/global.scss';
 ---
 
 <div class="container">
@@ -7,4 +9,5 @@ import { Header } from '@layouts/Header/Header';
     <main>
         <slot />
     </main>
+    <Footer />
 </div>

@@ -16,6 +16,7 @@
     box-sizing: border-box;
     color: white;
     font-family: 'Rubik', sans-serif;
+    @include utils.fontSize('400');
 }
 
 html body {
@@ -23,10 +24,6 @@ html body {
     background-color: palette.getColor(background);
     background-size: cover;
     background-repeat: no-repeat;
-}
-
-a, button, li, p, div {
-    @include utils.fontSize('400');
 }
 
 a {
@@ -38,19 +35,19 @@ main {
     display: flex;
     flex-direction: column;
     align-items: center;
+    padding: 3rem 5rem 0;
+    @include utils.breakpointDown('lg'){
+        padding: 2rem 3rem;
+    }
+    @include utils.breakpointDown('md'){
+        padding: 1rem 1rem 0;
+    }
 }
 
 .container {
     width: 100%;
     min-height: 100vh;
     min-height: 100svh;
-    padding: 3rem 5rem;
-    @include utils.breakpointDown('lg'){
-        padding: 2rem 3rem;
-    }
-    @include utils.breakpointDown('md'){
-        padding: 1rem;
-    }
 }
 
 .button {

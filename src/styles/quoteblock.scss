@@ -2,11 +2,24 @@
 @use './utils' as utils;
 
 .quote-block {
-    margin: 2rem 0;
+    margin: 6rem 0;
+    &__content, &__highlight {
+        @include utils.fontSize('700');
+    }
     &__content {
-        @include utils.fontSize('600');
         color: palette.getColor(primary);
-        font-weight: bold;
-        
+        position: relative;
+        text-align: center;
+        font-style: italic;
+        &::before {
+            content: '\"';
+            position: absolute;
+            top: -.5ch;
+            left: -.2ch;
+            color: palette.getColor(primary);
+            font-weight: bold;
+            font-size: clamp(6.61rem, 6.02rem + 5.23vw, 10.9rem);
+            z-index: -1;
+        }
     }
 }

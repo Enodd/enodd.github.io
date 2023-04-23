@@ -3,9 +3,8 @@ import AstroIcon from '@data/AstroIcon.svg';
 import { SiReact, SiTypescript } from 'react-icons/si';
 import AuthorImage from '@data/authorImage.png';
 import '../../styles/heroSection.scss';
-import { useSiteConfig } from '@hooks/useSiteConfig';
+import { SiteConfig } from '@models/config';
 
-const { SITE_AUTHOR_AGE } = useSiteConfig();
 ---
 <section class='section section__hero-section hero-section'>
     <div class='stack stack--vertical' style={{gap: '0.5rem'}}>
@@ -13,7 +12,7 @@ const { SITE_AUTHOR_AGE } = useSiteConfig();
             Hi There!
         </h2>
         <p class='hero-section__text'>
-            I'm Damian, a {SITE_AUTHOR_AGE} year old
+            I'm Damian, a {SiteConfig.author.age} year old
         </p>
         <span class='hero-section__highlight'>
             Front-end Developer
@@ -21,9 +20,8 @@ const { SITE_AUTHOR_AGE } = useSiteConfig();
         <div class='hero-section__stack stack'>
             <SiTypescript size='32px' />
             <SiReact size='32px' />
-            <!-- todo: uncomment this line when I'll have more experience in astro.js -->
             <img src={AstroIcon} alt="astro js icon" style={{ width: '100%', maxWidth: '32px', height: 'auto', color: 'white', fill: 'white'}} />
         </div>
     </div>
-    <img src={AuthorImage} alt="image of website's author" style={{maxWidth: '300px', height: 'auto'}}/>
+    <img src={AuthorImage} alt="image of website's author" style={{ maxWidth: '350px', height: 'auto' }}/>
 </section>

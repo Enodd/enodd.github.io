@@ -7,12 +7,11 @@ import '../../styles/header.scss';
 export const Header: React.FC = () => {
     const isMdDown = useMediaQuery('mdDown');
 
-    const goToAnchor = (e: any) => {
+    const goToAnchor = (e) => {
         e.preventDefault();
         const _anchor = (e.target.href as string).replace(window.location.href, '');
         const target = document.querySelector(_anchor);
         target.scrollIntoView({behavior: 'smooth'});
-        // todo: how to go to target anchor on page
     }
 
 

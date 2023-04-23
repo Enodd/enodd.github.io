@@ -1,0 +1,24 @@
+---
+interface Props {
+    direction?: 'vertical' | 'horizontal';
+}
+
+const { direction = 'vertical' } = Astro.props;
+---
+
+<div class={`separator separator--${direction}`}></div>
+
+<style lang="scss">
+    .separator {
+        width: 1px;
+        height: 15rem;
+        border: 2px dashed white;
+        border-spacing: 1rem;
+        &--vertical {
+            transform: rotate(0deg);
+        }
+        &--horizontal {
+            transform: rotate(90deg);
+        }
+    }
+</style>

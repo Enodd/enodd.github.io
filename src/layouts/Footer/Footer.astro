@@ -1,0 +1,19 @@
+---
+import '../../styles/footer.scss';
+import dayjs from "dayjs";
+import { SiteNavigations } from '@models/SiteNavigations';
+import { SiteConfig } from '@models/config';
+
+const currentYear = dayjs().get('year');
+---
+<footer class='core-footer'>
+    <a
+        target='_blank'
+        href={SiteNavigations.Github} 
+        class='core-footer__author'>
+        <span class='core-footer__highlight'>
+            {currentYear}
+        </span>
+        Made by {SiteConfig.author.name}. All rights reserved.
+    </a>
+</footer>

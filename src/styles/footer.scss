@@ -1,0 +1,13 @@
+@use './palette' as palette;
+@use './utils' as utils;
+
+.core-footer {
+    background-color: palette.getColor(background);
+    padding: 1rem;
+    text-align: center;
+    font-weight: bold;
+    &__author {
+        @include utils.fontSize('500');
+        color: palette.getColor(primary, light);
+    }
+}

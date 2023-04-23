@@ -8,8 +8,9 @@
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-    @include utils.breakpointDown('md') {
-        padding: 0 3rem;
+    padding: 2rem 3rem;
+    @include utils.breakpointDown('lg'){
+        padding: 1rem 3rem;
     }
 }
 
