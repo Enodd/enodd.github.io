@@ -5,8 +5,8 @@
 
 @mixin pageBackground() {
     background:
-    radial-gradient(circle at top left, palette.getColor(background, orangeFlare) 0, transparent 50%) top left,
-    radial-gradient(circle at right, palette.getColor(secondary) 0%, transparent 45%) right,
+    radial-gradient(circle at top left, palette.getColor(background, orangeFlare) 0, transparent 35%) top left,
+    radial-gradient(circle at right, palette.getColor(background, blueFlare) 0%, transparent 40%) right,
     radial-gradient(circle at bottom left, palette.getColor(background, magentaFlare) 0%, transparent 40%);
 }
 
