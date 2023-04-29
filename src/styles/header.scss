@@ -3,12 +3,15 @@
 @use './animations' as animations;
 
 .core-header {
+    margin: 0 auto;
     width: 100%;
+    max-width: 1920px;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
     padding: 2rem 3rem;
+    z-index: 2;
     @include utils.breakpointDown('lg'){
         padding: 1rem 3rem;
     }
@@ -16,7 +19,7 @@
 
 .navigation {
     &__mobileListWrapper {
-        position: absolute;
+        position: fixed;
         top: 0;
         left: 0;
         width: 100%;
@@ -29,6 +32,7 @@
         padding: 2rem 4rem 3rem;
         background-color: #{palette.getColor(background)}aa;
         backdrop-filter: blur(4px);
+        z-index: 2;
     }
     &__list {
         .list__element {

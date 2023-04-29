@@ -11,6 +11,7 @@
         position: relative;
         text-align: center;
         font-style: italic;
+        z-index: 0;
         &::before {
             content: '\"';
             position: absolute;
@@ -19,7 +20,6 @@
             color: palette.getColor(primary);
             font-weight: bold;
             font-size: clamp(6.61rem, 6.02rem + 5.23vw, 10.9rem);
-            z-index: -1;
         }
     }
 }

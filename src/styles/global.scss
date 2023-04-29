@@ -76,3 +76,13 @@ main {
         flex-direction: column;
     }
 }
+
+.section {
+    max-width: 1200px;
+    @include utils.breakpointUp('md'){
+        width: 100%;
+    }
+    &__title {
+        @include utils.fontSize('600');
+    }
+}
