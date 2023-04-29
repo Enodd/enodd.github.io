@@ -1,24 +1,70 @@
 ---
 interface Props {
     direction?: 'vertical' | 'horizontal';
+    color?: 'pale' | 'primary' | 'secondary' | 'trietary';
+    length?: string;
+    dashes?: number;
 }
 
-const { direction = 'vertical' } = Astro.props;
+const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } = Astro.props;
 ---
 
-<div class={`separator separator--${direction}`}></div>
+<div class={`separator separator--${direction} separator--${color} separator--d${dashes}`}></div>
 
-<style lang="scss">
+<style lang="scss" define:vars={{separatorLength: length}}>
+    @use "sass:math";
+    @use "sass:string";
+    @use '../styles/palette' as palette;
+
+    @mixin dashes($size, $color: #fff) {
+        $i: 0;
+        $size: ($size * 2) - 1;
+        $increase: math.div(100, $size);
+        $percent: 0;
+        $background: "linear-gradient(";
+        @while $i < $size {
+            @if ($i % 2 == 0) {
+                $background: $background + "#{$color} #{$percent}%, #{$color} #{$percent + $increase}%,";
+            } @else {
+                $background: $background + "transparent #{$percent}%, transparent #{$percent + $increase}%,";
+            }
+            $percent: math.min($percent + $increase, 100);
+            $i: $i + 1;
+        }
+        $background: str-slice($background, 0, -2) + ")";
+        background: string.unquote($background);
+    }
+
+    @mixin sizeSupport($color: #fff) {
+        @for $i from 1 through 20 {
+            &.separator--d#{$i}{
+                @include dashes($i, $color);
+            }
+        }
+    }
+
     .separator {
-        width: 1px;
-        height: 15rem;
-        border: 2px dashed white;
-        border-spacing: 1rem;
+        width: 5px;
+        height: var(--separatorLength);
+        border-radius: 1rem;
+        $size: 4;
         &--vertical {
             transform: rotate(0deg);
         }
         &--horizontal {
             transform: rotate(90deg);
+        }
+        &--pale {
+            @include sizeSupport();
+        }
+        &--primary {
+            @include sizeSupport(palette.getColor(primary));
+        }
+        &--secondary {
+            @include sizeSupport(palette.getColor(secondary));
+        }
+        &--trietary {
+            @include sizeSupport(palette.getColor(trietary));
         }
     }
 </style>

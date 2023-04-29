@@ -34,7 +34,7 @@ $colors: (
 );
 
 @function getColor($base, $shade: base) {
-    @if ($base == background and ($shade == light or $shade == dark)){
+    @if ( $base == background and ($shade == light or $shade == dark) ){
         @return $backgroundColor;
     } 
     $color: map-get(map-get($colors, $base), $shade);

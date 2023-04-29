@@ -5,6 +5,8 @@ import PageLayout from '@layouts/PageLayout.astro';
 import QuoteBlock from '@views/HomePage/QuoteBlock.astro';
 import { SiteConfig } from '@models/config';
 import DashedSeparator from '@components/DashedSeparator.astro';
+import ProjectsSection from '@views/HomePage/ProjectsSection.astro';
+
 const { site } = SiteConfig;
 ---
 
@@ -17,7 +19,8 @@ const { site } = SiteConfig;
 		<PageLayout>
 			<HeroSection />
 			<QuoteBlock />
-			<DashedSeparator />
+			<DashedSeparator color='primary' dashes={5} />
+			<ProjectsSection />
 			<section id='about' style={{ marginTop: '200vw' }}>
 				EHE, DE NANDAYO
 			</section>
