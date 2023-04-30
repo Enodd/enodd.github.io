@@ -1,7 +1,7 @@
 @use 'sass:color';
 
 $main: #ffba00;
-$secondaryMain: #00ffff;
+$secondaryMain: #009DFF;
 $trietaryColor: #ff0080;
 $backgroundColor: #02212c;
 $orangeFlare: #ba5721;
@@ -13,7 +13,7 @@ $colors: (
     primary: (
         base: $main,
         light: color.scale($main, $lightness: $lighten),
-        dark: darken($main, $darken),
+        dark: #FF7600,
     ),
     secondary: (
         light: lighten($secondaryMain, $lighten),
@@ -28,7 +28,7 @@ $colors: (
     background: (
         orangeFlare: $orangeFlare,
         base: $backgroundColor,
-        blueFlare: $secondaryMain,
+        blueFlare: #00ffff,
         magentaFlare: $trietaryColor,
     )
 );

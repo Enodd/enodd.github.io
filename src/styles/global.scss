@@ -55,6 +55,7 @@ main {
     border: none;
     @include utils.fontSize('600');
     &--transparentBg {
+        @extend .button;
         background: transparent;
     }
 }
@@ -66,6 +67,7 @@ main {
     gap: 2rem;
     list-style: none;
     &--horizontal {
+        @extend .list;
         flex-direction: row;
     }
 }
@@ -73,6 +75,7 @@ main {
 .stack {
     display: flex;
     &--vertical {
+        @extend .stack;
         flex-direction: column;
     }
 }
@@ -83,6 +86,7 @@ main {
         width: 100%;
     }
     &__title {
-        @include utils.fontSize('600');
+        margin-bottom: 2rem;
+        @include utils.fontSize('700');
     }
 }

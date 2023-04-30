@@ -1,5 +1,9 @@
 ---
+import DashedSeparator from '@components/DashedSeparator.astro';
 import '../../styles/projectsSection.scss';
+
+const projects = (await Astro.glob('../../pages/projects/*.{md,mdx}'))
+    .sort((a, b) => new Date(b.frontmatter.pubDate).valueOf() - new Date(a.frontmatter.pubDate).valueOf());
 ---
 
 <section class='section projects-section'>
@@ -7,6 +11,32 @@ import '../../styles/projectsSection.scss';
         My recent projects
     </h2>
     {
-        /* Here I map projects cards */
+        projects.map((project, index) => {
+            return <>
+            {index % 2 !== 0 ? <DashedSeparator dashes={2} length="3rem"/> : null} 
+            <div class='projects-section__project-card project-card'>
+            <div class='project-card__wrapper'>
+                <h3 class='project-card__title'>
+                    {project.frontmatter.title}
+                </h3>
+                <div class='project-card__description'>
+                    {project.frontmatter.description}
+                </div>
+                <div class='project-card__actions'>
+                    <a href={project.url} class='project-card__link--primary'>
+                        {'Details'}
+                    </a>
+                    <a href={project.frontmatter.sourceLink} class='project-card__link--secondary'>
+                        {'Source Code'}
+                    </a>
+                </div>
+            </div>
+            <img
+                class='project-card__image'
+                width="40%"
+                height="auto"
+                src={project.frontmatter.heroImage}
+                alt='testImage' />
+        </div> </>})
     }
 </section>
