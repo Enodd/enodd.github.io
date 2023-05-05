@@ -1,7 +1,7 @@
 ---
 interface Props {
     direction?: 'vertical' | 'horizontal';
-    color?: 'pale' | 'primary' | 'secondary' | 'trietary';
+    color?: 'pale' | 'primary' | 'secondary' | 'trietary' | 'rainbow';
     length?: string;
     dashes?: number;
 }
@@ -14,28 +14,37 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
 <style lang="scss" define:vars={{separatorLength: length}}>
     @use "sass:math";
     @use "sass:string";
+    @use "sass:list";
     @use '../styles/palette' as palette;
 
-    @mixin dashes($size, $color: #fff) {
+    $rainbow: [#fff, palette.getColor(primary), palette.getColor(secondary), palette.getColor(trietary)];
+
+    @mixin dashes($size, $colors) {
         $i: 0;
+        $ic: 1;
         $size: ($size * 2) - 1;
         $increase: math.div(100, $size);
         $percent: 0;
         $background: "linear-gradient(";
         @while $i < $size {
+            @if ($ic > length($colors)) {
+                $ic: 1;
+            }
+            $currentColor: list.nth($colors, $ic);
             @if ($i % 2 == 0) {
-                $background: $background + "#{$color} #{$percent}%, #{$color} #{$percent + $increase}%,";
+                $background: $background + "#{$currentColor} #{$percent}%, #{$currentColor} #{$percent + $increase}%,";
             } @else {
                 $background: $background + "transparent #{$percent}%, transparent #{$percent + $increase}%,";
             }
             $percent: math.min($percent + $increase, 100);
+            $ic: $ic + 1;
             $i: $i + 1;
         }
         $background: str-slice($background, 0, -2) + ")";
         background: string.unquote($background);
     }
 
-    @mixin sizeSupport($color: #fff) {
+    @mixin sizeSupport($color) {
         @for $i from 1 through 20 {
             &.separator--d#{$i}{
                 @include dashes($i, $color);
@@ -56,7 +65,10 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
             transform: rotate(90deg);
         }
         &--pale {
-            @include sizeSupport();
+            @include sizeSupport(white);
+        }
+        &--rainbow {
+            @include sizeSupport(rainbow);
         }
         &--primary {
             @include sizeSupport(palette.getColor(primary));
