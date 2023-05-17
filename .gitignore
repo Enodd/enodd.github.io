@@ -1,6 +1,7 @@
 node_modules/
 .cache/
 
+dist/
 enodd.github.io-old/
 **/.DS_Store
 **/*.d.ts

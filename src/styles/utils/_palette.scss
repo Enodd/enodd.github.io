@@ -5,6 +5,7 @@ $secondaryMain: #009DFF;
 $trietaryColor: #ff0080;
 $backgroundColor: #02212c;
 $orangeFlare: #ba5721;
+$disabled: #535353;
 
 $lighten: 25%;
 $darken: 15%;
@@ -30,10 +31,13 @@ $colors: (
         base: $backgroundColor,
         blueFlare: #00ffff,
         magentaFlare: $trietaryColor,
-    )
+    ),
 );
 
 @function getColor($base, $shade: base) {
+    @if ($base == disabled) {
+        @return $disabled;
+    }
     @if ( $base == background and ($shade == light or $shade == dark) ){
         @return $backgroundColor;
     } 

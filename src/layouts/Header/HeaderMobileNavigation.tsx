@@ -28,7 +28,7 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e) => void}> = ({
         isMenuOpen
         ? <div ref={menuRef} className="navigation__mobileListWrapper">
             <div style={{display: 'flex', justifyContent: 'flex-end', width: '100%'}}>
-                <button className='navigation__toggleButton button button--transparentBg' onClick={() => HandleMenuToggle('close')}>
+                <button className='navigation__toggleButton button' onClick={() => HandleMenuToggle('close')}>
                     <FaTimes size='32px' />
                 </button> 
             </div>
@@ -63,7 +63,7 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e) => void}> = ({
                 </ul>
             </div>
         </div>
-        : <button className='navigation__toggleButton button button--transparentBg' onClick={() => HandleMenuToggle('open')}>
+        : <button className='navigation__toggleButton button' onClick={() => HandleMenuToggle('open')}>
             <FaBars size={'32px'} />
         </button>
     }

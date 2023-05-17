@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
 
     return <header className="core-header">
         <div className="core-header__logo">
-            <img src="/PageLogo.svg" alt="test" style={{maxWidth: '48px'}} />
+            <img src="/PageLogo.svg" alt="website's logo" style={{maxWidth: '48px'}} />
         </div>
         {
             isMdDown

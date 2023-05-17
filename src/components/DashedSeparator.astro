@@ -15,11 +15,11 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
     @use "sass:math";
     @use "sass:string";
     @use "sass:list";
-    @use '../styles/palette' as palette;
+    @use '../styles/utils/palette' as palette;
 
     $rainbow: [#fff, palette.getColor(primary), palette.getColor(secondary), palette.getColor(trietary)];
 
-    @mixin dashes($size, $colors) {
+    @mixin dashes($size, $colors: (#fff)) {
         $i: 0;
         $ic: 1;
         $size: ($size * 2) - 1;
@@ -33,18 +33,18 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
             $currentColor: list.nth($colors, $ic);
             @if ($i % 2 == 0) {
                 $background: $background + "#{$currentColor} #{$percent}%, #{$currentColor} #{$percent + $increase}%,";
+                $ic: $ic + 1;
             } @else {
                 $background: $background + "transparent #{$percent}%, transparent #{$percent + $increase}%,";
             }
             $percent: math.min($percent + $increase, 100);
-            $ic: $ic + 1;
             $i: $i + 1;
         }
         $background: str-slice($background, 0, -2) + ")";
         background: string.unquote($background);
     }
 
-    @mixin sizeSupport($color) {
+    @mixin sizeSupport($color: (#fff)) {
         @for $i from 1 through 20 {
             &.separator--d#{$i}{
                 @include dashes($i, $color);
@@ -68,7 +68,7 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
             @include sizeSupport(white);
         }
         &--rainbow {
-            @include sizeSupport(rainbow);
+            @include sizeSupport($rainbow);
         }
         &--primary {
             @include sizeSupport(palette.getColor(primary));

@@ -1,5 +1,5 @@
-@use './palette' as palette;
-@use './utils' as utils;
+@use './utils/palette' as palette;
+@use './utils/utils' as utils;
 
 .hero-section {
     margin-top: 3rem;
