@@ -1,0 +1,12 @@
+@use '../utils/utils' as utils;
+
+.section {
+    max-width: 1200px;
+    @include utils.breakpointUp('md'){
+        width: 100%;
+    }
+    &__title {
+        margin-bottom: 2rem;
+        @include utils.fontSize('700');
+    }
+}

@@ -6,6 +6,7 @@ import QuoteBlock from '@views/HomePage/QuoteBlock.astro';
 import { SiteConfig } from '@models/config';
 import DashedSeparator from '@components/DashedSeparator.astro';
 import ProjectsSection from '@views/HomePage/ProjectsSection.astro';
+import TechnologiesSection from '@views/HomePage/TechnologiesSection.astro';
 
 const { site } = SiteConfig;
 ---
@@ -21,6 +22,8 @@ const { site } = SiteConfig;
 			<QuoteBlock />
 			<DashedSeparator color='rainbow' dashes={5} />
 			<ProjectsSection />
+			<DashedSeparator color='rainbow' dashes={5} />
+			<TechnologiesSection />
 		</PageLayout>
 	</body>
 </html>

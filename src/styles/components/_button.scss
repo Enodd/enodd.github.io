@@ -23,6 +23,7 @@ $transitionTime: 300ms;
         &--gradient {
             @extend .button;
             background: linear-gradient(135deg, darken($color, $darkenLevel), lighten($color, $lightness));
+            @include palette.text-contrast($color);
         }
         &--filled {
             @extend .button;

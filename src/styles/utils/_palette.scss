@@ -1,7 +1,7 @@
 @use 'sass:color';
 
 $main: #ffba00;
-$secondaryMain: #009DFF;
+$secondaryMain: #0066ff;
 $trietaryColor: #ff0080;
 $backgroundColor: #02212c;
 $orangeFlare: #ba5721;
@@ -44,3 +44,13 @@ $colors: (
     $color: map-get(map-get($colors, $base), $shade);
     @return $color;
 }
+
+@mixin text-contrast($n) {
+    $color-brightness: round(calc(((red($n)*299) + (green($n)*587) + (blue($n)*114))/1000));
+    $light-color: round(calc(((red(#ffffff)*299) + (green(#ffffff)*587) + (blue(#ffffff)*114)) /1000));
+    @if abs($color-brightness) < calc($light-color/2){
+      color: white;
+    } @else {
+      color: black;
+    }
+  }

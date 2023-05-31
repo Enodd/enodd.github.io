@@ -2,23 +2,19 @@
 @use './utils/palette' as palette;
 @use './utils/utils' as utils;
 @use './components/button';
-@import url('https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-@mixin pageBackground() {
-    background: url('../data/BackgroundImage.svg');
-}
+@use './components/section';
 
 * {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     color: white;
-    font-family: 'Rubik', sans-serif;
+    font-family: 'Outfit', sans-serif;
     @include utils.fontSize('400');
 }
 
 html body {
-    @include pageBackground();
+    background: url('../data/BackgroundImage.svg');
     background-color: palette.getColor(background);
     background-size: cover;
     background-repeat: no-repeat;
@@ -65,16 +61,5 @@ main {
     &--vertical {
         @extend .stack;
         flex-direction: column;
-    }
-}
-
-.section {
-    max-width: 1200px;
-    @include utils.breakpointUp('md'){
-        width: 100%;
-    }
-    &__title {
-        margin-bottom: 2rem;
-        @include utils.fontSize('700');
     }
 }
