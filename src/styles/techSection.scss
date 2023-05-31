@@ -1,0 +1,6 @@
+@use './components/section';
+
+.techsection {
+    @extend .section;
+    margin: 6rem 0;
+}
