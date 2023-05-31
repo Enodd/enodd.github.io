@@ -6,8 +6,16 @@
     padding: 1rem;
     text-align: center;
     font-weight: bold;
-    &__author {
+    &__author, &__link {
         @include utils.fontSize('500');
+    }
+    &__author {
         color: palette.getColor(primary, light);
+        transition: color 300ms;
+    }
+    &:hover {
+        .core-footer__author {
+            color: palette.getColor(primary, dark);
+        }
     }
 }

@@ -17,7 +17,7 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
     @use "sass:list";
     @use '../styles/utils/palette' as palette;
 
-    $rainbow: [#fff, palette.getColor(primary), palette.getColor(secondary), palette.getColor(trietary)];
+    $rainbow: [ palette.getColor(primary), palette.getColor(secondary), palette.getColor(trietary) ];
 
     @mixin dashes($size, $colors: (#fff)) {
         $i: 0;

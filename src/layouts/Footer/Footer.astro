@@ -8,12 +8,13 @@ const currentYear = dayjs().get('year');
 ---
 <footer class='core-footer'>
     <a
-        target='_blank'
-        href={SiteNavigations.Github} 
-        class='core-footer__author'>
-        <span class='core-footer__highlight'>
-            {currentYear}
+    target='_blank'
+    href={SiteNavigations.Github} 
+    class='core-footer__link'>
+        {currentYear} Made by 
+        <span class="core-footer__author">
+            {SiteConfig.author.name}
         </span>
-        Made by {SiteConfig.author.name}. All rights reserved.
+        All rights reserved.
     </a>
 </footer>

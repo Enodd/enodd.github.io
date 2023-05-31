@@ -1,5 +1,6 @@
 @use './utils/palette' as palette;
 @use './utils/utils' as utils;
+@use './components/stack';
 
 .hero-section {
     margin-top: 3rem;
@@ -33,6 +34,7 @@
     }
 
     &__stack {
+        @extend .stack;
         justify-content: center;
         gap: 1rem;
     }

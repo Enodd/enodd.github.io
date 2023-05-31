@@ -12,8 +12,11 @@
     align-items: center;
     padding: 2rem 3rem;
     z-index: 2;
-    @include utils.breakpointDown('lg'){
+    @include utils.breakpointDown('lg') {
         padding: 1rem 3rem;
+    }
+    @include utils.breakpointDown('md') {
+        padding: 1rem 0;
     }
 }
 
@@ -29,7 +32,7 @@
         align-items: center;
         justify-content: space-between;
         gap: 3rem;
-        padding: 2rem 4rem 3rem;
+        padding: 1.4rem 2rem 3rem;
         background-color: #{palette.getColor(background)}aa;
         backdrop-filter: blur(4px);
         z-index: 2;
