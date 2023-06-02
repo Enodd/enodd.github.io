@@ -3,6 +3,10 @@
 
 .quote-block {
     margin: 6rem 0;
+    padding: 2rem;
+    background: #{palette.getColor(secondary)}30;
+    backdrop-filter: blur(4px);
+    border-radius: 20px;
     &__content, &__highlight {
         @include utils.fontSize('700');
     }

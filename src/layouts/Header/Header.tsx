@@ -16,13 +16,15 @@ export const Header: React.FC = () => {
 
 
     return <header className="core-header">
-        <div className="core-header__logo">
-            <img src="/PageLogo.svg" alt="website's logo" style={{maxWidth: '48px'}} />
+        <div className='core-header__wrapper'>
+            <div className="core-header__logo">
+                <img src="/PageLogo.svg" alt="website's logo" style={{maxWidth: '48px'}} />
+            </div>
+            {
+                isMdDown
+                    ? <HeaderMobileNavigation onAnchorClick={goToAnchor} />
+                    : <HeaderNavigation onAnchorClick={goToAnchor} />
+            }
         </div>
-        {
-            isMdDown
-                ? <HeaderMobileNavigation onAnchorClick={goToAnchor} />
-                : <HeaderNavigation onAnchorClick={goToAnchor} />
-        }
     </header>
 }

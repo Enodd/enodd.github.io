@@ -1,0 +1,75 @@
+@use './components/section';
+@use './utils/utils' as utils;
+@use './utils/palette' as palette;
+
+$borderRadius: .4rem;
+
+.work-card {
+    padding: 1rem;
+    border-radius: $borderRadius;
+    background: linear-gradient(135deg, #{palette.text-contrast(palette.getColor(primary))}30 30%, transparent);
+    backdrop-filter: blur(4px);
+    max-width: 300px;
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    gap: .5rem;
+    &__title {
+        @include utils.fontSize('600');
+    }
+    &__subtitle {
+        background: palette.getColor(primary);
+        color: palette.getColor(secondary);
+        width: fit-content;
+        padding: 0.1em 0.5em;
+    }
+    &__logo {
+        position: relative;
+        user-select: none;
+        z-index: 0;
+    }
+    &__logo-wrapper {
+        position: relative;
+        width: 100%;
+        height: 100%;
+        display: grid;
+        place-content: center;
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: white;
+            position: absolute;
+            top: 0;
+            left: 0;
+            border-radius: $borderRadius;
+            z-index: 0;
+        }
+    }
+}
+
+.work-section {
+    @extend .section;
+    margin: 6rem 0;
+    width: 100%;
+    max-width: 1200px;
+    @include utils.breakpointDown('md') {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+    &__title {
+        @extend .section__title;
+    }
+    &__content-wrapper {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        grid: 1rem;
+    }
+    &__work-card {
+        @extend .work-card;
+    }
+}

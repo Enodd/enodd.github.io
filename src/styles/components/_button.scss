@@ -3,7 +3,7 @@
 
 $darkenLevel: 4;
 $lightness: 4;
-$padding: .4rem;
+$padding: .6rem;
 $borderSize: 2px;
 $blurValue: 4px;
 $transitionTime: 300ms;
@@ -12,6 +12,7 @@ $transitionTime: 300ms;
     #{"&__#{$className}"} {
         @extend .button;
         color: $color;
+        fill: $color;
         backdrop-filter: blur($blurValue);
         transition: $transitionTime background;
         &:not(:disabled):hover {
@@ -23,7 +24,6 @@ $transitionTime: 300ms;
         &--gradient {
             @extend .button;
             background: linear-gradient(135deg, darken($color, $darkenLevel), lighten($color, $lightness));
-            @include palette.text-contrast($color);
         }
         &--filled {
             @extend .button;
@@ -60,9 +60,10 @@ $transitionTime: 300ms;
     border: none;
     border-radius: .4em;
     background: transparent;
-    @include utils.fontSize('400');
     color: white;
+    fill: white;
     font-weight: bold;
+    @include utils.fontSize('400');
     @include createButtonClass(primary, palette.getColor(primary));
     @include createButtonClass(secondary, palette.getColor(secondary));
     @include createButtonClass(trietary, palette.getColor(trietary));

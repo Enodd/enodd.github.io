@@ -1,12 +1,12 @@
 ---
 import BaseHead from '@components/BaseHead.astro';
-import HeroSection from '@views/HomePage/heroSection.astro';
+import HeroSection from '@views/HomePage/heroSection';
 import PageLayout from '@layouts/PageLayout.astro';
 import QuoteBlock from '@views/HomePage/QuoteBlock.astro';
 import { SiteConfig } from '@models/config';
 import DashedSeparator from '@components/DashedSeparator.astro';
 import ProjectsSection from '@views/HomePage/ProjectsSection.astro';
-import TechnologiesSection from '@views/HomePage/TechnologiesSection.astro';
+import WorkExperienceSection from '@views/HomePage/WorkExperienceSection.astro';
 
 const { site } = SiteConfig;
 ---
@@ -20,10 +20,10 @@ const { site } = SiteConfig;
 		<PageLayout>
 			<HeroSection />
 			<QuoteBlock />
-			<DashedSeparator color='rainbow' dashes={5} />
+			<DashedSeparator dashes={5} />
+			<WorkExperienceSection />
+			<DashedSeparator dashes={5} />
 			<ProjectsSection />
-			<DashedSeparator color='rainbow' dashes={5} />
-			<TechnologiesSection />
 		</PageLayout>
 	</body>
 </html>

@@ -8,13 +8,18 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    color: white;
+    color: palette.getColor(primary);
     font-family: 'Outfit', sans-serif;
     @include utils.fontSize('400');
+    &::selection {
+        background: palette.getColor(primary);
+        color: palette.text-contrast(palette.getColor(primary));
+    }
 }
 
+
 html body {
-    background: url('../data/BackgroundImage.svg');
+    background: url('../data/BgImage.svg');
     background-color: palette.getColor(background);
     background-size: cover;
     background-repeat: no-repeat;
@@ -42,6 +47,23 @@ main {
     width: 100%;
     min-height: 100vh;
     min-height: 100svh;
+    main {
+        position: relative;
+        overflow: hidden;
+        &::before {
+            content: '';
+            position: absolute;
+            height: 50vw;
+            width: 100vw;
+            max-height: 720px;
+        }
+        &::before {
+            top: -1px;
+            left: 0%;
+            background: linear-gradient(to top left, transparent 0%, transparent 50%, palette.getColor(primary) 50%, palette.getColor(primary) 100%);
+            z-index: -1;
+        }
+    }
 }
 
 .list {
@@ -53,13 +75,5 @@ main {
     &--horizontal {
         @extend .list;
         flex-direction: row;
-    }
-}
-
-.stack {
-    display: flex;
-    &--vertical {
-        @extend .stack;
-        flex-direction: column;
     }
 }

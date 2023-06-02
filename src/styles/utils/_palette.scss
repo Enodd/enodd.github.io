@@ -1,20 +1,31 @@
 @use 'sass:color';
 
-$main: #ffba00;
-$secondaryMain: #0066ff;
-$trietaryColor: #ff0080;
-$backgroundColor: #02212c;
-$orangeFlare: #ba5721;
+$main: #1E0F5B;
+$secondaryMain: #ffbb00;
+$trietaryColor: #000000;
+$backgroundColor: #ffbb00;
 $disabled: #535353;
 
 $lighten: 25%;
 $darken: 15%;
 
+@function text-contrast($n) {
+    $color-brightness: round(calc(((red($n)*299) + (green($n)*587) + (blue($n)*114))/1000));
+    $light-color: round(calc(((red(#ffffff)*299) + (green(#ffffff)*587) + (blue(#ffffff)*114)) /1000));
+    @if abs($color-brightness) < calc($light-color/2){
+        @return #ffffff;
+    } @else {
+        @return #000000;
+    }
+}
+
+
 $colors: (
     primary: (
         base: $main,
         light: color.scale($main, $lightness: $lighten),
-        dark: #FF7600,
+        dark: darken($main, $darken),
+        contrast: text-contrast($main)
     ),
     secondary: (
         light: lighten($secondaryMain, $lighten),
@@ -27,10 +38,7 @@ $colors: (
         dark: darken($trietaryColor, $darken),
     ),
     background: (
-        orangeFlare: $orangeFlare,
         base: $backgroundColor,
-        blueFlare: #00ffff,
-        magentaFlare: $trietaryColor,
     ),
 );
 
@@ -45,12 +53,3 @@ $colors: (
     @return $color;
 }
 
-@mixin text-contrast($n) {
-    $color-brightness: round(calc(((red($n)*299) + (green($n)*587) + (blue($n)*114))/1000));
-    $light-color: round(calc(((red(#ffffff)*299) + (green(#ffffff)*587) + (blue(#ffffff)*114)) /1000));
-    @if abs($color-brightness) < calc($light-color/2){
-      color: white;
-    } @else {
-      color: black;
-    }
-  }

@@ -1,4 +1,5 @@
 @use '../utils/utils' as utils;
+@use '../utils/palette' as palette;
 
 .section {
     max-width: 1200px;
@@ -7,6 +8,10 @@
     }
     &__title {
         margin-bottom: 2rem;
-        @include utils.fontSize('700');
+        color: palette.getColor(primary);
+        background: palette.getColor(secondary);
+        width: fit-content;
+        padding: 0.1rem 0.5rem;
+        @include utils.fontSize('800');
     }
 }

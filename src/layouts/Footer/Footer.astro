@@ -10,10 +10,11 @@ const currentYear = dayjs().get('year');
     <a
         target='_blank'
         href={SiteNavigations.Github} 
-        class='core-footer__author'>
-        <span class='core-footer__highlight'>
-            {currentYear}
+        class='core-footer__link'>
+        <span class='core-footer__author'>
+            Made by {SiteConfig.author.name}.
         </span>
-        Made by {SiteConfig.author.name}. All rights reserved.
+        {'All rights reserved.'}
+        {currentYear}
     </a>
 </footer>

@@ -17,11 +17,9 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
     @use "sass:list";
     @use '../styles/utils/palette' as palette;
 
-    $rainbow: [#fff, palette.getColor(primary), palette.getColor(secondary), palette.getColor(trietary)];
-
     @mixin dashes($size, $colors: (#fff)) {
         $i: 0;
-        $ic: 1;
+        $ic: random(length($colors));
         $size: ($size * 2) - 1;
         $increase: math.div(100, $size);
         $percent: 0;
@@ -57,7 +55,6 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
         height: var(--separatorLength);
         border-radius: 1rem;
         margin: 0 auto;
-        $size: 4;
         &--vertical {
             transform: rotate(0deg);
         }
@@ -66,9 +63,6 @@ const { direction = 'vertical', color = 'pale', dashes = 3, length = '12rem' } =
         }
         &--pale {
             @include sizeSupport(white);
-        }
-        &--rainbow {
-            @include sizeSupport($rainbow);
         }
         &--primary {
             @include sizeSupport(palette.getColor(primary));

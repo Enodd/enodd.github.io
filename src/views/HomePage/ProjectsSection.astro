@@ -1,6 +1,6 @@
 ---
-import DashedSeparator from '@components/DashedSeparator.astro';
 import '../../styles/projectsSection.scss';
+import DashedSeparator from '@components/DashedSeparator.astro';
 import ProjectCard from '@components/ProjectCard.astro';
 
 const projects = (await Astro.glob('../../pages/projects/*.{md,mdx}'))
@@ -14,8 +14,8 @@ const projects = (await Astro.glob('../../pages/projects/*.{md,mdx}'))
     {
         projects.map((project, index) => {
             return <>
-            {index % 2 !== 0 ? <DashedSeparator dashes={2} length="3rem"/> : null} 
-            <ProjectCard project={project} />
+                {index > 0 ? <DashedSeparator dashes={2} length="3rem"/> : null} 
+                <ProjectCard project={project} />
             </>})
     }
 </section>

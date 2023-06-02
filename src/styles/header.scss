@@ -3,17 +3,21 @@
 @use './utils/animations' as animations;
 
 .core-header {
-    margin: 0 auto;
     width: 100%;
-    max-width: 1920px;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-    padding: 2rem 3rem;
+    background-color: palette.getColor(primary);
     z-index: 2;
-    @include utils.breakpointDown('lg'){
-        padding: 1rem 3rem;
+    &__wrapper {
+        margin: 0 auto;
+        width: 100%;
+        max-width: 1920px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 2rem 3rem;
+        @include utils.breakpointDown('lg'){
+            padding: 1rem 3rem;
+        }
     }
 }
 
@@ -30,13 +34,15 @@
         justify-content: space-between;
         gap: 3rem;
         padding: 2rem 4rem 3rem;
-        background-color: #{palette.getColor(background)}aa;
+        background-color: #{palette.getColor(trietary)}bb;
         backdrop-filter: blur(4px);
         z-index: 2;
     }
     &__list {
         .list__element {
             a {
+                color: white;
+                font-weight: bold;
                 @include utils.breakpointDown('md') {
                     @include utils.fontSize('600');
                 }
@@ -53,43 +59,17 @@
                     &:hover {
                         &::before {
                             width: 100%;
+                            background-color: palette.getColor(secondary);
                         }
                     }
-                }
-            }
-            &:nth-of-type(1) a {
-                &::before {
-                    background: palette.getColor(primary);
-                }
-            }
-            &:nth-of-type(2) a {
-                &::before {
-                    background: palette.getColor(secondary);
-                }
-            }
-            &:nth-of-type(3) a {
-                &::before {
-                    background: palette.getColor(trietary);
                 }
             }
         }
     }
     &__mobileSocials {
         .list>.list__element{
-            &:nth-of-type(1) {
-                a {
-                    fill: palette.getColor(primary);
-                }
-            }
-            &:nth-of-type(2){
-                a {
-                    fill: palette.getColor(secondary);
-                }
-            }
-            &:nth-of-type(3) {
-                a {
-                    fill: palette.getColor(trietary);
-                }
+            a {
+                fill: palette.text-contrast(palette.getColor(trietary));
             }
         }
     }

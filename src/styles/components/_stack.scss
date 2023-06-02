@@ -1,0 +1,20 @@
+.stack {
+    display: flex;
+    &--vertical {
+        @extend .stack;
+        flex-direction: column;
+        &-jCentered {
+            @extend .stack--vertical;
+            justify-content: center;
+        }
+        &-aCentered {
+            @extend .stack--vertical;
+            align-items: center;
+        }
+        &-jaCentered {
+            @extend .stack--vertical;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
