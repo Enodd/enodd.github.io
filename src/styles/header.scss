@@ -19,6 +19,9 @@
             padding: 1rem 3rem;
         }
     }
+    @include utils.breakpointDown('md') {
+        padding: 1rem 0;
+    }
 }
 
 .navigation {

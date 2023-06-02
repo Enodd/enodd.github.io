@@ -2,7 +2,13 @@
 @use './utils/palette' as palette;
 @use './utils/utils' as utils;
 @use './components/button';
+@use './components/stack';
 @use './components/section';
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+@mixin pageBackground() {
+    background: url('../data/BackgroundImage.svg');
+}
 
 * {
     padding: 0;
