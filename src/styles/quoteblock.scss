@@ -4,18 +4,21 @@
 .quote-block {
     margin: 6rem 0;
     padding: 2rem;
-    background: #{palette.getColor(secondary)}30;
-    backdrop-filter: blur(4px);
     border-radius: 20px;
-    &__content, &__highlight {
-        @include utils.fontSize('700');
+    width: fit-content;
+    &--blured {
+        @extend .quote-block;
+        background: #ffffff30;
+        backdrop-filter: blur(4px);
     }
     &__content {
-        color: palette.getColor(primary);
         position: relative;
         text-align: center;
         font-style: italic;
         z-index: 0;
+        p {
+            @include utils.fontSize('700')
+        }
         &::before {
             content: '\"';
             position: absolute;
@@ -24,6 +27,46 @@
             color: palette.getColor(primary);
             font-weight: bold;
             font-size: clamp(6.61rem, 6.02rem + 5.23vw, 10.9rem);
+        }
+        &--primary {
+            @extend .quote-block__content;
+            $color: palette.getColor(primary);
+            p {
+                color: $color;
+            }
+            &::before {
+                color: $color;
+            }
+        }
+        &--secondary {
+            @extend .quote-block__content;
+            $color: palette.getColor(secondary);
+            p {
+                color: $color;
+            }
+            &::before {
+                color: $color;
+            }
+        }
+        &--trietary {
+            @extend .quote-block__content;
+            $color: palette.getColor(trietary);
+            p {
+                color: $color;
+            }
+            &::before {
+                color: $color;
+            }
+        }
+        &--pale {
+            @extend .quote-block__content;
+            $color: palette.text-contrast(palette.getColor(trietary));
+            p {
+                color: $color;
+            }
+            &::before {
+                color: $color;
+            }
         }
     }
 }

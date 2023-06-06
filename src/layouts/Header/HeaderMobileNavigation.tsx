@@ -1,9 +1,10 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import { FaBars, FaGithub, FaLinkedin, FaTimes, FaTwitter } from 'react-icons/fa'; 
 
-export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e) => void}> = ({onAnchorClick}) => {
+export const HeaderMobileNavigation: React.FC<{anchors: string[],onAnchorClick: (e) => void}> = ({anchors, onAnchorClick}) => {
     const menuRef = useRef(null);
     const [isMenuOpen, setIsMenuOpen] = useState(false);
+    const windowPath = typeof window !== undefined ? window.location.pathname : undefined;
     
     const HandleMenuToggle = async (menuState: 'open' | 'close') => {
         if (menuState === 'open') {
@@ -22,7 +23,6 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e) => void}> = ({
         HandleMenuToggle('close');
     }
 
-   
     return <nav className="core-header__navigation navigation">
     {
         isMenuOpen
@@ -33,15 +33,22 @@ export const HeaderMobileNavigation: React.FC<{onAnchorClick: (e) => void}> = ({
                 </button> 
             </div>
             <ul className="navigation__list list list--vertical">
-                <li className="list__element">
-                    <a href="#about" onClick={(e) => HandleAnchorClick(e)}>About</a>
-                </li>
-                <li className="list__element">
-                    <a href="#portfolio" onClick={(e) => HandleAnchorClick(e)}>Portfolio</a>
-                </li>
-                <li className="list__element">
-                    <a href="#Contact" onClick={(e) => HandleAnchorClick(e)}>Contact</a>
-                </li>
+                {
+                    windowPath !== '/'
+                    ? <li className="list__element">
+                        <a href={'/'}>
+                            Home
+                        </a>
+                    </li>
+                    : <></>
+                }
+                {
+                    anchors.map(anchor => <li className="list__element">
+                        <a href={`#${anchor}`} onClick={(e) => HandleAnchorClick(e)}>
+                            {anchor}
+                        </a>
+                    </li>)
+                }
             </ul>
             <div className='navigation__mobileSocials'>
                 <ul className="navigation__list list list--horizontal">

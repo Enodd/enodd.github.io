@@ -2,10 +2,11 @@
 import Footer from '@layouts/Footer/Footer.astro';
 import { Header } from '@layouts/Header/Header';
 import '../styles/global.scss';
+const anchors = ['about', 'portfolio', 'contact'];
 ---
 
 <div class="container">
-    <Header client:load />    
+    <Header anchors={anchors} client:load />    
     <main>
         <slot />
     </main>

@@ -1,13 +1,14 @@
 ---
 import '../../styles/quoteblock.scss';
+interface Props {
+    variant?: 'primary' | 'secondary' | 'trietary' | 'pale'
+    isBgBlur?: boolean;
+}
+const { variant = 'primary', isBgBlur } = Astro.props;
 ---
 
-<div class="quote-block">
-    <p class='quote-block__content'>
-        {'Never rate something 10/10,'}
-        <br />
-        {'because there\'s always something'}
-        <br />
-        {'to improve'}
-    </p>
-</div>
+<blockquote class={`quote-block${isBgBlur ? '--blured' : ''}`}>
+    <div class={`quote-block__content${variant ? `--${variant}` : ''}`}>
+        <slot />
+    </div>
+</blockquote>

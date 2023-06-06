@@ -1,7 +1,87 @@
 ---
+import Footer from '@layouts/Footer/Footer.astro';
+import '../styles/global.scss';
+import '../styles/views/markdown.scss';
+import { Header } from '@layouts/Header/Header';
+import BaseHead from '@components/BaseHead.astro';
 const { frontmatter } = Astro.props;
 ---
+<head>
+    <BaseHead title={frontmatter.title} description={frontmatter.description} />
+</head>
+<body>
+    <div class="blog-page__container">
+        <Header anchors={frontmatter.anchors} client:load />
+        <main>
+            <div class="blog-page__post-heroSection">
+                <h2 class="post-heroSection__title">
+                    {frontmatter.title}
+                </h2>
+                <p class="post-heroSection__subheader">
+                    {frontmatter.description}
+                </p>
+            </div>
+            <div class="blog-page__content">
+                <slot />
+            </div>
+        </main>
+        <Footer />
+    </div>
+</body>
+<style lang="scss" define:vars={{heroImage: `url(${frontmatter.heroImage})`}}>
+    @use '../styles/utils/palette' as palette;
 
-<div>
-    
-</div>
+    .post-heroSection {
+        margin: 0;
+        padding: 2rem;
+        height: 360px;
+        width: 100%;
+        background: var(--heroImage);
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-position: 50%;
+        position: relative;
+        display: grid;
+        place-content: center;
+        &:before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(#000c 10%, transparent 100%);
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 0;
+        }
+        &__title, &__subheader {
+            text-align: center;
+            color: white;
+            z-index: 1;
+        }
+    }
+    .blog-page {
+        &__container {
+            width: 100%;
+            min-height: 100vh;
+            min-height: 100svh;
+            main {
+                margin: 0;
+                padding: 0;
+
+            }
+        }
+        &__post-heroSection {
+            @extend .post-heroSection;
+        }
+        &__content {
+            padding: 2rem 0;
+            background: palette.getColor(background);
+            backdrop-filter: blur(4px);
+            width: 80%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+</style>

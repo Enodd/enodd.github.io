@@ -2,6 +2,9 @@
 @use './utils/utils' as utils;
 @use './utils/animations' as animations;
 
+.blog-page__container .core-header {
+    background-color: palette.getColor(trietary);
+}
 .core-header {
     width: 100%;
     background-color: palette.getColor(primary);
@@ -44,7 +47,8 @@
     &__list {
         .list__element {
             a {
-                color: white;
+                text-transform: capitalize;
+                color: palette.text-contrast(palette.getColor(trietary));
                 font-weight: bold;
                 @include utils.breakpointDown('md') {
                     @include utils.fontSize('600');

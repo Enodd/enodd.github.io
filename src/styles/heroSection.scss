@@ -21,7 +21,7 @@
         @include utils.fontSize('600');
         @include utils.breakpointUp('md') {
             text-align: left;
-            color: palette.getColor(secondary);
+            color: lighten(palette.getColor(secondary), 10%);
         }
     }
     
@@ -33,7 +33,7 @@
         padding: 0.1rem 0.5rem;
         width: fit-content;
         color: palette.getColor(primary);
-        background-color: palette.getColor(secondary);
+        background-color: lighten(palette.getColor(secondary), 10%);
         font-weight: bold;
         @include utils.breakpointDown('md') {
             color: palette.getColor(secondary);
@@ -46,7 +46,7 @@
         @extend .stack;
         justify-content: center;
         gap: 2rem;
-        fill: palette.getColor(secondary);
+        fill: lighten(palette.getColor(secondary), 10%);
         @include utils.breakpointDown('md') {
             fill: palette.getColor(primary);
         }

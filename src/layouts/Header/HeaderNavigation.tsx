@@ -5,9 +5,9 @@ export const HeaderNavigation: React.FC<{onAnchorClick: (e) => void}> = ({ onAnc
     <ul className="navigation__list list list--horizontal">
         <li className="list__element">
             <a
-                href="#about"
+                href="#experience"
                 onClick={(e) => onAnchorClick(e)}>
-                    About
+                    Experience
                 </a>
         </li>
         <li className="list__element">

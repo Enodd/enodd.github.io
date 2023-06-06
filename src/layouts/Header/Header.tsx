@@ -4,7 +4,7 @@ import { HeaderNavigation } from '@layouts/Header/HeaderNavigation';
 import { useMediaQuery } from '@hooks/useMediaQuery';
 import '../../styles/header.scss';
 
-export const Header: React.FC = () => {
+export const Header: React.FC<{anchors: string[]}> = ({anchors}) => {
     const isMdDown = useMediaQuery('mdDown');
 
     const goToAnchor = (e) => {
@@ -18,11 +18,13 @@ export const Header: React.FC = () => {
     return <header className="core-header">
         <div className='core-header__wrapper'>
             <div className="core-header__logo">
-                <img src="/PageLogo.svg" alt="website's logo" style={{maxWidth: '48px'}} />
+                <a href={'/'}>
+                    <img src="/PageLogo.svg" alt="website's logo" style={{maxWidth: '48px'}} />
+                </a>
             </div>
             {
                 isMdDown
-                    ? <HeaderMobileNavigation onAnchorClick={goToAnchor} />
+                    ? <HeaderMobileNavigation anchors={anchors} onAnchorClick={goToAnchor} />
                     : <HeaderNavigation onAnchorClick={goToAnchor} />
             }
         </div>

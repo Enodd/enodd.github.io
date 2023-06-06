@@ -6,6 +6,8 @@
     padding: 1rem;
     text-align: center;
     font-weight: bold;
+    position: sticky;
+    top: 100%;
     &__link, &__author {
         @include utils.fontSize('500');
     }

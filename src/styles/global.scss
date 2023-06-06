@@ -6,10 +6,6 @@
 @use './components/section';
 @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
-@mixin pageBackground() {
-    background: url('../data/BackgroundImage.svg');
-}
-
 * {
     padding: 0;
     margin: 0;
@@ -17,13 +13,38 @@
     color: palette.getColor(primary);
     font-family: 'Outfit', sans-serif;
     @include utils.fontSize('400');
+    scrollbar-color: palette.getColor(primary, light) palette.getColor(trietary);
     &::selection {
         background: palette.getColor(primary);
         color: palette.text-contrast(palette.getColor(primary));
     }
 }
-
-
+::-webkit-scrollbar {
+    background: palette.getColor(trietary);
+    width: 1rem;
+}
+::-webkit-scrollbar-thumb {
+    background: palette.getColor(primary, light);
+    border-radius: 1rem;
+}
+h1 {
+    @include utils.fontSize('900');
+}
+h2 {
+    @include utils.fontSize('800');
+}
+h3 {
+    @include utils.fontSize('700');
+}
+h4 {
+    @include utils.fontSize('600');
+}
+h5 {
+    @include utils.fontSize('500');
+}
+h6 {
+    @include utils.fontSize('500');
+}
 html body {
     background: url('../data/BgImage.svg');
     background-color: palette.getColor(background);
@@ -62,8 +83,6 @@ main {
             height: 50vw;
             width: 100vw;
             max-height: 720px;
-        }
-        &::before {
             top: -1px;
             left: 0%;
             background: linear-gradient(to top left, transparent 0%, transparent 50%, palette.getColor(primary) 50%, palette.getColor(primary) 100%);

@@ -16,9 +16,6 @@ $borderRadius: .4rem;
     flex-direction: column;
     align-content: center;
     gap: .5rem;
-    &__title {
-        @include utils.fontSize('600');
-    }
     &__subtitle {
         background: palette.getColor(primary);
         color: palette.getColor(secondary);
