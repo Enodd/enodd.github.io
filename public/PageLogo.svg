@@ -1,9 +1,0 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="79.082" height="79.082" viewBox="0 0 79.082 79.082" id='pageLogo'>
-  <g id="layer1" transform="translate(22.602 22.601)">
-    <g id="g1095" transform="translate(-18.359 -18.358)">
-      <rect id="rect833" width="49.92" height="49.92" rx="11" transform="translate(35.299) rotate(45)" fill="none" stroke="#fff" stroke-linecap="round" stroke-linejoin="round" stroke-width="6"/>
-      <path id="path843" d="M1005.231,941.031c-2.909-.493-4.316-3.723-3.615-6.386,1.012-3.845,5.356-5.636,8.979-4.5,4.783,1.507,6.967,7,5.376,11.571-1.991,5.724-8.637,8.3-14.164,6.257-6.666-2.468-9.642-10.279-7.137-16.756a14.455,14.455,0,0,1,9.939-8.672" transform="translate(-969.836 -900.28)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="6" fill-rule="evenodd"/>
-      <path id="rect865" d="M0,.642c.04,0,.152,16.644.152,16.644a.072.072,0,0,1-.076.068A.072.072,0,0,1,0,17.287S-.038.64,0,.642Z" transform="translate(35.145 4.761)" fill="none" stroke="#fff" stroke-linecap="round" stroke-width="6"/>
-    </g>
-  </g>
-</svg>
