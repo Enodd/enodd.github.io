@@ -1,54 +1,28 @@
 {
   "name": "enodd.github.io",
-  "version": "1.0.0",
   "private": true,
-  "description": "enodd.github.io",
-  "author": "Enodd",
-  "keywords": [
-    "front-end",
-    "front-end developer",
-    "developer",
-    "website",
-    "webpage",
-    "website developer",
-    "webpage developer",
-    "programmer",
-    "gatsby",
-    "react",
-    "sass",
-    "scss",
-    "html",
-    "css"
-  ],
+  "version": "0.0.0",
+  "type": "module",
   "scripts": {
-    "develop": "export SET NODE_OPTIONS=--openssl-legacy-provider; gatsby develop",
-    "start": "gatsby develop -o",
-    "build": "gatsby build",
-    "serve": "gatsby serve",
-    "clean": "gatsby clean",
-    "deploy": "gatsby build --prefix-paths && gh-pages -d public"
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
   },
   "dependencies": {
-    "@mdx-js/mdx": "^1.6.22",
-    "@mdx-js/react": "^1.6.22",
-    "gatsby": "^4.0.2",
-    "gatsby-plugin-anchor-links": "^1.2.1",
-    "gatsby-plugin-image": "^2.0.0",
-    "gatsby-plugin-manifest": "^4.0.0",
-    "gatsby-plugin-mdx": "^3.0.0",
-    "gatsby-plugin-react-helmet": "^5.0.0",
-    "gatsby-plugin-sass": "^5.0.0",
-    "gatsby-plugin-sharp": "^4.0.1",
-    "gatsby-plugin-smoothscroll": "^1.2.0",
-    "gatsby-source-filesystem": "^4.0.0",
-    "gatsby-transformer-sharp": "^4.0.0",
-    "react": "^17.0.1",
-    "react-dom": "^17.0.1",
-    "react-helmet": "^6.1.0",
-    "sass": "^1.43.4",
-    "styled-components": "^5.3.3"
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0"
   },
   "devDependencies": {
-    "gh-pages": "^3.2.3"
+    "@types/react": "^18.2.43",
+    "@types/react-dom": "^18.2.17",
+    "@typescript-eslint/eslint-plugin": "^6.14.0",
+    "@typescript-eslint/parser": "^6.14.0",
+    "@vitejs/plugin-react": "^4.2.1",
+    "eslint": "^8.55.0",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "eslint-plugin-react-refresh": "^0.4.5",
+    "typescript": "^5.2.2",
+    "vite": "^5.0.8"
   }
 }
