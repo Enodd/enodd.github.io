@@ -1,15 +1,14 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import App from './App.tsx'
-import './index.css'
-import { NextUIProvider } from '@nextui-org/react'
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import { CssBaseline, ThemeProvider } from '@mui/material';
+import theme from '@theme/theme';
+import { App } from '@root/App';
 
 ReactDOM.createRoot(document.getElementById('root')!).render(
   <React.StrictMode>
-    <NextUIProvider>
-      <div className='dark'>
+    <ThemeProvider theme={theme}>
+      <CssBaseline />
         <App />
-      </div>
-    </NextUIProvider>
+    </ThemeProvider>
   </React.StrictMode>,
 )
