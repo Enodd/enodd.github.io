@@ -1,11 +1,9 @@
 import { Layout } from '@layout/Layout';
-import { Typography } from '@mui/material';
+import { HeroSection } from '@views/landingPage/heroSection';
 import React from 'react';
 
 export const LandingPage: React.FC = () => {
     return <Layout>
-        <Typography variant='h1' color='primary'>
-            Hello
-        </Typography>
+        <HeroSection />
     </Layout>
 }

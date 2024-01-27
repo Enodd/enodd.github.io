@@ -2,8 +2,8 @@ import { Button } from "@mui/material";
 import React from "react";
 
 interface Anchor {
-    content: string,
-    target: string
+    content: string;
+    target: string;
 }
 
 export const HeaderAnchor: React.FC<Anchor> = ({content, target}) => {

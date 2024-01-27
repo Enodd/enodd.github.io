@@ -28,9 +28,9 @@
       "@layout/*": ["src/layout/*"],
       "@pages/*": ["src/pages/*"],
       "@providers/*": ["src/providers/*"],
-      "@root/*": ["src/*"],
       "@theme/*": ["src/theme/*"],
       "@views/*": ["src/views/*"],
+      "@root/*": ["src/*"],
     }
   },
   "include": ["src"],
