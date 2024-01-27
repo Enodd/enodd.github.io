@@ -5,7 +5,7 @@ const theme = createTheme({
     palette: palette,
     typography: {
         allVariants: {
-            color: '#fff'
+            color: '#fff',
         }
     }
 });
