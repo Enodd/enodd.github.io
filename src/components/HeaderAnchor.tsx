@@ -14,7 +14,7 @@ export const HeaderAnchor: React.FC<Anchor> = ({content, target}) => {
         _target?.scrollIntoView({ behavior: "smooth" });
     }
 
-    return <Button variant="text" sx={{fontWeight: 'bold', textTransform: 'capitalize'}} onClick={(e) => onAnchorClick(e)}>
+    return <Button variant="text" size='large' sx={{textTransform: 'capitalize', textAlign: 'center'}} onClick={(e) => onAnchorClick(e)}>
         {content}
     </Button>
 }

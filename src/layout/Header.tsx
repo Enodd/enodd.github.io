@@ -14,7 +14,7 @@ export const Header: React.FC = () => {
         width='100%'
         justifyContent={'space-between'}
         alignItems='center'>
-        <Grid item xs={6}>
+        <Grid item xs={4}>
             <Box component={'img'} src={PageLogo} alt='pageLogo' maxWidth={'72px'} />
         </Grid>
         {

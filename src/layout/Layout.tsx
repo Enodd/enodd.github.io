@@ -1,9 +1,22 @@
 import React, { PropsWithChildren } from 'react';
 import { Header } from '@layout/Header';
+import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
 
 export const Layout: React.FC<PropsWithChildren> = ({children}) => {
-    return <>
+    const theme = useTheme();
+    const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+    return <Stack alignItems={'center'} width='100%'>
+        <Box sx={theme => ({
+                ...(isMdUp ? {
+                    borderRight: `4px solid ${theme.palette.primary.main}`,
+                    borderLeft: `4px solid ${theme.palette.primary.main}`,
+                } : {}),
+                width: '100%',
+                maxWidth: '1600px',
+                paddingX: 1
+            })}>
         <Header />
-        {children}
-    </>
+            {children}
+        </Box>
+    </Stack>
 }
