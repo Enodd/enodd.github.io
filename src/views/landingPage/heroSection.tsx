@@ -12,7 +12,7 @@ export const HeroSection: React.FC = () => {
         maxHeight={theme => theme.breakpoints.values.md}
         justifyContent={'center'}
         alignItems='center'
-        >
+    >
         <Grid container sx={theme => ({
             marginTop: 10,
             padding: 3,
@@ -49,9 +49,9 @@ export const HeroSection: React.FC = () => {
             </Grid>
             <Grid item xs={12}>
                 <Typography variant='body1' color='primary' fontWeight={'200'} fontSize='1.5rem'>
-                    "Where idea meet's creation"
+                    {'"Where idea meet\'s creation"'}
                 </Typography>
             </Grid>
         </Grid>
     </Stack>;
-}
+};

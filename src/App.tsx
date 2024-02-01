@@ -5,20 +5,20 @@ import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from '@theme/theme';
 
 const router = createBrowserRouter(
-  createRoutesFromElements(
-      <Route path="/" element={<LandingPage />}>
-          <Route />
-          <Route />
-      </Route>
-  )
-)
+    createRoutesFromElements(
+        <Route path="/" element={<LandingPage />}>
+            <Route />
+            <Route />
+        </Route>
+    )
+);
 
 export const App: React.FC = () => {
-  return <>
-      <ThemeProvider theme={theme}>
-        <CssBaseline />
-        <RouterProvider router={router} /> 
-      </ThemeProvider>
-    </>
-}
+    return <>
+        <ThemeProvider theme={theme}>
+            <CssBaseline />
+            <RouterProvider router={router} /> 
+        </ThemeProvider>
+    </>;
+};
 

@@ -15,7 +15,7 @@ i18n
             })
             .catch(err => {
                 callback(err, null);
-            })
+            });
     }))
     .init({
         detection: {
@@ -28,9 +28,7 @@ i18n
         fallbackLng: 'en',
         debug: true,
         nonExplicitSupportedLngs: true,
-        interpolation: {
-            escapeValue: false
-        }
-    })
+        interpolation: {escapeValue: false}
+    });
 
 export default i18n;

@@ -19,8 +19,8 @@ export const Header: React.FC = () => {
         </Grid>
         {
             isMdDown
-            ? <MobileHeader />
-            : <DesktopHeader />
+                ? <MobileHeader />
+                : <DesktopHeader />
         }    
-    </Grid>
-}
+    </Grid>;
+};
