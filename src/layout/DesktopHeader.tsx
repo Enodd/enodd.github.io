@@ -5,15 +5,11 @@ import { useTranslation } from 'react-i18next';
 
 export const DesktopHeader: React.FC = () => {
     const { t } = useTranslation();
-    return <Grid item container md={6} justifyContent={'flex-end'}>
-        <Grid item xs={12} md={2} textAlign={'center'}>
-            <HeaderAnchor content={t('menu.portfolio')} target='#portfolio' />
-        </Grid>
-        <Grid item xs={12} md={3} textAlign={'center'}>
-            <HeaderAnchor content={t('menu.socials')} target='#socials' />
-        </Grid>
-        <Grid item xs={12} md={2} textAlign={'center'}>
-            <HeaderAnchor content={t('menu.about')} target='#about' />
-        </Grid>
+    return <Grid item md={6} sx={{
+        display: 'flex', justifyContent: 'right', gap: 2 
+    }}>
+        <HeaderAnchor content={t('menu.portfolio')} target='#portfolio' />
+        <HeaderAnchor content={t('menu.socials')} target='#socials' />
+        <HeaderAnchor content={t('menu.about')} target='#about' />
     </Grid>;
 };

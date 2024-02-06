@@ -16,7 +16,7 @@ const HeaderMenu: React.FC<{
             open={isModalVisible}
             anchor="top"
             sx={{ position: 'relative' }}
-            PaperProps={{sx: {height: '100%'}}}
+            PaperProps={{ sx: { height: '100%' } }}
             onClose={onClose}
         >
             <IconButton

@@ -33,6 +33,7 @@
             "error",
             4
         ],
+        "object-curly-spacing": ["error", "always"],
         "object-curly-newline": [
             "error",
             {

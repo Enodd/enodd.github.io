@@ -1,4 +1,4 @@
-import { Palette } from "@mui/material";
+import { Palette } from '@mui/material';
 
 export const palette: Partial<Palette> = {
     primary: {
@@ -17,4 +17,4 @@ export const palette: Partial<Palette> = {
         default: '#101626',
         paper: '#003454'
     }
-}
+};
