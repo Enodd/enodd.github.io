@@ -23,6 +23,7 @@ const theme = createTheme({
             styleOverrides: {
                 text: { fontSize: 'clamp(0.88rem, 0.83rem + 0.24vw, 1rem)' },
                 contained: { fontSize: 'clamp(0.88rem, 0.83rem + 0.24vw, 1rem)' },
+                root: { borderRadius: 15 }
             },
         },
     },

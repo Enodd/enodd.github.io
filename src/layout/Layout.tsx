@@ -2,10 +2,13 @@ import React, { PropsWithChildren } from 'react';
 import { Header } from '@layout/Header';
 import { Footer } from '@layout/Footer';
 import { Stack, useMediaQuery, useTheme } from '@mui/material';
+import { useTranslation } from 'react-i18next';
+import { Popup } from '@components/Popup';
 
 export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     const theme = useTheme();
     const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
+    const { t } = useTranslation();
     return <Stack alignItems={'center'} width='100%'>
         <Stack
             gap={3}
@@ -22,6 +25,18 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
             })}>
             <Header />
             {children}
+            <Popup message={t('info.cookies')} actions={
+                {
+                    primaryMessage: t('info.accept'),
+                    secondaryMessage: t('info.decline'),
+                    onPrimary: () => {
+                        console.log('accept');
+                    },
+                    onSecondary: () => {
+                        console.log('decline');
+                    }
+                }
+            } />
             <Footer />
         </Stack>
     </Stack>;
