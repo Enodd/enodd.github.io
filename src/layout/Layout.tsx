@@ -1,7 +1,7 @@
 import React, { PropsWithChildren } from 'react';
 import { Header } from '@layout/Header';
 import { Footer } from '@layout/Footer';
-import { Stack, useMediaQuery, useTheme } from '@mui/material';
+import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { Popup } from '@components/Popup';
 
@@ -9,7 +9,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     const theme = useTheme();
     const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
     const { t } = useTranslation();
-    return <Stack alignItems={'center'} width='100%'>
+    return <Box paddingX={isMdUp ? 3 : 0}>
         <Stack
             gap={3}
             sx={theme => ({
@@ -39,5 +39,5 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
             } />
             <Footer />
         </Stack>
-    </Stack>;
+    </Box>;
 };

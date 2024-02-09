@@ -9,6 +9,7 @@ interface ConfigurationInterface {
 export const ConfigurationContext = createContext<ConfigurationInterface>({ isAnimationDisabled: false, toggleAnimation: () => {} });
 
 export const ConfigurationProvider: React.FC<PropsWithChildren> = ({ children }) => {
+    // todo: read localstorage on load, and then set values
     const [isAnimationDisabled, setIsAnimationDisabled] = useState<boolean>(false);
 
     const handleAnimationToggle = () => {

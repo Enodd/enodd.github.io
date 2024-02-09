@@ -13,6 +13,9 @@ const theme = createTheme({
                     minHeight: 0,
                     minWidth: 0,
                 },
+                '*::-webkit-scrollbar': { width: '12px' },
+                '*::-webkit-scrollbar-track': { background: palette.background?.default },
+                '*::-webkit-scrollbar-thumb': { background: palette.secondary?.main, borderRadius: 5 },
                 body: {
                     backgroundImage: `url(${BackgroundImage})`,
                     overflowX: 'hidden'

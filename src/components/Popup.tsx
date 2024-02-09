@@ -18,7 +18,9 @@ export const Popup: React.FC<PopupProps> = ({ message, actions }) => {
         alignItems={'center'}
         padding={5}
         gap={3}
-        initial={{ opacity: 0, y: -200 }}
+        initial={{
+            opacity: 0, y: -200, x: '-50%' 
+        }}
         whileInView={{ opacity: 1, y: 0 }}
         exit={{ opacity: 0, y: -200 }}
         sx={theme => ({ 

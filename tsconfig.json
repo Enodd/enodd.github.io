@@ -28,6 +28,7 @@
       "@layout/*": ["src/layout/*"],
       "@pages/*": ["src/pages/*"],
       "@providers/*": ["src/providers/*"],
+      "@storage/*": ["src/storage/*"],
       "@theme/*": ["src/theme/*"],
       "@views/*": ["src/views/*"],
       "@root/*": ["src/*"],

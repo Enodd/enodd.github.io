@@ -7,6 +7,7 @@ export const HeroSection: React.FC = () => {
     const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
     return <Stack
         paddingX={4}
+        marginBottom={20}
         height='100%'
         width='100%'
         maxHeight={theme => theme.breakpoints.values.md}
