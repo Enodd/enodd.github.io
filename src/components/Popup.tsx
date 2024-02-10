@@ -4,6 +4,7 @@ import { Button, Stack, Typography } from '@mui/material';
 
 interface PopupProps {
     message: string;
+    open: boolean;
     actions?: {
         primaryMessage: string;
         secondaryMessage: string;
@@ -13,8 +14,10 @@ interface PopupProps {
 }
 
 const MotionStack = motion(Stack);
-export const Popup: React.FC<PopupProps> = ({ message, actions }) => {
-    return <MotionStack
+export const Popup: React.FC<PopupProps> = ({ message, actions, open }) => {
+
+    
+    return open ? <MotionStack
         alignItems={'center'}
         padding={5}
         gap={3}
@@ -47,5 +50,5 @@ export const Popup: React.FC<PopupProps> = ({ message, actions }) => {
                 </Button>
             </Stack>
             : <></>}
-    </MotionStack>;
+    </MotionStack> : <></>;
 };
