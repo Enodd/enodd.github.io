@@ -1,4 +1,4 @@
-import { Stack, Typography } from '@mui/material';
+import { Link, Stack, Typography } from '@mui/material';
 import React from 'react';
 
 export const Footer: React.FC = () => {
@@ -12,8 +12,10 @@ export const Footer: React.FC = () => {
             position: 'sticky',
             top: '100%'
         })}>
-        <Typography>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. A, consectetur voluptate? Non unde, voluptates ducimus officiis perspiciatis molestiae id quam?
-        </Typography>
+        <Link href='https://x.com/enodd_dev'>
+            <Typography color='primary'>
+                Created by me.
+            </Typography>
+        </Link>
     </Stack>;
 };

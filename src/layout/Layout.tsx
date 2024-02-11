@@ -1,4 +1,4 @@
-import React, { PropsWithChildren, useState } from 'react';
+import React, { PropsWithChildren, useEffect } from 'react';
 import { Header } from '@layout/Header';
 import { Footer } from '@layout/Footer';
 import { Box, Stack, useMediaQuery, useTheme } from '@mui/material';
@@ -11,16 +11,17 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     const isMdUp = useMediaQuery(theme.breakpoints.up('md'));
     const { t } = useTranslation();
     const { setDefaultValues, acceptCookies, isCookieAllowed } = useConfigurationProvider();
-    const [isPopupVisible, setIsPopupVisible] = useState<boolean>(isCookieAllowed);
 
     const handlePopupAccept = () => {
         acceptCookies();
-        setIsPopupVisible(false);
     };
     const handlePopupClose = () => {
         setDefaultValues();
-        setIsPopupVisible(false);
     };
+
+    useEffect(() => {
+        console.log('isCookieAllowed', isCookieAllowed);
+    });
 
     return <Box paddingX={isMdUp ? 3 : 0}>
         <Stack
@@ -43,7 +44,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
                 secondaryMessage: t('info.decline'),
                 onPrimary: handlePopupAccept,
                 onSecondary: handlePopupClose
-            }} open={isPopupVisible} />
+            }} open={!isCookieAllowed} />
             <Footer />
         </Stack>
     </Box>;

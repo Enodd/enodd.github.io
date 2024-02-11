@@ -15,7 +15,7 @@ const router = createBrowserRouter(
 
 export const App: React.FC = () => {
     return <>
-        <ThemeProvider theme={theme}>
+        <ThemeProvider theme={theme()}>
             <CssBaseline />
             <RouterProvider router={router} /> 
         </ThemeProvider>

@@ -16,7 +16,6 @@ interface PopupProps {
 const MotionStack = motion(Stack);
 export const Popup: React.FC<PopupProps> = ({ message, actions, open }) => {
 
-    
     return open ? <MotionStack
         alignItems={'center'}
         padding={5}

@@ -1,12 +1,13 @@
-import { Box, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
-import IdeaImage from '@assets/BackgroundImage.svg';
-import DesignImage from '@assets/BackgroundImage.svg';
-import WireframeImage from '@assets/BackgroundImage.svg';
-import CodeImage from '@assets/BackgroundImage.svg';
-import FinalImage from '@assets/BackgroundImage.svg';
+import { Box, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import { useTranslation } from 'react-i18next';
 import { motion } from 'framer-motion';
+import IdeaImage from '@assets/idea.png';
+import DesignImage from '@assets/design.png';
+import WireframeImage from '@assets/wireframe.png';
+// todo: change backgroundfiles
+import CodeImage from '@assets/BackgroundImage.svg';
+import FinalImage from '@assets/BackgroundImage.svg';
 
 interface Processes {
     backgroundImg: string;
@@ -54,7 +55,7 @@ const processList: Array<Processes> = [
         widthvalue: 5.5,
         delay: 0.6,
         direction: 'y',
-        position: 50
+        position: -50
     },
     {
         backgroundImg: FinalImage,
@@ -78,14 +79,15 @@ export const Process: React.FC = () => {
         direction={isMdDown ? 'column' : 'row'}
         width='100%'
         flexWrap='wrap'
-        gap={3}
-        justifyContent={'space-between'}
+        gap={2}
+        justifyContent={'center'}
         alignItems={'flex-start'}
         sx={{ maxWidth: '1200px' }}>
         {
             processList.map(process => <MotionBox
                 initial={{
                     opacity: 0, 
+                    scale: 1,
                     ...(process.direction === 'x' || isMdDown
                         ? { x: isMdDown ? Math.abs(process.position) : process.position }
                         : { y: process.position }
@@ -114,10 +116,22 @@ export const Process: React.FC = () => {
                     justifyContent: 'center',
                     alignItems: 'center',
                     willChange: 'transform opacity',
-                    border: '2px solid white'
+                    position: 'relative',
+                    '&::after': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        width: '100%',
+                        height: '100%',
+                        borderRadius: 10,
+                        backgroundColor: theme.palette.background.default,
+                        opacity: 0.3,
+                        zIndex: 2
+                    }
                 }}
             >
-                <Typography>
+                <Typography sx={{ zIndex: 5 }}>
                     {t(process.name)}
                 </Typography>
             </MotionBox>)
