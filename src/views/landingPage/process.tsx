@@ -31,22 +31,22 @@ const processList: Array<Processes> = [
         position: 100
     },
     {
-        backgroundImg: DesignImage,
-        name: 'process.design',
-        height: height,
-        widthvalue: 4,
-        delay: 0.6,
-        direction: 'y',
-        position: -100
-    },
-    {
         backgroundImg: WireframeImage,
         name: 'process.wireframe',
         height: height,
-        widthvalue: 3,
+        widthvalue: 4,
         delay: 0.9,
         direction: 'x',
         position: 100
+    },
+    {
+        backgroundImg: DesignImage,
+        name: 'process.design',
+        height: height,
+        widthvalue: 3,
+        delay: 0.6,
+        direction: 'y',
+        position: -100
     },
     {
         backgroundImg: CodeImage,
@@ -59,7 +59,7 @@ const processList: Array<Processes> = [
     },
     {
         backgroundImg: FinalImage,
-        name: 'process.finalProject',
+        name: 'process.finalProduct',
         height: height * 1.5,
         widthvalue: 4.25,
         delay: 0.8,

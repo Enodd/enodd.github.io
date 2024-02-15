@@ -1,7 +1,1 @@
-{
-  "menu": {
-    "about": "About Me",
-    "portfolio": "Portfolio",
-    "socials": "Socials"
-  }
-}
+{"heroSection":{"quote":"\"Where idea meets creation\""},"languages":{"en":"English","pl":"Polish"},"menu":{"about":"About Me","portfolio":"Portfolio","socials":"Socials"},"process":{"code":"Code","design":"Design","finalProduct":"Final Product","idea":"Idea","wireframe":"Wireframe"},"settings":{"animations":"Animations","cookies":"Cookies","language":"Language","save":"Save","title":"Settings"}}

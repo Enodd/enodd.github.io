@@ -9,7 +9,7 @@ export const Header: React.FC = () => {
     const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
     return <Grid
         container
-        padding={2}
+        padding={isMdDown ? 0 : 2}
         spacing={4}
         width='100%'
         justifyContent={'space-between'}

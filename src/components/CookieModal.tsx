@@ -1,6 +1,6 @@
 import { MotionStack } from '@components/MotionComponents';
 import { useConfigurationProvider } from '@hooks/useConfigurationProvider';
-import { Button, Checkbox, List, ListItem, Modal, Typography } from '@mui/material';
+import { Button, Checkbox, List, ListItem, MenuItem, Modal, Select, Stack, Typography } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -16,11 +16,14 @@ const variants = {
 
 export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) => {
     const { t } = useTranslation();
-    const { isAnimationDisabled, isCookieAllowed, handleSettingsChange, refreshValues } = useConfigurationProvider();
+    const {
+        isAnimationDisabled, isCookieAllowed, handleSettingsChange, refreshValues, userSetLanguage 
+    } = useConfigurationProvider();
     const [variant, setVariant] = useState<boolean>(false);
-    const [currentSettings, setCurrentSettings] = useState<{cookies: boolean, animations: boolean}>({
+    const [currentSettings, setCurrentSettings] = useState<{cookies: boolean, animations: boolean, language: string}>({
         cookies: isCookieAllowed,
-        animations: !isAnimationDisabled
+        animations: !isAnimationDisabled,
+        language: userSetLanguage
     });
 
     const handleVisibilityToggle = () => {
@@ -37,9 +40,10 @@ export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) 
     useEffect(() => {
         setCurrentSettings({
             cookies: isCookieAllowed,
-            animations: !isAnimationDisabled
+            animations: !isAnimationDisabled,
+            language: userSetLanguage
         });
-    }, [isCookieAllowed, isAnimationDisabled]);
+    }, [isCookieAllowed, isAnimationDisabled, userSetLanguage]);
 
     return <Modal
         open={open}
@@ -55,13 +59,20 @@ export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) 
             padding={4}
             justifyContent={'center'}
             alignItems={'center'}
-            sx={theme => ({ backgroundColor: theme.palette.background.paper, borderRadius: 10 })}
+            width="100%"
+            minWidth={'200px'}
+            maxWidth={'700px'}
+            sx={theme => ({
+                backgroundColor: theme.palette.background.paper,
+                borderRadius: 10,
+                aspectRatio: '16/9'
+            })}
         >
             <Typography variant='h5'>
                 {t('settings.title')}
             </Typography>
-            <List>
-                <ListItem dir='row'>
+            <List sx={{ width: '100%', maxWidth: '400px' }}>
+                <ListItem>
                     <Checkbox checked={currentSettings.animations} sx={theme => ({
                         color: theme.palette.primary.main,
                         '&.Mui-checked': { color: theme.palette.primary.main }, 
@@ -74,7 +85,7 @@ export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) 
                         {t('settings.animations')}
                     </Typography>
                 </ListItem>
-                <ListItem dir='row'>
+                <ListItem>
                     <Checkbox checked={currentSettings.cookies} sx={theme => ({
                         color: theme.palette.primary.main,
                         '&.Mui-checked': { color: theme.palette.primary.main }, 
@@ -86,6 +97,35 @@ export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) 
                     <Typography>
                         {t('settings.cookies')}
                     </Typography>
+                </ListItem>
+                <ListItem>
+                    <Stack width='100%'>
+                        <Typography>
+                            {t('settings.language')}
+                        </Typography>
+                        <Select
+                            fullWidth
+                            color='primary'
+                            value={currentSettings.language}
+                            sx={theme => ({ 
+                                '& .MuiInputBase-input': { 
+                                    color: theme.palette.primary.main,
+                                    border: `2px solid ${theme.palette.primary.main}`
+                                }, 
+                                '& .MuiSelect-icon': { fill: theme.palette.primary.main },
+                                '& .MuiList-root': {
+                                    color: theme.palette.primary.main,
+                                    border: `1px solid ${theme.palette.primary.main}`
+                                }
+                            })}
+                            onChange={(e) => setCurrentSettings(prev => ({
+                                ...prev,
+                                language: (e.target.value as string)
+                            }))}>
+                            <MenuItem value={'en'}>{t('languages.en')}</MenuItem>
+                            <MenuItem value={'pl'}>{t('languages.pl')}</MenuItem>
+                        </Select>
+                    </Stack>
                 </ListItem>
             </List>
             <Button color='primary' onClick={() => {

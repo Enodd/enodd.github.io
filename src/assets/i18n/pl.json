@@ -1,7 +1,1 @@
-{
-  "menu": {
-    "about": "O mnie",
-    "portfolio": "Portfolio",
-    "socials": "Social Media"
-  }
-}
+{"heroSection":{"quote":"\"Gdzie pomysł spotyka się z tworzeniem\""},"languages":{"en":"Angielski","pl":"Polski"},"menu":{"about":"O mnie","portfolio":"Portfolio","socials":"Social Media"},"process":{"code":"Kod","design":"Projekt","finalProduct":"Finalny produkt","idea":"Pomysł","wireframe":"Szkic"},"settings":{"animations":"Animacje","cookies":"Ciasteczka","language":"Język","save":"Zapisz","title":"Ustawienia"}}

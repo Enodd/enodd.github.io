@@ -1,8 +1,10 @@
 import { Grid, Stack, Typography, useMediaQuery, useTheme } from '@mui/material';
 import React from 'react';
 import Triangles from '@assets/Triangles.svg';
+import { useTranslation } from 'react-i18next';
 
 export const HeroSection: React.FC = () => {
+    const { t } = useTranslation();
     const theme = useTheme();
     const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
     return <Stack
@@ -50,7 +52,7 @@ export const HeroSection: React.FC = () => {
             </Grid>
             <Grid item xs={12}>
                 <Typography variant='body1' color='primary' fontWeight={'200'} fontSize='1.5rem'>
-                    {'"Where idea meet\'s creation"'}
+                    {t('heroSection.quote')}
                 </Typography>
             </Grid>
         </Grid>

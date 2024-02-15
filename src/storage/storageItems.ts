@@ -1,4 +1,5 @@
 export enum StorageItems {
     ANIMATION = 'isAnimationDisabled',
-    COOKIES = 'areCookiesAllowed'
+    COOKIES = 'areCookiesAllowed',
+    LANGUAGE = 'currentLanguage'
 }

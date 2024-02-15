@@ -19,13 +19,9 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
         setDefaultValues();
     };
 
-    useEffect(() => {
-        console.log('isCookieAllowed', isCookieAllowed);
-    });
-
     return <Box paddingX={isMdUp ? 3 : 0}>
         <Stack
-            gap={3}
+            gap={isMdUp ? 3 : 0}
             sx={theme => ({
                 ...(isMdUp ? {
                     borderRight: `4px solid ${theme.palette.primary.main}`,
