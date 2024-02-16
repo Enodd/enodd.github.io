@@ -1,1 +1,33 @@
-{"heroSection":{"quote":"\"Gdzie pomysł spotyka się z tworzeniem\""},"languages":{"en":"Angielski","pl":"Polski"},"menu":{"about":"O mnie","portfolio":"Portfolio","socials":"Social Media"},"process":{"code":"Kod","design":"Projekt","finalProduct":"Finalny produkt","idea":"Pomysł","wireframe":"Szkic"},"settings":{"animations":"Animacje","cookies":"Ciasteczka","language":"Język","save":"Zapisz","title":"Ustawienia"}}
+{
+  "heroSection": {
+    "quote": "\"Gdzie pomysł spotyka się z tworzeniem\""
+  },
+  "info": {
+    "accept": "Akceptuj",
+    "cookies": "Ta strona korzysta z ciasteczek w celu usprawnienia twojego doświadczenia, oraz w celu zapamiętania twoich ustawień takich jak język, czy informacja o wyłączeniu animacji. Możesz przeczytać więcej na podstronie z polityką ciasteczek.",
+    "decline": "Odrzuć"
+  },
+  "languages": {
+    "en": "Angielski",
+    "pl": "Polski"
+  },
+  "menu": {
+    "about": "O mnie",
+    "portfolio": "Portfolio",
+    "socials": "Social Media"
+  },
+  "process": {
+    "code": "Kod",
+    "design": "Projekt",
+    "finalProduct": "Finalny produkt",
+    "idea": "Pomysł",
+    "wireframe": "Szkic"
+  },
+  "settings": {
+    "animations": "Animacje",
+    "cookies": "Ciasteczka",
+    "language": "Język",
+    "save": "Zapisz",
+    "title": "Ustawienia"
+  }
+}
