@@ -2,9 +2,9 @@
 import { Typography } from '@mui/material/styles/createTypography';
 
 declare module '@mui/material/Typography' {
-  interface TypographyPropsVariantOverrides {
-    headerSubtitle: true;
-  }
+    interface TypographyPropsVariantOverrides {
+        headerSubtitle: true;
+    }
 }
 
 export const headers: any = {
@@ -21,7 +21,7 @@ const generateHeaders = () => {
     const styles: any = {};
     Object.keys(headers).forEach((key) => {
         styles[key] = {
-            fontFamily: 'Roboto slab',
+            fontFamily: 'Outfit',
             fontWeight: key == 'body1' ? 'normal' : 'bold',
             fontSize: headers[key].size,
         };

@@ -3,13 +3,14 @@ import { RouterProvider, createBrowserRouter, createRoutesFromElements, Route } 
 import { LandingPage } from '@pages/LandingPage';
 import { CssBaseline, ThemeProvider } from '@mui/material';
 import theme from '@theme/theme';
+import { CookiePolicy } from '@pages/CookiePolicy';
 
 const router = createBrowserRouter(
     createRoutesFromElements(
-        <Route path="/" element={<LandingPage />}>
-            <Route />
-            <Route />
-        </Route>
+        <>
+            <Route path="/" element={<LandingPage />} />
+            <Route path='/cookiePolicy' element={<CookiePolicy />} />
+        </>
     )
 );
 

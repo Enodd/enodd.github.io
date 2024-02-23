@@ -8,7 +8,7 @@ export const Footer: React.FC = () => {
         justifyContent={'center'}
         alignItems={'center'}
         width={'100vw'}
-        sx={theme => ({ 
+        sx={theme => ({
             backgroundColor: theme.palette.background.default,
             position: 'sticky',
             top: '100%'

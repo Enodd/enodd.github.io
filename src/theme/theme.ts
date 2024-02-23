@@ -14,10 +14,7 @@ const buildTheme = () => {
         components: {
             MuiCssBaseline: {
                 styleOverrides: {
-                    '*': {
-                        minHeight: 0,
-                        minWidth: 0,
-                    },
+                    '*': { minWidth: 0 },
                     '*::-webkit-scrollbar': { width: '12px' },
                     '*::-webkit-scrollbar-track': { background: palette.background?.default },
                     '*::-webkit-scrollbar-thumb': { background: palette.secondary?.main, borderRadius: 5 },

@@ -1,6 +1,7 @@
 import { MotionStack } from '@components/MotionComponents';
 import { useConfigurationProvider } from '@hooks/useConfigurationProvider';
-import { Button, Checkbox, List, ListItem, MenuItem, Modal, Select, Stack, Typography } from '@mui/material';
+import { CloseRounded } from '@mui/icons-material';
+import { Box, Button, Checkbox, IconButton, List, ListItem, MenuItem, Modal, Select, Stack, Typography, alpha } from '@mui/material';
 import React, { useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 
@@ -47,7 +48,7 @@ export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) 
 
     return <Modal
         open={open}
-        onClose={handleVisibilityToggle}
+        onClose={onVisibilityToggle}
         sx={{
             display: 'flex', justifyContent: 'center', alignItems: 'center'
         }}>
@@ -63,11 +64,27 @@ export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) 
             minWidth={'200px'}
             maxWidth={'700px'}
             sx={theme => ({
-                backgroundColor: theme.palette.background.paper,
-                borderRadius: 10,
-                aspectRatio: '16/9'
+                height: 'fit-content',
+                position: 'relative',
+                '&:after': {
+                    content: '""',
+                    position: 'absolute',
+                    top: 0,
+                    left: 0,
+                    backgroundColor: alpha(theme.palette.background.paper, 0.75),
+                    borderRadius: 10,
+                    width: '100%',
+                    height: '100%',
+                    backdropFilter: 'blur(4px)',
+                    zIndex: -1
+                }
             })}
         >
+            <Box textAlign={'right'} width='100%'>
+                <IconButton color="primary" onClick={onVisibilityToggle}>
+                    <CloseRounded color="inherit" fontSize="large" />
+                </IconButton>
+            </Box>
             <Typography variant='h5'>
                 {t('settings.title')}
             </Typography>
@@ -99,7 +116,7 @@ export const CookieModal: React.FC<ModalProps> = ({ open, onVisibilityToggle }) 
                     </Typography>
                 </ListItem>
                 <ListItem>
-                    <Stack width='100%'>
+                    <Stack width='100%' gap={1}>
                         <Typography>
                             {t('settings.language')}
                         </Typography>

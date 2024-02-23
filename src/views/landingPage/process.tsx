@@ -8,6 +8,7 @@ import WireframeImage from '@assets/wireframe.png';
 // todo: change backgroundfiles
 import CodeImage from '@assets/BackgroundImage.svg';
 import FinalImage from '@assets/BackgroundImage.svg';
+import { useAnimations } from '@hooks/useAnimations';
 
 interface Processes {
     backgroundImg: string;
@@ -74,10 +75,12 @@ export const Process: React.FC = () => {
     const { t } = useTranslation();
     const theme = useTheme();
     const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
+    const { getTransitionProps } = useAnimations();
 
     return <Stack
         direction={isMdDown ? 'column' : 'row'}
         width='100%'
+        height='100%'
         flexWrap='wrap'
         gap={2}
         justifyContent={'center'}
@@ -100,10 +103,7 @@ export const Process: React.FC = () => {
                         : { y: '0px' }
                     ),
                 }}
-                transition={{
-                    duration: 0.3,
-                    delay: process.delay,
-                }}
+                transition={getTransitionProps(0.3, process.delay)}
                 viewport={{ once: true }}
                 key={process.name}
                 height={isMdDown ? height : process.height}

@@ -28,7 +28,7 @@ export const Layout: React.FC<PropsWithChildren> = ({ children }) => {
     }, [isCookieAllowed]);
 
 
-    return <Box paddingX={isMdUp ? 3 : 0}>
+    return <Box paddingX={isMdUp ? 3 : 0} sx={{ display: 'flex', justifyContent: 'center' }}>
         <Stack
             gap={isMdUp ? 3 : 0}
             sx={theme => ({

@@ -1,22 +1,39 @@
 import React, { useState } from 'react';
-import { Button, Drawer, Grid, IconButton, Link, Stack } from '@mui/material';
+import { Button, Drawer, Grid, IconButton, Link, Stack, alpha, useTheme } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { useTranslation } from 'react-i18next';
 import { CloseRounded, GitHub, X } from '@mui/icons-material';
 import { HeaderAnchor } from '@components/HeaderAnchor';
 
 const HeaderMenu: React.FC<{
-  isModalVisible: boolean;
-  onClose: () => void;
+    isModalVisible: boolean;
+    onClose: () => void;
 }> = ({ isModalVisible, onClose }) => {
     const { t } = useTranslation();
+    const theme = useTheme();
 
     return (
         <Drawer
             open={isModalVisible}
             anchor="top"
             sx={{ position: 'relative' }}
-            PaperProps={{ sx: { height: '100%' } }}
+            PaperProps={{
+                sx: { 
+                    height: '100%', 
+                    backgroundColor: '#00000000',
+                    '&:after': {
+                        content: '""',
+                        position: 'absolute',
+                        top: 0,
+                        left: 0,
+                        backgroundColor: alpha(theme.palette.background.paper, 0.75),
+                        width: '100%',
+                        height: '100%',
+                        backdropFilter: 'blur(4px)',
+                        zIndex: -1
+                    }
+                }
+            }}
             onClose={onClose}
         >
             <IconButton
