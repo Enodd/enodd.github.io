@@ -1,10 +1,10 @@
 ---
 import Layout from '@layouts/Layout.astro';
-import { HeroSection } from '@views/LandingPage/heroSection';
-import { AboutSection } from '@views/LandingPage/AboutSection';
+import HeroSection from '@views/LandingPage/HeroSection.astro';
+import AboutSection from '@views/LandingPage/AboutSection.astro';
 ---
-
+<!-- todo: get rid of framer motion, and use GSAP -->
 <Layout title="Welcome to Astro.">
-	<HeroSection client:load />
-	<AboutSection client:load />
+	<HeroSection />
+	<AboutSection />
 </Layout>

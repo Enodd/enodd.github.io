@@ -1,0 +1,44 @@
+---
+const quote: string =
+	'Between creation and creativity there is a place where the two intertwine\nto create stunning designs into which life is breathed turning them into eye-catching websites.';
+---
+
+<script>
+  import { gsap } from 'gsap';
+  const section = document.querySelector('#aboutSection');
+  const myTimeline = gsap.timeline();
+
+  myTimeline
+  .from(section, {
+    opacity: 0
+  })
+  .to(section, {
+    opacity: 1,
+  })
+  .duration(0.4);
+</script>
+<section
+    id={'aboutSection'}
+    class="py-10 px-10 flex flex-col items-center gap-12 md:px-0"
+>
+	<div class="wrapper flex flex-col items-center">
+		<h2 class="font-bold uppercase mb-6 text-lg">About</h2>
+	</div>
+	<div class="w-full max-w-screen-xl flex flex-col items-center md:flex-row md:justify-between md:gap-4">
+		<img src={'/images/programming_openSourceUndraw.svg'} alt="An Ilustration showing a blonde haired man programming" class="float"/>
+		<div class="flex flex-col gap-4 w-full items-center md:items-start md:max-w-screen-sm m-4">
+			<h3 class="text-5xl font-bold">
+				Welcome
+			</h3>
+			<div class="flex flex-col gap-5">
+				<p>
+					My name is <span>Damian</span>, I'm Front-end Developer loving his job, building Websites and Web3 dapps.
+				</p>
+				<p>
+					With <span>React</span> as my main framework I'm not closed for other tools. Whenever there's opportunity to learn new things, I'm in.
+				</p>
+				<p>Fun Fact: This website was made with <span>Sveltekit</span></p>
+			</div>
+		</div>
+	</div>
+</section>

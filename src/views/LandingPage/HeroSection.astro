@@ -1,0 +1,43 @@
+<script>
+  import { gsap } from 'gsap';
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroSection: HTMLElement | null = document.querySelector('#heroSection');
+    const timeline = gsap.timeline();
+
+    timeline
+      .from(heroSection, {
+        opacity: 0,
+        x: -100,
+      })
+      .to(heroSection, {
+        opacity: 1,
+        x: 0
+      })
+      .duration(1.4)
+      .delay(0.2);
+  });
+
+</script>
+<section
+  id={"heroSection"}
+  class="py-10 px-0 flex flex-col justify-center items-center md:p-10"
+>
+  <div class="wrapper flex flex-row justify-center">
+    <div class="backdrop-blur-[1px] bg-[#1A2211aa] min-w-96 relative z-[2] min-h-[50vh] w-1/2 h-fit flex flex-col justify-center items-center py-12 px-4">
+      <div class="px-10 flex flex-col gap-5 justify-between items-center h-80 md:h-80">
+        <div class="text-center">
+          <h2 class="text-5xl mb-4">Damian Nowak</h2>
+          <h3 class="text-4xl text-primary font-sans font-black">
+            Front-end Developer
+          </h3>
+        </div>
+        <h4 class="text-3xl text-center font-normal text-wrap">
+          Where idea meets creation
+        </h4>
+        <button class="flex flex-row justify-center items-center min-h-14 border-none bg-transparent p-0 md:p-2 md:rounded-2xl">
+          <img src={"/images/TripleArrows.svg"} alt="go to main content" />
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
