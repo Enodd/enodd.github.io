@@ -9,7 +9,7 @@ const { title } = Astro.props;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" transition:animate="none">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
@@ -24,14 +24,21 @@ const { title } = Astro.props;
 	</head>
 	<body class="bg-background-site">
 		<header class="bg-background-site flex flex-row justify-center items-center">
-			<div class="p-4 flex flex-row justify-between items-center w-full max-w-screen-[1920px] border-b-2 border-b-contrastLight">
+			<div
+			 class="py-4 px-8 fhd:px-4 flex flex-row justify-between items-center w-full max-w-screen-fhd border-b-2 border-b-contrastLight">
 				<div class="flex flex-row items-center gap-2">
 					<img src={'/images/favicon.svg'} alt="website logo" />
 					<h1>Enodd</h1>
 				</div>
-				<nav>heello</nav>
+				<nav>
+                    <ul class="flex gap-5 list-none">
+                        <li>About</li>
+                        <li>Work</li>
+                        <li>Contact</li>
+				    </ul>
+				</nav>
 			</div>
 		</header>
-		<slot />
+		<slot transition:animate="slide" />
 	</body>
 </html>
