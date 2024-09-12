@@ -6,7 +6,9 @@
     "baseUrl": ".",
     "paths": {
       "@components/*": ["src/components/*"],
+      "@hooks/*": ["src/hooks/*"],
       "@layouts/*": ["src/layouts/*"],
+      "@theme/*": ["src/theme/*"],
       "@views/*": ["src/views/*"],
     }
   }
