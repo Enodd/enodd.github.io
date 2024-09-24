@@ -22,6 +22,12 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<ViewTransitions />
+		<script>
+			import gsap from 'gsap';
+			import { useGSAP } from '@gsap/react';
+
+			gsap.registerPlugin(useGSAP);
+		</script>
 	</head>
 	<body class="bg-background-site">
 		<Header client:load />
