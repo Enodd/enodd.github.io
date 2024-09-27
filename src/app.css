@@ -8,7 +8,7 @@ section {
 
 * {
 	font-family: 'Mulish', sans;
-	@apply text-lg text-contrastLight;
+	@apply text-base text-contrastLight;
 }
 
 h1,
@@ -21,23 +21,25 @@ h6 {
 }
 
 h1 {
-	@apply text-4xl;
+	@apply text-2xl md:text-3xl;
 }
 
 h2 {
-	@apply text-3xl;
+	@apply text-xl md:text-2xl;
 }
 
 h3 {
-	@apply text-2xl;
+	@apply text-lg md:text-xl;
 }
 
 h4 {
-	@apply text-xl;
+	@apply text-base md:text-lg;
 }
-
+h5 {
+	@apply text-sm md:text-base;
+}
 h6 {
-	@apply text-lg;
+	@apply text-xs md:text-sm
 }
 
 button {
@@ -66,8 +68,7 @@ button:active::after {
 }
 
 #heroSection > .wrapper {
-	background-image: url('/images/bgCircut.png');
-	background-size: contain;
-	transform-style: preserve-3d;
+	background-image: url('/images/bgCircut.svg');
+	background-size: fill;
 	@apply w-full md:max-w-screen-xl;
 }

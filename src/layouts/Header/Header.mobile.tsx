@@ -1,13 +1,19 @@
+import { useMediaQuery } from '@hooks/useMediaQuery';
+import { theme } from '@theme/index';
 import gsap from 'gsap';
 import React, { useRef, useState } from 'react';
+import { FaTimes, FaBars } from 'react-icons/fa';
 
 const openState = {
     opacity: 1,
     scaleY: 1
 }
 
-export const HeaderMobile: React.FC = () => {
+export const HeaderMobile: React.FC<{
+    onAnchorClick: (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => void
+}> = ({ onAnchorClick }) => {
     const [isVisible, setIsVisible] = useState<boolean>(false);
+    const isMdDown = useMediaQuery(theme.breakpoints.down('md'));
     const menuRef = useRef<HTMLDivElement>(null);
     const container = useRef<HTMLElement>(null);
 
@@ -17,7 +23,6 @@ export const HeaderMobile: React.FC = () => {
                 paused: true,
                 reversed: !isVisible,
                 onReverseComplete() {
-                    console.log('completed')
                     gsap.set(menuRef.current, {display: 'none'})
                 }
             })
@@ -32,17 +37,36 @@ export const HeaderMobile: React.FC = () => {
         setIsVisible(prev => !prev)
     }
 
+    const handleAnchorClick = (e: React.MouseEvent<HTMLAnchorElement, MouseEvent>) => {
+        handleToggle();
+        onAnchorClick(e);
+    }
+
     return <nav ref={container}>
-        <div ref={menuRef} className="absolute top-0 left-0 h-screen w-screen bg-background-site flex flex-col items-center gap-3 py-4 px-8 z-10 origin-top" style={{ display: 'none' }}>
+        <div ref={menuRef} className="absolute top-0 left-0 h-screen w-screen bg-background-site flex flex-col items-center gap-3 py-5 px-10 z-10 origin-top" style={{ display: 'none' }}>
             <button className="self-end" onClick={handleToggle}>
-                close
+                <FaTimes size={isMdDown ? '1.5rem' : '2rem'} className={'fill-contrastLight'} />
             </button>
             <ul className="flex flex-col items-center gap-3 list-none">
-                <li>About</li>
-                <li>Work</li>
-                <li>Contact</li>
+                <li>
+                    <a href='#aboutSection' onClick={handleAnchorClick}>
+                        About
+                    </a>
+                </li>
+                <li>
+                    <a href='#workSection' onClick={handleAnchorClick}>
+                        Work
+                    </a>
+                </li>
+                <li>
+                    <a href='#contact' onClick={handleAnchorClick}>
+                        Contact
+                    </a>
+                </li>
 	        </ul>
         </div>
-        <button onClick={handleToggle}>MoBILE</button>
+        <button className={'cursor-pointer'} onClick={handleToggle}>
+            <FaBars size={isMdDown ? '1.5rem' : '2rem'} className={'fill-contrastLight'} />
+        </button>
 	</nav>
 }

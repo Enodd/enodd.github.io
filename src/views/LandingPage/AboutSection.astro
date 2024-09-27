@@ -1,4 +1,6 @@
 ---
+import { Quoteblock } from "@components/Quoteblock";
+
 const quote: string =
 	'Between creation and creativity there is a place where the two intertwine\nto create stunning designs into which life is breathed turning them into eye-catching websites.';
 ---
@@ -6,7 +8,14 @@ const quote: string =
 <script>
   import { gsap } from 'gsap';
   const section = document.querySelector('#aboutSection');
+  const heroImage = document.querySelector('#heroImage');
   const myTimeline = gsap.timeline();
+  const heroImageTimeline = gsap.timeline({ repeat: -1, repeatDelay: 0, defaults: { ease: 'none', duration: 3 } });
+
+  heroImageTimeline
+	.fromTo(heroImage, { y: '0%' }, { y: '-1%'})
+	.fromTo(heroImage, { y: '-1%' }, { y: '1%' })
+	.fromTo(heroImage, { y: '1%' }, { y: '0%' })
 
   myTimeline
   .from(section, {
@@ -16,6 +25,7 @@ const quote: string =
     opacity: 1,
   })
   .duration(0.4);
+
 </script>
 <section
     id={'aboutSection'}
@@ -24,8 +34,8 @@ const quote: string =
 	<div class="wrapper flex flex-col items-center">
 		<h2 class="font-bold uppercase mb-6 text-lg">About</h2>
 	</div>
-	<div class="w-full max-w-screen-xl flex flex-col items-center md:flex-row md:justify-between md:gap-4">
-		<img src={'/images/programming_openSourceUndraw.svg'} alt="An Ilustration showing a blonde haired man programming" class="float"/>
+	<Quoteblock client:load quote={quote} separator="\n" size="3xl" />
+		<img id='heroImage' src={'/images/programming_openSourceUndraw.svg'} alt="An Ilustration showing a blonde haired man programming" class="float"/>
 		<div class="flex flex-col gap-4 w-full items-center md:items-start md:max-w-screen-sm m-4">
 			<h3 class="text-5xl font-bold">
 				Welcome
@@ -35,9 +45,24 @@ const quote: string =
 					My name is <span>Damian</span>, I'm Front-end Developer loving his job, building Websites and Web3 dapps.
 				</p>
 				<p>
-					With <span>React</span> as my main framework I'm not closed for other tools. Whenever there's opportunity to learn new things, I'm in.
+					With <span>React</span> as my main framework I'm not closed for other tools. Whenever there's opportunity to learn new things, Count me in.
 				</p>
 			</div>
 		</div>
 	</div>
 </section>
+<style lang="postcss">
+	h3 {
+		@apply relative;
+	}
+	h3::after {
+		content: '';
+		height: 3px;
+		@apply w-full scale-x-100 md:scale-x-0 bg-secondary-dark absolute bottom-[-5px] left-0;
+		transition: 300ms;
+		transform-origin: center;
+	}
+	h3:hover::after {
+		@apply scale-x-100;
+	}
+</style>
