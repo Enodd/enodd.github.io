@@ -1,0 +1,31 @@
+---
+import Card from "@components/Card.astro";
+import dayjs from 'dayjs';
+---
+
+<section
+    id={'workSection'}
+    class="py-10 px-10 flex flex-col items-center gap-12 md:px-0"
+>
+    <div class="wrapper flex flex-col items-center">
+        <h2 class="font-bold upppercase mb-6 text-lg">Work Experience</h2>
+    </div>
+    <!-- 
+        Here i'm gonna do something like:
+        info -> image
+        info contains:
+            logo, tags, title, description, start-end dates, 
+    -->
+    <div class="container">
+        <div class="flex justify-between">
+            <Card 
+                iconUrl=""
+                title="Synapse Network"
+                description="aa;lskdjfa;oisdhf;oisdfjlaisd;fvawne;eaoiyobiseyvawuvtwoieugkauybgrkvuwtiocawet wafhja secggh aeckfh wkhjerfc awjkhegrc awjefgckhjegfc akjwhefgc akjefhgc awkjhefc gakwjhefgackjhefc gakjhecf awkjh"
+                startDate={dayjs('15-03-2022')}
+                endDate={'present'}
+                tags={[]}
+            />
+        </div>
+    </div>
+</section>
