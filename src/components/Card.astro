@@ -1,33 +1,51 @@
 ---
-import { Dayjs } from 'dayjs';
-interface Props {
-	iconUrl: string;
-	title: string;
-	description: string;
-	startDate: Dayjs;
-	endDate: Dayjs | 'present';
-	tags: string[];
-}
-const { iconUrl, title, description, startDate, endDate, tags} = Astro.props;
+import type { WorkCardProps } from 'src/models/WorkCardProps';
+
+interface Props extends WorkCardProps {}; // astro props workaround
+const { iconUrl, title, description, startDate, endDate, tags } = Astro.props;
 ---
-<div class="card flex flex-row">
-	<img src={iconUrl} alt={`${title} icon`}>
-	<div>
+<div class="card flex flex-row items-center gap-8 p-8 md:flex-col">
+    { iconUrl.length > 0 ?
+      <img src={iconUrl} alt={`${title} icon`} width="100%" class="aspect-auto max-w-[200px]">
+      : <></>
+    }
+	<div class="flex flex-col gap-1">
+		<p class="text-background-dark">
+			{`${startDate.format('YYYY')} - ${endDate === 'present' ? 'present' : endDate.format('YYYY')}`}
+		</p>
 		<div>
-			{`${startDate.format('YYYY')}-${endDate === 'present' ? 'present' : endDate.format('YYYY')}`}
+			<h3 class="text-background-dark">{title}</h3>
+			<p class="text-background-dark max-w-[450px]">{description}</p>
 		</div>
-		<div>
-			<h3>{title}</h3>
-			<p>{description}</p>
+		<div class="flex flex-row gap-1">
+		    {tags.map(tag => <p class="tag">{tag}</p>)}
 		</div>
 	</div>
 </div>
 <style lang="postcss">
+    div * {
+        @apply z-[1];
+    }
 	.card {
-		aspect-ratio: 905/350;
-		border: 2px solid red;
-		background-image: url('/images/TickerCard.svg');
-		background-repeat: no-repeat;
-		min-height: 350px;
+        display: block;
+		width: fit-content;
+		position: relative;
+		@apply aspect-[350/905] max-h-[905px] max-w-[350px] lg:aspect-[905/350] lg:max-h-[350px] lg:max-w-[905px];
 	}
+	.card:after {
+	    @apply rotate-90 lg:rotate-0;
+		@apply aspect-[350/905] max-h-[905px] max-w-[350px] lg:aspect-[905/350] lg:max-h-[350px] lg:max-w-[905px];
+	    content: "";
+	    background-image: url('/images/TickerCard.svg');
+	    background-repeat: no-repeat;
+		position: absolute;
+		width: 100%;
+		height: 100%;
+		top: 0px;
+		left: 0px;
+		transform: translate(-50%, -50%);
+	}
+	.tag {
+        @apply text-background-site bg-primary p-2 rounded-md w-fit font-bold;
+    }
 </style>

@@ -35,6 +35,7 @@ const quote: string =
 		<h2 class="font-bold uppercase mb-6 text-lg">About</h2>
 	</div>
 	<Quoteblock client:load quote={quote} separator="\n" size="3xl" />
+	<div class="flex flex-col items-center md:flex-row">
 		<img id='heroImage' src={'/images/programming_openSourceUndraw.svg'} alt="An Ilustration showing a blonde haired man programming" class="float"/>
 		<div class="flex flex-col gap-4 w-full items-center md:items-start md:max-w-screen-sm m-4">
 			<h3 class="text-5xl font-bold">
