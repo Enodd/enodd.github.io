@@ -4,7 +4,7 @@ import type { WorkCardProps } from 'src/models/WorkCardProps';
 interface Props extends WorkCardProps {}; // astro props workaround
 const { iconUrl, title, description, startDate, endDate, tags } = Astro.props;
 ---
-<div class="card flex flex-row items-center gap-8 p-8 md:flex-col">
+<div class="card">
     { iconUrl.length > 0 ?
       <img src={iconUrl} alt={`${title} icon`} width="100%" class="aspect-auto max-w-[200px]">
       : <></>
@@ -29,21 +29,7 @@ const { iconUrl, title, description, startDate, endDate, tags } = Astro.props;
 	.card {
         display: block;
 		width: fit-content;
-		position: relative;
-		@apply aspect-[350/905] max-h-[905px] max-w-[350px] lg:aspect-[905/350] lg:max-h-[350px] lg:max-w-[905px];
-	}
-	.card:after {
-	    @apply rotate-90 lg:rotate-0;
-		@apply aspect-[350/905] max-h-[905px] max-w-[350px] lg:aspect-[905/350] lg:max-h-[350px] lg:max-w-[905px];
-	    content: "";
-	    background-image: url('/images/TickerCard.svg');
-	    background-repeat: no-repeat;
-		position: absolute;
-		width: 100%;
-		height: 100%;
-		top: 0px;
-		left: 0px;
-		transform: translate(-50%, -50%);
+		@apply bg-contrastLight flex flex-col items-center gap-8 p-8 md:flex-row md:justify-center rounded-md;
 	}
 	.tag {
         @apply text-background-site bg-primary p-2 rounded-md w-fit font-bold;

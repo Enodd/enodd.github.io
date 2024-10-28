@@ -5,26 +5,33 @@ const { profiles } = useWorkProfiles();
 ---
 
 <section
-    id={'workSection'}
+    id={"workSection"}
     class="py-10 px-10 flex flex-col items-center gap-6 md:px-0"
 >
     <div class="wrapper flex flex-col items-center">
         <h2 class="font-bold upppercase mb-6 text-lg">Work Experience</h2>
     </div>
     <div class="container flex flex-col justify-center items-center">
-        <div class="flex justify-between items-center gap-10 max-w-[1200px]">
+        <div
+            class="flex justify-between items-center gap-10 w-full max-w-[1200px]"
+        >
             {
-              profiles.map(profile => <>
-                <Card
-                    iconUrl={profile.iconUrl}
-                    title={profile.title}
-                    description={profile.description}
-                    startDate={profile.startDate}
-                    endDate={profile.endDate}
-                    tags={profile.tags}
-                />
-                <img src={profile.illustrationUrl} class="max-h-[350px] w-auto" />
-              </>)
+                profiles.map((profile) => (
+                    <>
+                        <Card
+                            iconUrl={profile.iconUrl}
+                            title={profile.title}
+                            description={profile.description}
+                            startDate={profile.startDate}
+                            endDate={profile.endDate}
+                            tags={profile.tags}
+                        />
+                        <img
+                            src={profile.illustrationUrl}
+                            class="max-h-[350px] w-auto"
+                        />
+                    </>
+                ))
             }
         </div>
     </div>

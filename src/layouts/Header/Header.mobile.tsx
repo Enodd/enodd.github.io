@@ -42,7 +42,7 @@ export const HeaderMobile: React.FC<{
         onAnchorClick(e);
     }
 
-    return <nav ref={container}>
+    return <nav ref={container} className="z-10">
         <div ref={menuRef} className="absolute top-0 left-0 h-screen w-screen bg-background-site flex flex-col items-center gap-3 py-5 px-10 z-10 origin-top" style={{ display: 'none' }}>
             <button className="self-end" onClick={handleToggle}>
                 <FaTimes size={isMdDown ? '1.5rem' : '2rem'} className={'fill-contrastLight'} />

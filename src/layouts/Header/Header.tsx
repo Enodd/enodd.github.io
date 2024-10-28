@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
         })
     }
 
-    return <header className="bg-background-site flex flex-row justify-center items-center">
+    return <header id="core-header" className="bg-background-site flex flex-row justify-center items-center w-screen fixed top-0 left-0 z-10">
 		<div className="py-4 px-8 fhd:px-4 flex flex-row justify-between items-center w-full max-w-screen-fhd border-b-2 border-b-contrastLight">
 			<div className="flex flex-row items-center gap-2">
 				<img src={'/images/favicon.svg'} className={'max-w-8 md:max-w-full'} alt="website logo" />
