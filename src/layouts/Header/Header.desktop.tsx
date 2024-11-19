@@ -12,12 +12,12 @@ export const HeaderDesktop: React.FC<{
                 </a>
             </li>
             <li>
-                <a href="#work" onClick={onAnchorClick}>
+                <a href="#workSection" onClick={onAnchorClick}>
                     Work
                 </a>
             </li>
             <li>
-                <a href="#contact" onClick={onAnchorClick}>
+                <a href="#contactSection" onClick={onAnchorClick}>
                     Contact
                 </a>
             </li>

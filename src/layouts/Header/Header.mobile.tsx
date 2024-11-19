@@ -59,7 +59,7 @@ export const HeaderMobile: React.FC<{
                     </a>
                 </li>
                 <li>
-                    <a href='#contact' onClick={handleAnchorClick}>
+                    <a href='#contactSection' onClick={handleAnchorClick}>
                         Contact
                     </a>
                 </li>
