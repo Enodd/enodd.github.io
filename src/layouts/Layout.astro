@@ -3,6 +3,8 @@ import { Header } from "@layouts/Header/Header";
 import "../app.css";
 import { ViewTransitions } from "astro:transitions";
 import Footer from "@layouts/Footer.astro";
+import { FaGithub, FaInstagram } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
 interface Props {
 	title: string;
 }
@@ -16,11 +18,11 @@ const { title } = Astro.props;
 		<meta charset="UTF-8" />
 		<meta name="description" content="Astro description" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/svg+xml" href="/images/newLogo.svg" />
 		<link rel="preconnect" href="https://fonts.googleapis.com" />
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<link
-			href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap"
+			href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100..900&display=swap"
 			rel="stylesheet"
 		/>
 		<meta name="generator" content={Astro.generator} />
@@ -29,45 +31,52 @@ const { title } = Astro.props;
 		<script>
 			import gsap from "gsap";
 			import { useGSAP } from "@gsap/react";
+			import { useMessageOfTheDay } from "@hooks/useMessageOfTheDay";
 			gsap.registerPlugin(useGSAP);
 
+			const { getMessage } = useMessageOfTheDay();
+
+			const message = document.getElementById("messageOfTheDay");
+			if (message !== undefined && message !== null) {
+				window.addEventListener("DOMContentLoaded", () => {
+					message.innerText = getMessage();
+				});
+			}
 			const header: HTMLDivElement | null =
 				document.querySelector("#core-header");
-			let prevScrollPos = window.scrollY;
-			const headerTimeline = gsap
-				.timeline({
-					paused: true,
-					reversed: true,
-				})
-				.fromTo(
-					header,
-					{
-						y: "0x",
-					},
-					{ y: "-100%" },
-				)
-				.duration(0.1);
+			const observer = new IntersectionObserver(
+				([e]) => {
+					e.target.classList.toggle(
+						"isSticky",
+						e.intersectionRatio < 1,
+					);
+				},
+				{ threshold: [1] },
+			);
 
-			window.addEventListener("scroll", () => {
-				if (window === undefined || header === null) return;
-				if (window.scrollY < prevScrollPos || window.scrollY <= 0) {
-					!headerTimeline.reversed() && headerTimeline.reverse(0);
-				} else {
-					headerTimeline.play();
-				}
-				prevScrollPos = window.scrollY;
-			});
-		</script>
-		<style>
-			html,
-			body {
-				overflow-x: hidden;
+			if (window !== undefined && header !== null) {
+				observer.observe(header);
 			}
-		</style>
+		</script>
 	</head>
-	<body class="bg-background-site">
+	<body class="bg-primary">
+		<div class="mediabar relative">
+			<FaGithub size={24} color="inherit" />
+			<FaXTwitter size={24} color="inherit" />
+			<FaInstagram size={24} color="inherit" />
+			<div class="absolute left-[50%] translate-x-[-50%]">
+				<!-- Here's random message out of the pool -->
+				<p
+					id="messageOfTheDay"
+					class="text-background-dark uppercase font-bold"
+				>
+				</p>
+			</div>
+		</div>
 		<Header client:load />
-		<slot transition:animate="slide" />
+		<div class="container">
+			<slot transition:animate="slide" />
+		</div>
 		<Footer />
 	</body>
 </html>

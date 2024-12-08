@@ -8,7 +8,7 @@ export const useMediaQuery = (query: string) => {
         const matchQueryList = window.matchMedia(query);
         setMatches(matchQueryList.matches);
     }
-    handleChange()
+    handleChange();
 
     window.addEventListener("resize", handleChange);
 

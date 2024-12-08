@@ -11,7 +11,7 @@ export default {
       fhd: "1920px",
     },
     fontFamily: {
-      sans: ["Mulish", "system-ui"],
+      sans: ["Roboto Slab", "system-ui"],
       mono: ["ui-monospace"],
     },
     extend: {
