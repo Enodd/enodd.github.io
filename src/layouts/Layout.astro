@@ -44,37 +44,51 @@ const { title } = Astro.props;
 			}
 			const header: HTMLDivElement | null =
 				document.querySelector("#core-header");
+
 			const observer = new IntersectionObserver(
 				([e]) => {
 					e.target.classList.toggle(
 						"isSticky",
 						e.intersectionRatio < 1,
 					);
+					console.log("observing...");
 				},
-				{ threshold: [1] },
+				{ threshold: 1 },
 			);
 
 			if (window !== undefined && header !== null) {
 				observer.observe(header);
 			}
 		</script>
+		<!-- <style>
+			html {
+				overflow-x: hidden;
+			}
+		</style> -->
 	</head>
 	<body class="bg-primary">
 		<div class="mediabar relative">
-			<FaGithub size={24} color="inherit" />
-			<FaXTwitter size={24} color="inherit" />
-			<FaInstagram size={24} color="inherit" />
+			<a href="https://github.com/enodd">
+				<FaGithub size={24} color="inherit" />
+			</a>
+			<a href="https://x.com/enodd_dev">
+				<FaXTwitter size={24} color="inherit" />
+			</a>
+			<!-- TODO: create instagram account and link it here -->
+			<!-- <a href="#">
+				<FaInstagram size={24} color="inherit" />
+			</a> -->
 			<div class="absolute left-[50%] translate-x-[-50%]">
 				<!-- Here's random message out of the pool -->
 				<p
 					id="messageOfTheDay"
-					class="text-background-dark uppercase font-bold"
+					class="text-background-dark uppercase font-black"
 				>
 				</p>
 			</div>
 		</div>
 		<Header client:load />
-		<div class="container">
+		<div class="container px-6 max-w-[100%]">
 			<slot transition:animate="slide" />
 		</div>
 		<Footer />

@@ -71,7 +71,7 @@ button:active::after {
 	@apply w-full md:max-w-screen-xl;
 }
 .container {
-	min-width: 100vw;
+	width: 100%;
 	position: relative;
 	@apply bg-background-site;
 }

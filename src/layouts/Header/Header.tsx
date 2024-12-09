@@ -17,7 +17,7 @@ export const Header: React.FC = () => {
         })
     }
 
-    return <header id="core-header" className="bg-background-site flex flex-row justify-center items-center w-screen sticky top-[-1px] z-10 pt-4">
+    return <header id="core-header" className="bg-background-site flex flex-row justify-center items-center w-full sticky top-[-1px] z-10 pt-4">
 		<div className="py-4 px-8 fhd:px-4 flex flex-row justify-between items-center w-full max-w-screen-fhd border-b-2 border-b-contrastLight">
 			<div className="flex flex-row items-center gap-2">
                 <a href="/">
