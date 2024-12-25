@@ -2,17 +2,19 @@
   id={"heroSection"}
   class="py-10 px-0 flex flex-col justify-center items-center"
 >
-  <div class="flex flex-row justify-center min-h-screen">
-    <div>
-      <!-- two images here -->
+  <div
+    class="flex flex-col justify-center items-center min-h-[50vh] w-full gap-20 lg:flex-row"
+  >
+    <div class="wrapper lg:max-w-[400px]">
+      <div class="heroSection__image"></div>
     </div>
-    <div class="flex flex-col gap-3">
+    <div class="flex flex-col gap-3 lg:max-w-xl">
       <h1 class="text-4xl">
         Hello there <span id="hand" class="text-4xl">👋</span>
       </h1>
       <p>
         I'm Damian, and I'm front-end developer based in
-        <a href="#" class="font-bold text-primary">Gliwice</a>
+        <a href="#" class="font-bold text-primary">Gliwice, Poland</a>
         <br />
         that focuses on building responsive and eye-catching front-ends with attention
         to detail.
@@ -21,7 +23,11 @@
         Currently studying computer science at
         <a href="#" class="font-bold text-primary">University Of Silesia</a>.
       </p>
-      <p>I'm proficient at using React and can quickly learn new things.</p>
+      <p>
+        I'm proficient at using
+        <span class="react font-bold text-primary"> React </span>
+        and can quickly learn new things.
+      </p>
     </div>
   </div>
 </section>
@@ -49,21 +55,72 @@
   h1:hover #hand {
     animation: 0.5s wave ease-in-out;
   }
-  a {
-    position: relative;
+
+  .heroSection__image {
+    @apply relative;
+    width: 314px;
+    aspect-ratio: 314 / 575;
+    background-image: urL("/images/AuthorNormal.png");
+    background-size: cover;
   }
-  a::after {
+  .wrapper::before,
+  .heroSection__image::after {
     content: "";
     position: absolute;
-    bottom: -2px;
-    left: 0;
     width: 100%;
-    height: 2px;
-    transform: scaleX(0);
-    transition: 0.3s ease-in-out;
-    @apply bg-secondary;
+    height: 100%;
+    background-size: cover;
   }
-  a:hover::after {
-    transform: scaleX(1);
+
+  .heroSection__image::after {
+    background-image: url("/images/AuthorFancy.png");
+    opacity: 0;
+    max-width: 314px;
+    max-height: 575px;
+    transition: 0.3s ease-in-out;
+    z-index: 0;
+  }
+  .heroSection__image:hover::after {
+    opacity: 1;
+  }
+
+  .wrapper {
+    position: relative;
+  }
+  .wrapper::before {
+    background-image: url("/images/GoldenCircuit.svg");
+    max-width: 314px;
+    max-height: 575px;
+    top: 0;
+    left: 0;
+    transform: translate(-30px, -30px);
+    will-change: transform;
+    transition: 0.3s ease-in-out;
+    z-index: 0;
+  }
+
+  .wrapper:hover::before {
+    transform: translate(30px, 30px);
+  }
+  .react {
+    position: relative;
+  }
+  .react::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    opacity: 0;
+    width: 100%;
+    aspect-ratio: 1/1;
+    background-image: url("/images/react.svg");
+    background-size: contain;
+    background-repeat: no-repeat;
+    will-change: transform opacity;
+    transition: 0.3s ease-in-out;
+    transform: translateY(0);
+  }
+  .react:hover::after {
+    transform: translateY(70%);
+    opacity: 1;
   }
 </style>

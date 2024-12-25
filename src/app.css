@@ -3,13 +3,14 @@
 @tailwind utilities;
 
 section {
-	@apply md:p-4;
+  @apply max-w-screen-xl md:p-4;
 }
 
 * {
-	font-family: 'Roboto Slab', sans;
-	@apply text-base text-contrastLight;
+  font-family: Roboto Slab, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  @apply text-base text-contrastLight;
 }
+
 
 h1,
 h2,
@@ -17,93 +18,128 @@ h3,
 h4,
 h5,
 h6 {
-	@apply font-bold text-contrastLight;
+  @apply font-bold text-contrastLight;
 }
 
 h1 {
-	@apply text-2xl md:text-3xl;
+  @apply text-2xl md:text-3xl;
 }
 
 h2 {
-	@apply text-xl md:text-2xl;
+  @apply text-xl md:text-2xl;
 }
 
 h3 {
-	@apply text-lg md:text-xl;
+  @apply text-lg md:text-xl;
 }
 
 h4 {
-	@apply text-base md:text-lg;
+  @apply text-base md:text-lg;
 }
+
 h5 {
-	@apply text-sm md:text-base;
+  @apply text-sm md:text-base;
 }
+
 h6 {
-	@apply text-xs md:text-sm
+  @apply text-xs md:text-sm
 }
 
 button {
-	position: relative;
-	overflow: hidden;
-	cursor: pointer;
-	@apply rounded-xl;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  @apply rounded-xl;
 }
 
 button::after {
-	content: '';
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left: 0;
-	transition: 0.1s ease-in;
+  content: '';
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  transition: 0.1s ease-in;
 }
 
 button:hover::after {
-	background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.1);
 }
 
 button:active::after {
-	background: rgba(0, 0, 0, 0.3);
+  background: rgba(0, 0, 0, 0.3);
 }
 
-#heroSection > .wrapper {
-	@apply w-full md:max-w-screen-xl;
+body>.container {
+  width: 100%;
+  position: relative;
+  @apply bg-background-site flex flex-col justify-center items-center;
 }
-.container {
-	width: 100%;
-	position: relative;
-	@apply bg-background-site;
+
+body>.container::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0.4;
+  background-image: url("/images/GoldenCircuit.svg");
+  background-size: auto;
+  background-repeat: repeat-y;
+  background-position-x: right;
+  z-index: 0;
 }
-.container::after {
-	content: "";
-	position: absolute;
-	width: 100%;
-	height: 100%;
-	top: 0;
-	left:0;
-	opacity: 0.4;
-	background-image: url("/images/GoldenCircuit.svg");
-	background-size: auto;
-	background-repeat: repeat-y;
-	background-position-x: right;
-	z-index: 0;
-}
+
 .container * {
-	z-index: 2;
+  z-index: 2;
 }
 
 #core-header {
-	border-radius: 2rem 2rem 0 0;
-	transition: 0.1s ease-in-out;
+  border-radius: 2rem 2rem 0 0;
+  transition: 0.1s ease-in-out;
 }
+
 #core-header.isSticky {
-	padding-top: 0;
-	border-radius: 0 0 0 0;
+  padding-top: 0;
+  border-radius: 0 0 0 0;
 }
+
 .mediabar {
-	@apply flex flex-row gap-3 py-4 px-8;	
+  @apply flex flex-row gap-3 py-4 px-8;
 }
+
 .mediabar * {
-	@apply fill-background-dark;
+  @apply fill-background-dark;
+}
+
+.logo {
+  transform: rotate(0deg);
+  transition: .75s ease-in-out;
+}
+
+.logo:hover {
+  transform: rotate(360deg)
+}
+
+a {
+  position: relative;
+}
+
+.react::before,
+a::after {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  transform: scaleX(0);
+  transition: 0.3s ease-in-out;
+  @apply bg-secondary;
+}
+
+.react:hover::before,
+a:hover::after {
+  transform: scaleX(1);
 }

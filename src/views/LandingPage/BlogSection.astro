@@ -1,0 +1,121 @@
+---
+import BentoBox from "@components/BentoBox.astro";
+---
+
+<script>
+  import { gsap } from "gsap";
+  const section = document.querySelector("#blogSection");
+  const myTimeline = gsap.timeline();
+  const bentoTimeline = gsap.timeline();
+  type directionType = "up" | "left" | "right" | "down";
+
+  myTimeline
+    .from(section, { opacity: 0 })
+    .to(section, { opacity: 1 })
+    .duration(1);
+
+  const getTransformSet = (direction: directionType) => {
+    switch (direction) {
+      case "up": {
+        return {
+          scale: (scale: string) => `scaleY(${scale})`,
+          origin: "bottom",
+        };
+      }
+      case "left": {
+        return {
+          scale: (scale: string) => `scaleX(${scale})`,
+          origin: "right",
+        };
+      }
+      case "right": {
+        return { scale: (scale: string) => `scaleX(${scale})`, origin: "left" };
+      }
+      case "down": {
+        return { scale: (scale: string) => `scaleY(${scale})`, origin: "top" };
+      }
+    }
+  };
+
+  window.addEventListener("DOMContentLoaded", () => {
+    const bentoBox = document.querySelectorAll(`.motion-bento`);
+    bentoBox.forEach((element) => {
+      const bentoClass = element.className
+        .split(" ")
+        .find((el) => el.includes("keyId-"));
+
+      if (bentoClass === undefined) return;
+
+      const directionValue = bentoClass?.replace("keyId-", "") as directionType;
+      const { scale, origin } = getTransformSet(directionValue);
+
+      const personalTimeline = gsap.timeline();
+      personalTimeline
+        .from(element, {
+          transform: scale("0"),
+          transformOrigin: origin,
+        })
+        .to(element, {
+          transform: scale("1"),
+        })
+        .delay(0.1)
+        .duration(0.3);
+      bentoTimeline.add(personalTimeline);
+    });
+
+    bentoTimeline.play();
+  });
+</script>
+<section
+  id={"blogSection"}
+  class="py-10 px-10 flex flex-col items-center gap-12 md:px-0"
+>
+  <div class="wrapper flex flex-col items-center">
+    <h2 class="font-bold uppercase mb-6 text-xl">Blog</h2>
+  </div>
+  <div
+    id="blogBento"
+    class="grid grid-cols-12 grid-rows-2 grid-flow-row h-96 w-screen max-w-screen-xl md:max-w-[700px] gap-3"
+  >
+    <BentoBox
+      motion={{ keyId: "down" }}
+      row={2}
+      col={3}
+      classes="bg-background"
+    >
+      X
+    </BentoBox>
+    <BentoBox
+      motion={{ keyId: "right" }}
+      row={1}
+      col={6}
+      classes="bg-background"
+    >
+      Y
+    </BentoBox>
+    <BentoBox
+      motion={{ keyId: "left" }}
+      row={1}
+      col={3}
+      classes="bg-background"
+    >
+      Z
+    </BentoBox>
+    <BentoBox
+      motion={{ keyId: "right" }}
+      row={1}
+      col={3}
+      classes="bg-background"
+    >
+      A
+    </BentoBox>
+    <BentoBox
+      motion={{ keyId: "left" }}
+      row={1}
+      col={6}
+      classes="bg-background"
+    >
+      B
+    </BentoBox>
+  </div>
+</section>

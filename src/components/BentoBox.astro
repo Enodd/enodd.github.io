@@ -1,0 +1,17 @@
+---
+interface Props {
+  row: number;
+  col: number;
+  motion?: {
+    keyId: "up" | "left" | "right" | "down";
+  };
+  classes?: string;
+}
+const { classes, row, col, motion } = Astro.props;
+---
+
+<div
+  class={`${motion ? `motion-bento keyId-${motion.keyId}` : ""} row-span-${row} col-span-${col} rounded-xl p-3 ${classes ? classes : ""}`}
+>
+  <slot />
+</div>

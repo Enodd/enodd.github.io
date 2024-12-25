@@ -23,15 +23,19 @@ const { iconUrl, title, description, startDate, endDate, tags } = Astro.props;
 	</div>
 </div>
 <style lang="postcss">
-    div * {
-        @apply z-[1];
-    }
+  div * {
+    @apply z-[1];
+  }
 	.card {
-        display: block;
+    display: block;
 		width: fit-content;
 		@apply bg-contrastLight flex flex-col items-center gap-8 p-8 md:flex-row md:justify-center rounded-md;
 	}
 	.tag {
-        @apply text-background-site bg-primary p-2 rounded-md w-fit font-bold;
-    }
+    @apply text-background-site bg-primary p-2 rounded-md w-fit font-bold;
+    transition: 0.3s ease-in-out;
+  }
+  .tag:hover {
+    @apply text-primary bg-background-site;
+  }
 </style>
