@@ -1,0 +1,141 @@
+@import "tailwindcss";
+
+:root {
+  /* PRIMARY - Truffle Trouble */
+  --color-primary-50: #eddcd7;
+  --color-primary-100: #dab9b0;
+  --color-primary-200: #c89788;
+  --color-primary-300: #b57461;
+  --color-primary-400: #a35139;
+  --color-primary-500: #a35139;
+  --color-primary-600: #82412e;
+  --color-primary-700: #623122;
+  --color-primary-800: #412017;
+  --color-primary-900: #21100b;
+
+  /* SECONDARY - Blue Fantastic */
+  --color-secondary-50: #d5d8db;
+  --color-secondary-100: #abb1b8;
+  --color-secondary-200: #808994;
+  --color-secondary-300: #566271;
+  --color-secondary-400: #2c3b4d;
+  --color-secondary-500: #2c3b4d;
+  --color-secondary-600: #232f3e;
+  --color-secondary-700: #1a232e;
+  --color-secondary-800: #12181f;
+  --color-secondary-900: #090c0f;
+
+  /* SURFACE - Oatmeal */
+  --color-surface-0: #ffffff;
+  --color-surface-50: #f4f3ef;
+  --color-surface-100: #e9e6e0;
+  --color-surface-200: #dfdad0;
+  --color-surface-300: #d4cdc1;
+  --color-surface-400: #c9c1b1;
+  --color-surface-500: #c9c1b1;
+  --color-surface-600: #a19a8e;
+  --color-surface-700: #79746a;
+  --color-surface-800: #504d47;
+  --color-surface-900: #282723;
+
+  /* semantic */
+  --color-background: #c9c1b1;
+  --color-card: #f4f3ef;
+  --color-border: #dfdad0;
+
+  --color-text: #12181f;
+  --color-text-muted: #566271;
+
+  --color-primary: #a35139;
+  --color-secondary: #2c3b4d;
+}
+
+.dark {
+  /* PRIMARY - Burning Flame */
+  --color-primary-50: #ffefe0;
+  --color-primary-100: #ffe0c0;
+  --color-primary-200: #ffd0a1;
+  --color-primary-300: #ffc181;
+  --color-primary-400: #ffb162;
+  --color-primary-500: #ffb162;
+  --color-primary-600: #cc8e4e;
+  --color-primary-700: #996a3b;
+  --color-primary-800: #664727;
+  --color-primary-900: #332314;
+
+  /* SECONDARY - Palladian */
+  --color-secondary-50: #fcfbf9;
+  --color-secondary-100: #f8f6f2;
+  --color-secondary-200: #f5f2ec;
+  --color-secondary-300: #f1ede5;
+  --color-secondary-400: #eee9df;
+  --color-secondary-500: #eee9df;
+  --color-secondary-600: #bebab2;
+  --color-secondary-700: #8f8c86;
+  --color-secondary-800: #5f5d59;
+  --color-secondary-900: #302f2d;
+
+  /* SURFACE - Abyssal Anchorfish Blue */
+  --color-surface-0: #161e28;
+  --color-surface-50: #161e28;
+  --color-surface-100: #10171e;
+  --color-surface-200: #0b0f14;
+  --color-surface-300: #05080a;
+  --color-surface-400: #1b2632;
+  --color-surface-500: #1b2632;
+  --color-surface-600: #49515b;
+  --color-surface-700: #767d84;
+  --color-surface-800: #a4a8ad;
+  --color-surface-900: #d1d4d6;
+
+  /* semantic */
+  --color-background: #1b2632;
+  --color-card: #161e28;
+  --color-border: #49515b;
+
+  --color-text: #eee9df;
+  --color-text-muted: #bebab2;
+
+  --color-primary: #ffb162;
+  --color-secondary: #eee9df;
+}
+
+* {
+  font-family:
+    "Poppins",
+    ui-sans-serif,
+    system-ui,
+    sans-serif,
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    Segoe UI Symbol,
+    "Noto Color Emoji";
+}
+
+html body {
+  min-height: 100vh;
+  background: radial-gradient(
+          circle at left 90%,
+          var(--color-primary) 10%,
+          var(--color-background) 50%,
+          var(--color-card)
+  ) no-repeat;
+  position: relative;
+}
+body::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(../assets/noise.svg);
+  z-index: -1;
+}
+
+#__nuxt {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  font-weight: normal;
+}
